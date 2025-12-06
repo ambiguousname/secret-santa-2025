@@ -6,6 +6,8 @@ var acknowledged : bool = false;
 func _ready() -> void:
 	var res = peer.connect_to_host("127.0.0.1", 5121);
 	if res != OK:
+		# TODO: Error printing to user if socket is already in use.
+		# TODO: Add config.toml to C# mod to configure port.
 		print("Could not open TCP socket! Error: %s" % res);
 
 const MAGIC_SEND : String = "BuddyClient";
