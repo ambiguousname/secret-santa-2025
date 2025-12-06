@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 	if peer == null:
 		return;
 	peer.poll();
-	var status = peer.get_status();
 	match peer.get_status():
 		peer.STATUS_CONNECTED:
 			_connected_process();
