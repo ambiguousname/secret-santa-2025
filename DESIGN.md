@@ -10,17 +10,16 @@ INPUT --> IDLE
 INPUT --> EVENT
 
 subgraph Adventure_Loop
-	ADVENTURE_LOOP(["Adventure Loop"])
-	ITEMS(["Get items, e.g., food"])
-	SKILL(["Upgrade stats"])
-	ADVENTURE_LOOP --> ITEMS
-	ITEMS --> ADVENTURE_LOOP
-	ADVENTURE_LOOP --> SKILL
+	ENERGY(["Has energy?"])
+	ENERGY --> ITEMS(["Get items, e.g., food"])
+	ENERGY --> SKILL(["Upgrade stats"])
+	ENERGY -->|Should deplete in 30 mins or so| NO_ENERGY(["Energy depleted."])
 
-	SKILL -->|Stops when 'energy' depletes at 30 mins or so.| MAX(["Stats cannot be upgraded further"])
-
-	MAX --> ADVENTURE_LOOP
+	ITEMS --> ENERGY
+	SKILL --> ENERGY
 end
+
+Adventure_Loop --> INPUT
 
 IDLE(["Adventure Idly"]) -->|Less efficient| Adventure_Loop
 PLAY(["Play Hollow Knight"]) ==> Adventure_Loop
