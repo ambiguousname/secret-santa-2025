@@ -1,15 +1,15 @@
 # Gameplay Loop
 
 ```mermaid
-graph TD
+graph
 
-CREATE(["Create Bug"]) --> INPUT
+CREATE(["Create Bug"])@{ shape: diamond } --> INPUT
 
 INPUT(["Awaiting player input"]) --> PLAY
 INPUT --> IDLE
 INPUT --> EVENT
 
-subgraph Adventure_Loop
+subgraph Adventure_Loop [Adventure Loop]
 	ENERGY(["Has energy?"])
 	ENERGY --> ITEMS(["Get items, e.g., food"])
 	ENERGY --> SKILL(["Upgrade stats"])
