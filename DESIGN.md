@@ -9,15 +9,21 @@ INPUT(["Awaiting player input"]) --> PLAY
 INPUT --> IDLE
 INPUT --> EVENT
 
-PLAY(["Play Hollow Knight"]) ==> SKILL(["Upgrade stats"])
-IDLE(["Adventure Idly"]) -->|Less efficient| SKILL
+subgraph Adventure_Loop
+	ADVENTURE_LOOP(["Adventure Loop"])
+	ITEMS(["Get items, e.g., food"])
+	SKILL(["Upgrade stats"])
+	ADVENTURE_LOOP --> ITEMS
+	ITEMS --> ADVENTURE_LOOP
+	ADVENTURE_LOOP --> SKILL
 
-PLAY ==> ITEMS(["Get Items, e.g., food"])
-IDLE -->|Less efficient| ITEMS
+	SKILL -->|Stops when 'energy' depletes at 30 mins or so.| MAX(["Stats cannot be upgraded further"])
 
-SKILL -->|Stops when 'energy' depletes at 30 mins or so.| MAX(["Stats cannot be upgraded further"])
+	MAX --> ADVENTURE_LOOP
+end
 
-MAX --> INPUT
+IDLE(["Adventure Idly"]) -->|Less efficient| Adventure_Loop
+PLAY(["Play Hollow Knight"]) ==> Adventure_Loop
 
 EVENT(["Join event"]) -->|If stats meet threshhold| Win
 EVENT -->|Otherwise| Lose
