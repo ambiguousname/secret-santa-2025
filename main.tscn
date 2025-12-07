@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://7c6y4oxqpvd5"]
+
+[ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_listen.gd" id="1_ig7tw"]
+
+[sub_resource type="Gradient" id="Gradient_wtcfe"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0e48y"]
+gradient = SubResource("Gradient_wtcfe")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31, 35.75)
+scale = Vector2(1.2421875, 72.5)
+texture = SubResource("GradientTexture1D_0e48y")
