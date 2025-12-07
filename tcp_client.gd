@@ -1,33 +1,53 @@
-extends Node2D
+class_name TCPClient extends Node
 
 var peer : StreamPeerTCP = StreamPeerTCP.new();
-var sent_acknowledgement : bool = false;
-var acknowledged : bool = false;
-func _ready() -> void:
+
+enum Status {
+	UNACKNOWLEDGED,
+	AWAITING_ACKNOWLEDGEMENT,
+	CONNECTED,
+	DISCONNECTED
+};
+
+var _status : Status = Status.DISCONNECTED;
+
+signal status_updated(s : Status);
+
+func connect_to_host() -> Error:
+	if peer.get_status() != 0:
+		peer.disconnect_from_host();
+	_status = Status.UNACKNOWLEDGED;
+	status_updated.emit(_status);
+	
 	var res = peer.connect_to_host("127.0.0.1", 5121);
 	if res != OK:
 		# TODO: Error printing to user if socket is already in use.
 		# TODO: Add config.toml to C# mod to configure port.
-		print("Could not open TCP socket! Error: %s" % res);
+		printerr("Could not open TCP socket! Error: %s" % res);
+	return res;
 
 const MAGIC_SEND : String = "BuddyClient";
 const MAGIC_RECEIVE : String = "BuddyServer";
 
 func _connected_process():
-	if !sent_acknowledgement:
+	if _status == Status.UNACKNOWLEDGED:
 		print("Found server! Sending handshake...");
 		peer.put_data(MAGIC_SEND.to_ascii_buffer());
-		sent_acknowledgement = true;
+		
+		_status = Status.AWAITING_ACKNOWLEDGEMENT;
+		status_updated.emit(_status);
 	var available_bytes = peer.get_available_bytes();
 	if available_bytes > 0:
-		if !acknowledged && available_bytes >= MAGIC_RECEIVE.length():
+		if _status == Status.AWAITING_ACKNOWLEDGEMENT && available_bytes >= MAGIC_RECEIVE.length():
 			var out = peer.get_string(MAGIC_RECEIVE.length());
 			if out != MAGIC_RECEIVE:
 				print("Handshake failed! Got: %s" % out);
 				peer.disconnect_from_host();
 				return;
 			print("Handshake succeeded!");
-			acknowledged = true;
+			
+			_status = Status.CONNECTED;
+			status_updated.emit(_status);
 			return;
 		else:
 			pass;
@@ -43,5 +63,9 @@ func _process(delta: float) -> void:
 			print("TCP Client is in error state!");
 			peer.disconnect_from_host();
 		peer.STATUS_NONE:
+			if _status != Status.DISCONNECTED:
+				_status = Status.DISCONNECTED;
+				status_updated.emit(_status);
+			
 			# TODO: reconnect attempts.
 			pass;
