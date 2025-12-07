@@ -23,7 +23,7 @@ end
 Adventure_Loop --> INPUT
 
 IDLE(["Adventure Idly"]) -->|Less efficient| Adventure_Loop
-PLAY(["Play Hollow Knight"]) ==> Adventure_Loop
+PLAY(["Play Hollow Knight"]) ==>|Tied into in-game events (e.g., taking damage improves your energy?)| Adventure_Loop
 
 EVENT(["Join event"]) -->|If stats meet threshhold| Win
 EVENT -->|Otherwise| Lose
