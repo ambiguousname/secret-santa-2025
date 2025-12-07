@@ -1,0 +1,26 @@
+- [ ] Adventure Loop
+	- [ ] UI/borders hiding on activate
+	- [ ] Pet wandering screen
+	- [ ] Sending data from Hollow Knight to game
+- [ ] Functional UI
+	- [ ] Stats
+		- Thinking roughly 4, to keep it simple.
+	- [ ] Energy
+	- [ ] Using Items
+	- [ ] Naming bugs
+	- [ ] Connecting to Hollow Knight
+- [ ] Races
+	- [ ] Window expanding to show race course
+		- Don't go above maximum window width
+		- Camera2D for the rest
+	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
+- [ ] Art
+	- [ ] Racing animations
+		- [ ] One for each of the four sats?
+	- [ ] Bug idle
+	- [ ] Adventuring animations
+	- [ ] Race course obstacles
+
+Extras:
+- [ ] Graveyard of past bugs
+- [ ] Cosmetics
