@@ -15,8 +15,9 @@ subgraph Adventure_Loop
 	ENERGY --> SKILL(["Upgrade stats"])
 	ENERGY -->|Should deplete in 30 mins or so| NO_ENERGY(["Energy depleted."])
 
-	ITEMS --> ENERGY
-	SKILL --> ENERGY
+	ITEMS --> LOSE_ENERGY(["Lose Energy."])
+	SKILL --> LOSE_ENERGY
+	LOSE_ENERGY --> ENERGY
 end
 
 Adventure_Loop --> INPUT
