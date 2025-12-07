@@ -28,7 +28,7 @@ PLAY(["Play Hollow Knight"]) ==> Adventure_Loop
 EVENT(["Join event"]) -->|If stats meet threshhold| Win
 EVENT -->|Otherwise| Lose
 
-Win --> ADVANCE(["Advance Week"])
+Win -->|Get rewards? Like a hat or a skin| ADVANCE(["Advance Week"])
 Lose --> ADVANCE
 
 INPUT --> FEED(["Replenish Energy with Food"])
