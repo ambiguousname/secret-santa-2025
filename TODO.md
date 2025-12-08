@@ -9,7 +9,8 @@
 	- [ ] Using Items
 	- [ ] Naming bugs
 	- [ ] Connecting to Hollow Knight
-		- [ ] Bundling DLLs with files
+		- [X] Bundling DLLs with files
+		- [ ] Error printing
 - [ ] Races
 	- [ ] Window expanding to show race course
 		- Don't go above maximum window width

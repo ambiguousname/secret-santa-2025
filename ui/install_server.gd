@@ -6,6 +6,9 @@ extends Control
 @onready var mods_dir_edit : LineEdit = $Grid/ModsDir/LineEdit;
 @onready var mods_dir_label : Label = $Grid/StepTwo;
 
+@onready var install_server : Button = $Grid/ServerInstall;
+@onready var install_server_label : Label = $Grid/StepThree;
+
 @onready var file_diag : FileDialog = $FileDialog;
 
 const FAIL : String = "❌";
@@ -26,6 +29,33 @@ func _ready() -> void:
 	);
 	
 	file_diag.dir_selected.connect(_test_folder);
+	
+	mods_dir_edit.text_submitted.connect(func(): 
+		_test_folder(mods_dir_edit.text);
+	);
+	
+	install_server.pressed.connect(func(): 
+		var lib_ext = null;
+		match OS.get_name():
+			"Windows":
+				lib_ext = "dll";
+		
+		if lib_ext != null:
+			var lib_name = "BuddyServer.%s" % lib_ext;
+			var lib_loc = OS.get_executable_path().get_base_dir().path_join(lib_name);
+			var dir = Settings.get_setting("mods_dir", "");
+			if dir == "":
+				_install_server_fail();
+				return;
+			
+			var res : Error = DirAccess.copy_absolute(lib_loc, dir.path_join("lib_name"));
+			if res != OK:
+				_install_server_fail();
+				return;
+			_install_server_succeeded();
+		else:
+			_install_server_fail();
+	);
 
 func _test_folder(dir : String):
 	var folder_name : String = dir.get_file();
@@ -60,3 +90,12 @@ func _folder_select_fail():
 func _folder_select_succeed():
 	mods_dir_label.label_settings = succeed_label;
 	mods_dir_label.text = "%s %s" % [SUCCEED, initial_mods_dir_text];
+
+@onready var initial_server_text : String = install_server_label.text;
+func _install_server_fail():
+	install_server_label.label_settings = fail_label;
+	install_server_label.text = "%s %s" % [FAIL, initial_server_text];
+
+func _install_server_succeeded():
+	install_server_label.label_settings = succeed_label;
+	install_server_label.text = "%s %s" % [SUCCEED, initial_server_text];
