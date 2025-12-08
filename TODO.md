@@ -9,6 +9,7 @@
 	- [ ] Using Items
 	- [ ] Naming bugs
 	- [ ] Connecting to Hollow Knight
+		- [ ] Bundling DLLs with files
 - [ ] Races
 	- [ ] Window expanding to show race course
 		- Don't go above maximum window width
@@ -24,3 +25,4 @@
 Extras:
 - [ ] Graveyard of past bugs
 - [ ] Cosmetics
+- [ ] Configure server port with .ini (allow changing in settings)

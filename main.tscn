@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui/ui.gd" id="2_h2yge"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
