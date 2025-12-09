@@ -17,8 +17,10 @@ var fail_label : LabelSettings = preload("uid://co2wg8bh6obmh");
 var succeed_label : LabelSettings = preload("uid://dtp60wsp8bcae");
 
 func _ready() -> void:
-	mods_dir_edit.text = Settings.get_setting("mods_dir", "");
-	_test_folder(Settings.get_setting("mods_dir", ""));
+	var mods_dir_set = Settings.get_setting("mods_dir", "");
+	if mods_dir_set != "":
+		mods_dir_edit.text = mods_dir_set;
+		_test_folder(mods_dir_set);
 	
 	install.pressed.connect(func():
 		OS.shell_open("https://github.com/fifty-six/Scarab/releases");
@@ -30,49 +32,66 @@ func _ready() -> void:
 	
 	file_diag.dir_selected.connect(_test_folder);
 	
-	mods_dir_edit.text_submitted.connect(func(): 
-		_test_folder(mods_dir_edit.text);
-	);
+	mods_dir_edit.text_submitted.connect(_test_folder);
 	
 	install_server.pressed.connect(func(): 
-		var lib_ext = null;
-		match OS.get_name():
-			"Windows":
-				lib_ext = "dll";
-		
-		if lib_ext != null:
-			var lib_name = "BuddyServer.%s" % lib_ext;
-			var lib_loc = OS.get_executable_path().get_base_dir().path_join(lib_name);
-			var dir = Settings.get_setting("mods_dir", "");
-			if dir == "":
-				_install_server_fail();
-				return;
-			
-			var res : Error = DirAccess.copy_absolute(lib_loc, dir.path_join("lib_name"));
-			if res != OK:
-				_install_server_fail();
-				return;
-			_install_server_succeeded();
-		else:
+		var lib_name = "BuddyServer.dll";
+		var lib_loc = OS.get_executable_path().get_base_dir().path_join(lib_name);
+		var dir = Settings.get_setting("mods_dir", "");
+		if dir == "" || !DirAccess.dir_exists_absolute(dir):
 			_install_server_fail();
+			return;
+		var mod_dir = dir.path_join("BuddyServer");
+		
+		var make_res : Error = DirAccess.make_dir_recursive_absolute(mod_dir);
+		if make_res != OK:
+			_install_server_fail();
+			return;
+		
+		var res : Error = DirAccess.copy_absolute(lib_loc, mod_dir.path_join(lib_name));
+		if res != OK:
+			_install_server_fail();
+			return;
+		_install_server_succeeded();
 	);
 
 func _test_folder(dir : String):
 	var folder_name : String = dir.get_file();
 	
+	var os_name = OS.get_name();
 	if folder_name != "Mods":
-		match folder_name:
-			"Managed":
-				dir = dir.path_join("Mods");
-			"hollow_knight_Data":
-				dir = dir.path_join("Managed/Mods");
-			"Hollow Knight":
-				dir = dir.path_join("hollow_knight_Data/Managed/Mods");
+		match os_name:
+			"Windows":
+				match folder_name:
+					"Managed":
+						dir = dir.path_join("Mods");
+					"hollow_knight_Data":
+						dir = dir.path_join("Managed/Mods");
+					"Hollow Knight":
+						dir = dir.path_join("hollow_knight_Data/Managed/Mods");
+					_:
+						_folder_select_fail();
+			"macOS":
+				match folder_name:
+					"Managed":
+						dir = dir.path_join("Mods");
+					"Hollow Knight":
+						dir = dir.path_join("hollow_knight.app/Contents/Resources/Data/Managed/Mods");
+					"hollow_knight.app":
+						dir = dir.path_join("Contents/Resources/Data/Managed/Mods");
+					_:
+						_folder_select_fail();
 			_:
 				_folder_select_fail();
-		pass;
 	
-	if !DirAccess.dir_exists_absolute(dir) || !DirAccess.dir_exists_absolute(dir.path_join("../../../../Hollow Knight")):
+	if !DirAccess.dir_exists_absolute(dir):
+		_folder_select_fail();
+		return;
+	
+	if os_name == "Windows" && !DirAccess.dir_exists_absolute(dir.path_join("../../../../Hollow Knight")):
+		_folder_select_fail();
+		return;
+	if os_name == "macOS" && !DirAccess.dir_exists_absolute(dir.path_join("../../../../../../hollow_knight.app")):
 		_folder_select_fail();
 		return;
 	
