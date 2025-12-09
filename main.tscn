@@ -78,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Button" type="Button" parent="UI/Buttons"]
+[node name="Adventure" type="Button" parent="UI/Buttons"]
 layout_mode = 2
 text = "Adventure!"
 
