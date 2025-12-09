@@ -22,6 +22,8 @@ func _ready() -> void:
 		mods_dir_edit.text = mods_dir_set;
 		_test_folder(mods_dir_set);
 	
+	# TODO: Verify hash of DLL if mods dir is valid.
+	
 	install.pressed.connect(func():
 		OS.shell_open("https://github.com/fifty-six/Scarab/releases");
 	);
@@ -35,8 +37,12 @@ func _ready() -> void:
 	mods_dir_edit.text_submitted.connect(_test_folder);
 	
 	install_server.pressed.connect(func(): 
+		var exe_loc : String = OS.get_executable_path().get_base_dir();
+		if OS.get_name() == "macOS":
+			exe_loc = exe_loc.path_join("../../../");
+		
 		var lib_name = "BuddyServer.dll";
-		var lib_loc = OS.get_executable_path().get_base_dir().path_join(lib_name);
+		var lib_loc = exe_loc.path_join(lib_name);
 		var dir = Settings.get_setting("mods_dir", "");
 		if dir == "" || !DirAccess.dir_exists_absolute(dir):
 			_install_server_fail();
