@@ -1,6 +1,5 @@
 class_name Bug extends Sprite2D
 
-@onready var _initial_pos : Vector2 = self.position;
 @onready var window : Window = self.get_window();
 
 var _screen_size : Vector2i;
@@ -43,10 +42,10 @@ func _process(delta: float) -> void:
 	if _adventuring:
 		_adventure_delta_update += delta;
 		
-		_adventure_dir = _adventure_noise.get_noise_1d(Time.get_ticks_msec()/500);
-		if self.position.x + extents.size.x/2 > extents.end.x - 250:
-			_adventure_dir = -1;
-		elif self.position.x + extents.size.x/2 < extents.position.x + 250:
-			_adventure_dir = 1;
+		_adventure_dir = _adventure_noise.get_noise_1d(Time.get_ticks_msec()/500.0);
+		if self.position.x + extents.size.x/2.0 > extents.end.x - 250 && _adventure_dir > 0:
+			_adventure_dir = 0;
+		elif self.position.x + extents.size.x/2.0 < extents.position.x + 250 && _adventure_dir < 0:
+			_adventure_dir = 0;
 		
 		self.position.x += _adventure_dir;
