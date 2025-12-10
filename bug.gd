@@ -30,16 +30,23 @@ func begin_adventure():
 	_adventuring = true;
 	_screen_size = DisplayServer.screen_get_size(window.current_screen);
 
-var _adventure_dir : int = 1;
+var _adventure_dir : float = 1;
 
 var _adventure_delta_update : float = 0;
+
+var _adventure_noise : FastNoiseLite = FastNoiseLite.new();
+
+func _ready() -> void:
+	_adventure_noise.noise_type = FastNoiseLite.TYPE_PERLIN;
+
 func _process(delta: float) -> void:
 	if _adventuring:
 		_adventure_delta_update += delta;
 		
+		_adventure_dir = _adventure_noise.get_noise_1d(Time.get_ticks_msec()/500);
 		if self.position.x + extents.size.x/2 > extents.end.x - 250:
-			_adventure_dir *= -1;
+			_adventure_dir = -1;
 		elif self.position.x + extents.size.x/2 < extents.position.x + 250:
-			_adventure_dir *= -1;
+			_adventure_dir = 1;
 		
-		self.position.x += 100.0 * _adventure_dir * delta;
+		self.position.x += _adventure_dir;
