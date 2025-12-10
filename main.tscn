@@ -56,6 +56,7 @@ text = "Mozzarella Squeem"
 alignment = 1
 
 [node name="TCPStatus" type="Label" parent="UI"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -212,15 +213,15 @@ text = "1"
 
 [node name="Day" type="PanelContainer" parent="UI"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 29.0
-offset_right = 90.0
-offset_bottom = 109.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 107.0
+offset_bottom = 107.0
 
 [node name="Label" type="Label" parent="UI/Day"]
 layout_mode = 2
-text = "DAY
-1"
+text = "DAYS LEFT
+3"
 horizontal_alignment = 1
 
 [node name="TCPClient" type="Node" parent="."]
