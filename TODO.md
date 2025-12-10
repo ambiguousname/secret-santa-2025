@@ -25,6 +25,11 @@
 		- [ ] Slow walking (optional)
 		- [ ] Sitting (optional)
 	- [ ] Race course obstacles
+- [ ] Sound effects
+	- [ ] Racing sounds (one for each sound)
+	- [ ] Item use sounds (probably one exclusive for eating)
+	- [ ] Item pick up sound during adventuring (quiet)
+	- [ ] Skill up sound during adventuring (quiet)
 
 Extras:
 - [ ] Graveyard of past bugs

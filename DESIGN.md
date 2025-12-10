@@ -43,10 +43,12 @@ WEEK --> FAILED(["Failed a required event"])
 FAILED --> CREATE
 ```
 
-Note that there should be a way to stop leveling at a certain point to stop grinding for an event. Then you regain whatever that is after completing an event. 
+Note that there should be a way to stop leveling at a certain point to stop grinding for an event. Then you regain whatever that is after completing an event. I'm thinking a timer that's stored as a save that counts down every 30 minutes (so it finishes at the end of an un-interrupted run), up to 7 times. So that at the end of the week, the event becomes mandatory.
 
 ## Skills and Stats
 - Energy
+	- Max cannot be increased
+	- Can be replenished with food
 - Running
 - Climbing
 - Skill 3
