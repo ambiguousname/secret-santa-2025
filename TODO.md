@@ -1,7 +1,10 @@
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
-	- [ ] Pet wandering screen
+	- [X] Pet wandering screen
 	- [ ] Sending data from Hollow Knight to game
+	- [ ] Skilling up
+	- [ ] Getting items
+	- [ ] Exiting on depletion of energy
 - [ ] Functional UI
 	- [ ] Stats
 		- Thinking roughly 4, to keep it simple.
@@ -17,6 +20,7 @@
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
 - [ ] Art
+	- [ ] Skill Icons
 	- [ ] Racing animations
 		- [ ] One for each of the four sats?
 	- [ ] Bug idle
