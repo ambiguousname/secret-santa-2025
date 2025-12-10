@@ -22,7 +22,7 @@ func land(delay : float, start : Vector2, pos : Vector2, callback : Callable):
 	tween.tween_property(self, "position", pos, 0.1).from(start).set_delay(delay);
 	tween.parallel();
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).from(Vector2(0.6, 1.5));
-	tween.finished.connect(callback);
+	tween.tween_callback(callback).set_delay(0.01);
 
 func begin_adventure():
 	_adventuring = true;
