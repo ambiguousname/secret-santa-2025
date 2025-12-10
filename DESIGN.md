@@ -42,3 +42,12 @@ WEEK --> UNFINISHED(["Events not finished"]) ==> INPUT
 WEEK --> FAILED(["Failed a required event"])
 FAILED --> CREATE
 ```
+
+Note that there should be a way to stop leveling at a certain point to stop grinding for an event. Then you regain whatever that is after completing an event. 
+
+## Skills and Stats
+- Energy
+- Running
+- Climbing
+- Skill 3
+- Skill 4
