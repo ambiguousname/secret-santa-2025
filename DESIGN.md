@@ -51,5 +51,7 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 	- Can be replenished with food
 - Running
 - Climbing
-- Skill 3
+- Jumping
+	- Determines arc of your jump over a gap
+	- Lose if you fall in (no sequential jumps to avoid unfairness)
 - Skill 4
