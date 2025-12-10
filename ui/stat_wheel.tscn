@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bye5d13kp4ew"]
+
+[ext_resource type="PackedScene" uid="uid://8gehpwm01irg" path="res://ui/radial/radial.tscn" id="1_p4mmf"]
+[ext_resource type="Shader" uid="uid://beifwjfbefsoe" path="res://ui/radial/radial_bar.gdshader" id="2_0t75x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5syu"]
+resource_local_to_scene = true
+shader = ExtResource("2_0t75x")
+shader_parameter/angle = 4.6181412007769955
+shader_parameter/inner_radius = 0.35
+shader_parameter/outer_radius = 0.48
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
+
+[node name="StatWheel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 54.0
+
+[node name="Stat" parent="." instance=ExtResource("1_p4mmf")]
+material = SubResource("ShaderMaterial_e5syu")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+amount = 0.735
+unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
+
+[node name="Label" type="Label" parent="Stat"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "I"
+horizontal_alignment = 1

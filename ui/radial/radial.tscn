@@ -10,6 +10,7 @@ shader_parameter/angle = 4.67
 shader_parameter/inner_radius = 0.35
 shader_parameter/outer_radius = 0.48
 shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/unfilled_color = Color(0, 0, 0, 0)
 
 [node name="Radial" type="ColorRect"]
 material = SubResource("ShaderMaterial_lquwl")
