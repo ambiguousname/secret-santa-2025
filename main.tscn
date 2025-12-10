@@ -94,14 +94,6 @@ alignment = 1
 layout_mode = 2
 text = "Adventure!"
 
-[node name="Button2" type="Button" parent="UI/Buttons"]
-layout_mode = 2
-text = "Feed"
-
-[node name="Button3" type="Button" parent="UI/Buttons"]
-layout_mode = 2
-text = "Button 3"
-
 [node name="Stats" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 8
@@ -149,11 +141,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel" index="0"]
-amount = 0.78
+amount = 0.0
 radial_color = Color(0.35217595, 0.6294075, 1, 1)
 
 [node name="Label" parent="UI/Stats/StatWheel/Stat" index="0"]
-text = "II"
+text = "1"
 
 [node name="StatWheel2" parent="UI/Stats" instance=ExtResource("3_7mycd")]
 layout_mode = 1
@@ -170,8 +162,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel2" index="0"]
-amount = 0.15
+amount = 0.0
 radial_color = Color(0, 0.75134885, 0.2976716, 1)
+
+[node name="Label" parent="UI/Stats/StatWheel2/Stat" index="0"]
+text = "1"
 
 [node name="StatWheel3" parent="UI/Stats" instance=ExtResource("3_7mycd")]
 layout_mode = 1
@@ -188,8 +183,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel3" index="0"]
-amount = 0.385
+amount = 0.0
 radial_color = Color(0.9999997, 0.2668397, 0.8245027, 1)
+
+[node name="Label" parent="UI/Stats/StatWheel3/Stat" index="0"]
+text = "1"
 
 [node name="StatWheel4" parent="UI/Stats" instance=ExtResource("3_7mycd")]
 layout_mode = 1
@@ -206,11 +204,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel4" index="0"]
-amount = 0.36
+amount = 0.0
 radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
 [node name="Label" parent="UI/Stats/StatWheel4/Stat" index="0"]
-text = "II"
+text = "1"
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
