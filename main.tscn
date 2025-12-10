@@ -17,10 +17,11 @@ noise = SubResource("FastNoiseLite_h2yge")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 resource_local_to_scene = true
 shader = ExtResource("5_lquwl")
-shader_parameter/angle = 6.283185307179586
+shader_parameter/angle = 3.7699111843077517
 shader_parameter/inner_radius = 0.35
 shader_parameter/outer_radius = 0.48
 shader_parameter/color = Color(0.5295582, 0.63630813, 1, 1)
+shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -128,7 +129,9 @@ offset_right = -80.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+amount = 0.6
 radial_color = Color(0.5295582, 0.63630813, 1, 1)
+unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")

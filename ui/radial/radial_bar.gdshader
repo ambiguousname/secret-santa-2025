@@ -4,6 +4,7 @@ uniform float angle = 0.0;
 uniform float inner_radius = 0.4;
 uniform float outer_radius = 0.48;
 uniform vec3 color : source_color = vec3(1.0);
+uniform vec4 unfilled_color : source_color = vec4(0.0);
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -18,7 +19,7 @@ void fragment() {
 	float inner = step(r, inner_radius);
 	
 	if (theta >= angle - PI) {
-		COLOR = vec4(0.0);
+		COLOR = vec4(unfilled_color.rgb, unfilled_color.a * (outer - inner));
 	} else {
 		COLOR = vec4(color.rgb, outer - inner);
 	}
