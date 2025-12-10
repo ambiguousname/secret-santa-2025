@@ -7,6 +7,54 @@ var _adventuring : bool = false;
 
 var extents : Rect2i;
 
+class Stats:
+	class Stat:
+		var level : int = 0;
+		var xp : float = 0;
+		func from_dict(d : Dictionary):
+			self.level = d["level"];
+			self.xp = d["xp"];
+		func to_dict() -> Dictionary:
+			return {
+				level: self.level,
+				xp: self.xp
+			};
+	var energy : float = 100.0;
+	var running : Stat = Stat.new();
+	var climbing : Stat = Stat.new();
+	var smarts : Stat = Stat.new();
+	var moxie : Stat = Stat.new();
+	
+	const BUG_FILE : String = "user://bug.json";
+	static func load_st() -> Stats:
+		if FileAccess.file_exists(BUG_FILE):
+			var f = FileAccess.open(BUG_FILE, FileAccess.READ);
+			var bug_save = JSON.parse_string(f.get_as_text());
+			var this = Stats.new();
+			if bug_save is Dictionary:
+				this.running.from_dict(bug_save["running"]);
+				this.climbing.from_dict(bug_save["climbing"]);
+				this.smarts.from_dict(bug_save["smarts"]);
+				this.moxie.from_dict(bug_save["moxie"]);
+			else:
+				printerr("Could not read user settings.");
+			f.close();
+			return this;
+		else:
+			return Stats.new();
+	func save():
+		var out = {};
+		out["running"] = self.running.to_dict();
+		out["climbing"] = self.climbing.to_dict();
+		out["smarts"] = self.smarts.to_dict();
+		out["moxie"] = self.moxie.to_dict();
+
+var stats : Stats;
+
+func _ready():
+	stats = Stats.load_st();
+	_initialize_adventure();
+
 func jump():
 	var tween = create_tween();
 	var squash_amount : float = 0.8;
@@ -35,7 +83,7 @@ var _adventure_delta_update : float = 0;
 
 var _adventure_noise : FastNoiseLite = FastNoiseLite.new();
 
-func _ready() -> void:
+func _initialize_adventure() -> void:
 	_adventure_noise.noise_type = FastNoiseLite.TYPE_PERLIN;
 
 func _process(delta: float) -> void:
