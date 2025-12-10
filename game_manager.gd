@@ -16,6 +16,7 @@ func _ready() -> void:
 			window.size = Vector2i(size.x - 100, 250);
 			window.position = Vector2i(50, size.y - 250);
 			bug.land(0.2, Vector2(0, 0), Vector2(0, 250), bug.begin_adventure);
+			window.mouse_passthrough = true;
 		);
 		
 		window.set_flag(Window.FLAG_ALWAYS_ON_TOP, true);
