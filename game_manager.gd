@@ -9,9 +9,17 @@ func _ready() -> void:
 	tcp_client.connect_to_host();
 	
 	ui.adventure.pressed.connect(func():
-		ui.fade_ui(false, 1.0);
-		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP, true);
-		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true);
+		bug.jump();
+		var window = get_window();
+		ui.fade_ui(false, 1.0, func():
+			var size = DisplayServer.screen_get_size(window.current_screen);
+			window.size = Vector2i(size.x - 100, 250);
+			window.position = Vector2i(50, size.y - 250);
+			bug.land(0.2, Vector2(0, 0), Vector2(0, 250), bug.begin_adventure);
+		);
+		
+		window.set_flag(Window.FLAG_ALWAYS_ON_TOP, true);
+		window.set_flag(Window.FLAG_BORDERLESS, true);
 		
 		# TODO: Flashy effect to hide the bug, set the window to the width of the bottom of the screen,
 		# Then flashy effect for the bug to re-appear.
