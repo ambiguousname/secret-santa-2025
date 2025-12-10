@@ -1,19 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://8gehpwm01irg"]
+[gd_scene load_steps=2 format=3 uid="uid://8gehpwm01irg"]
 
-[ext_resource type="Shader" uid="uid://beifwjfbefsoe" path="res://ui/radial/radial_bar.gdshader" id="1_lvut1"]
 [ext_resource type="Script" uid="uid://bps7bjcnm5c12" path="res://ui/radial/radial.gd" id="2_uy12q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
-resource_local_to_scene = true
-shader = ExtResource("1_lvut1")
-shader_parameter/angle = 4.67
-shader_parameter/inner_radius = 0.35
-shader_parameter/outer_radius = 0.48
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/unfilled_color = Color(0, 0, 0, 0)
-
-[node name="Radial" type="ColorRect"]
-material = SubResource("ShaderMaterial_lquwl")
+[node name="Radial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 54.0
 script = ExtResource("2_uy12q")

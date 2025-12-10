@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=10 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui/ui.gd" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bye5d13kp4ew" path="res://ui/stat_wheel.tscn" id="3_7mycd"]
-[ext_resource type="Shader" uid="uid://beifwjfbefsoe" path="res://ui/radial/radial_bar.gdshader" id="5_lquwl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
@@ -19,42 +18,6 @@ bg_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(0.8980392, 0.7254902, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5syu"]
-resource_local_to_scene = true
-shader = ExtResource("5_lquwl")
-shader_parameter/angle = 4.900884539600077
-shader_parameter/inner_radius = 0.35
-shader_parameter/outer_radius = 0.48
-shader_parameter/color = Color(0.35217595, 0.6294075, 1, 1)
-shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
-resource_local_to_scene = true
-shader = ExtResource("5_lquwl")
-shader_parameter/angle = 4.6181412007769955
-shader_parameter/inner_radius = 0.35
-shader_parameter/outer_radius = 0.48
-shader_parameter/color = Color(0, 0.75134885, 0.2976716, 1)
-shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
-resource_local_to_scene = true
-shader = ExtResource("5_lquwl")
-shader_parameter/angle = 5.7805304826052195
-shader_parameter/inner_radius = 0.35
-shader_parameter/outer_radius = 0.48
-shader_parameter/color = Color(0.9999997, 0.2668397, 0.8245027, 1)
-shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
-resource_local_to_scene = true
-shader = ExtResource("5_lquwl")
-shader_parameter/angle = 2.261946710584651
-shader_parameter/inner_radius = 0.35
-shader_parameter/outer_radius = 0.48
-shader_parameter/color = Color(0.94612247, 0.47995144, 0, 1)
-shader_parameter/unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -184,7 +147,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel" index="0"]
-material = SubResource("ShaderMaterial_e5syu")
 amount = 0.78
 radial_color = Color(0.35217595, 0.6294075, 1, 1)
 
@@ -206,7 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel2" index="0"]
-material = SubResource("ShaderMaterial_7mycd")
+amount = 0.15
 radial_color = Color(0, 0.75134885, 0.2976716, 1)
 
 [node name="StatWheel3" parent="UI/Stats" instance=ExtResource("3_7mycd")]
@@ -224,8 +186,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel3" index="0"]
-material = SubResource("ShaderMaterial_lquwl")
-amount = 0.92
+amount = 0.385
 radial_color = Color(0.9999997, 0.2668397, 0.8245027, 1)
 
 [node name="StatWheel4" parent="UI/Stats" instance=ExtResource("3_7mycd")]
@@ -243,7 +204,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stat" parent="UI/Stats/StatWheel4" index="0"]
-material = SubResource("ShaderMaterial_272bh")
 amount = 0.36
 radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
