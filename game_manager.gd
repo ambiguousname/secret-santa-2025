@@ -20,7 +20,7 @@ func _ready() -> void:
 			
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
-			bug.land(0.2, Vector2(0, -250), Vector2(0, 0), bug.begin_adventure);
+			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), bug.begin_adventure);
 			window.mouse_passthrough = true;
 		);
 		
