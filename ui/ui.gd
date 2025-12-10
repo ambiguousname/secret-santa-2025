@@ -6,11 +6,17 @@ func update_tcp_status(text : String):
 	tcp_status.text = text;
 
 @onready var adventure : Button = $Buttons/Adventure;
-func _ready() -> void:
-	adventure.pressed.connect(func(): 
-		set_ui_display(false);
-	);
 
-func set_ui_display(vis : bool):
-	self.visible = vis;
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, !vis);
+func fade_ui(vis : bool, duration : float):
+	var tween = create_tween();
+	var from = 1.0;
+	var to = 0.0;
+	
+	if vis:
+		from = 0.0;
+		to = 1.0;
+	
+	tween.tween_property(self, "modulate", Color(1, 1, 1, to), duration).from(Color(1, 1, 1, from));
+	tween.finished.connect(func():
+		self.visible = vis;
+	);
