@@ -13,10 +13,8 @@ shader_parameter/color = Color(1, 1, 1, 1)
 
 [node name="Radial" type="ColorRect"]
 material = SubResource("ShaderMaterial_lquwl")
-offset_left = 110.0
-offset_top = 178.0
-offset_right = 164.0
-offset_bottom = 232.0
+offset_right = 54.0
+offset_bottom = 54.0
 script = ExtResource("2_uy12q")
 
 [node name="RadialText" type="Label" parent="."]
