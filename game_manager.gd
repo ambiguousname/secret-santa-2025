@@ -10,6 +10,7 @@ func _ready() -> void:
 	tcp_client.connect_to_host();
 	
 	ui.adventure.pressed.connect(func():
+		ui.adventure.disabled = true;
 		bug.jump();
 		var window = get_window();
 		ui.fade_ui(false, 1.0, func():
