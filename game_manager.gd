@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var tcp_client : TCPClient = $TCPClient;
 @onready var ui : UI = $UI;
-@onready var bug = $Bug;
+@onready var bug : Bug = $Bug;
+@onready var camera : Camera2D = $Camera2D; 
 
 func _ready() -> void:
 	tcp_client.status_updated.connect(_tcp_update);
@@ -15,7 +16,11 @@ func _ready() -> void:
 			var size = DisplayServer.screen_get_size(window.current_screen);
 			window.size = Vector2i(size.x - 100, 250);
 			window.position = Vector2i(50, size.y - 250);
-			bug.land(0.2, Vector2(0, 0), Vector2(0, 250), bug.begin_adventure);
+			bug.extents = Rect2i(window.position, window.size);
+			
+			bug.position = Vector2(0, -250);
+			camera.offset = Vector2.ZERO;
+			bug.land(0.2, Vector2(0, -250), Vector2(0, 0), bug.begin_adventure);
 			window.mouse_passthrough = true;
 		);
 		

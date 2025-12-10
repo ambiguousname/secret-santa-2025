@@ -6,6 +6,8 @@ class_name Bug extends Sprite2D
 var _screen_size : Vector2i;
 var _adventuring : bool = false;
 
+var extents : Rect2i;
+
 func jump():
 	var tween = create_tween();
 	var squash_amount : float = 0.8;
@@ -35,9 +37,9 @@ func _process(delta: float) -> void:
 	if _adventuring:
 		_adventure_delta_update += delta;
 		
-		if self.position.x + 50 > _screen_size.x - 750:
+		if self.position.x + extents.size.x/2 > extents.end.x - 250:
 			_adventure_dir *= -1;
-		elif self.position.x < 500 && _adventure_dir == -1:
+		elif self.position.x + extents.size.x/2 < extents.position.x + 250:
 			_adventure_dir *= -1;
 		
 		self.position.x += 100.0 * _adventure_dir * delta;
