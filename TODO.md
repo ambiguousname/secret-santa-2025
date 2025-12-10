@@ -21,6 +21,9 @@
 		- [ ] One for each of the four sats?
 	- [ ] Bug idle
 	- [ ] Adventuring animations
+		- [ ] Walking
+		- [ ] Slow walking (optional)
+		- [ ] Sitting (optional)
 	- [ ] Race course obstacles
 
 Extras:
