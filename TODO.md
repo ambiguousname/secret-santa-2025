@@ -1,5 +1,5 @@
 - [ ] Adventure Loop
-	- [ ] UI/borders hiding on activate
+	- [X] UI/borders hiding on activate
 	- [ ] Pet wandering screen
 	- [ ] Sending data from Hollow Knight to game
 - [ ] Functional UI
