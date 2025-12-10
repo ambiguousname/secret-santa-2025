@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=10 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui/ui.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://8gehpwm01irg" path="res://ui/radial/radial.tscn" id="4_1bvp3"]
+[ext_resource type="Shader" uid="uid://beifwjfbefsoe" path="res://ui/radial/radial_bar.gdshader" id="5_lquwl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
@@ -11,6 +13,14 @@ size = Vector2(150, 150)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
 noise = SubResource("FastNoiseLite_h2yge")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+resource_local_to_scene = true
+shader = ExtResource("5_lquwl")
+shader_parameter/angle = 6.283185307179586
+shader_parameter/inner_radius = 0.35
+shader_parameter/outer_radius = 0.48
+shader_parameter/color = Color(0.5295582, 0.63630813, 1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -92,3 +102,7 @@ text = "Button 3"
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
+
+[node name="Radial" parent="." instance=ExtResource("4_1bvp3")]
+material = SubResource("ShaderMaterial_7mycd")
+radial_color = Color(0.5295582, 0.63630813, 1, 1)

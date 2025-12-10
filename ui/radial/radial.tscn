@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://8gehpwm01irg"]
+
+[ext_resource type="Shader" uid="uid://beifwjfbefsoe" path="res://ui/radial/radial_bar.gdshader" id="1_lvut1"]
+[ext_resource type="Script" uid="uid://bps7bjcnm5c12" path="res://ui/radial/radial.gd" id="2_uy12q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+resource_local_to_scene = true
+shader = ExtResource("1_lvut1")
+shader_parameter/angle = 4.67
+shader_parameter/inner_radius = 0.35
+shader_parameter/outer_radius = 0.48
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[node name="Radial" type="ColorRect"]
+material = SubResource("ShaderMaterial_lquwl")
+offset_left = 110.0
+offset_top = 178.0
+offset_right = 164.0
+offset_bottom = 232.0
+script = ExtResource("2_uy12q")
+
+[node name="RadialText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "35%"
+horizontal_alignment = 1
