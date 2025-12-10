@@ -2,6 +2,7 @@
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen
 	- [ ] Sending data from Hollow Knight to game
+		- [ ] Autostart adventure loop on Hollow Knight start
 	- [ ] Skilling up
 	- [ ] Getting items
 	- [ ] Exiting on depletion of energy
@@ -11,9 +12,11 @@
 	- [ ] Energy
 	- [ ] Using Items
 	- [ ] Naming bugs
-	- [ ] Connecting to Hollow Knight
-		- [X] Bundling DLLs with files
-		- [ ] Error printing
+	- [ ] Settings
+		- [ ] Connecting to Hollow Knight
+			- [X] Bundling DLLs with files
+			- [ ] Error printing
+		- [ ] Volume settings
 - [ ] Races
 	- [ ] Window expanding to show race course
 		- Don't go above maximum window width
