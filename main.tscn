@@ -210,6 +210,19 @@ radial_color = Color(0.94612247, 0.47995144, 0, 1)
 [node name="Label" parent="UI/Stats/StatWheel4/Stat" index="0"]
 text = "1"
 
+[node name="Day" type="PanelContainer" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 29.0
+offset_right = 90.0
+offset_bottom = 109.0
+
+[node name="Label" type="Label" parent="UI/Day"]
+layout_mode = 2
+text = "DAY
+1"
+horizontal_alignment = 1
+
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
 
