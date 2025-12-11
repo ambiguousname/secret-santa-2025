@@ -13,13 +13,15 @@ friction = 0.0
 [node name="FirstCourse" instance=ExtResource("1_8nqhk")]
 
 [node name="PhantomCamera2D" parent="." index="0"]
-position = Vector2(250, 29)
+position = Vector2(253, 29)
 tween_on_load = false
+follow_damping = true
+follow_damping_value = Vector2(0.5, 0.5)
 dead_zone_height = 1.0
 limit_bottom = 300
 
 [node name="RacingCamera" parent="." index="1"]
-position = Vector2(250, 29)
+position = Vector2(253, 29)
 limit_bottom = 300
 
 [node name="Ramp" parent="." index="2" instance=ExtResource("1_3vvmj")]
