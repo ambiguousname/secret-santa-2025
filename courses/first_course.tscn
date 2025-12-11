@@ -1,10 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://t428mw4jpmqx"]
+[gd_scene load_steps=3 format=3 uid="uid://t428mw4jpmqx"]
 
-[ext_resource type="Script" uid="uid://biah1hau18tx1" path="res://courses/course_segments/square.gd" id="1_8nqhk"]
 [ext_resource type="Script" uid="uid://bsgg3cxj07swb" path="res://courses/course_segments/ramp.gd" id="2_3vvmj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nqhk"]
-size = Vector2(43, 215)
 
 [sub_resource type="Curve2D" id="Curve2D_8nqhk"]
 _data = {
@@ -14,38 +10,21 @@ point_count = 3
 
 [node name="FirstCourse" type="Node2D"]
 
-[node name="Rect" type="StaticBody2D" parent="."]
-position = Vector2(21, 150)
-script = ExtResource("1_8nqhk")
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect"]
-shape = SubResource("RectangleShape2D_8nqhk")
-
-[node name="Rect2" type="StaticBody2D" parent="."]
-position = Vector2(116.99999, 170)
-rotation = -0.97827333
-script = ExtResource("1_8nqhk")
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect2"]
-shape = SubResource("RectangleShape2D_8nqhk")
-
-[node name="Rect3" type="StaticBody2D" parent="."]
-position = Vector2(171, 272)
-script = ExtResource("1_8nqhk")
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect3"]
-shape = SubResource("RectangleShape2D_8nqhk")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Ramp" type="StaticBody2D" parent="."]
 position = Vector2(190, 162)
 script = ExtResource("2_3vvmj")
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp"]
 polygon = PackedVector2Array(2, 500, 2, 3, 11.984288, 19.858543, 23.24606, 35.894897, 35.66575, 51.05174, 49.282127, 65.14159, 64.17283, 77.87322, 80.389626, 88.85888, 97.926155, 97.5728, 116.59834, 103.45451, 136.00613, 106.00002, 155.41417, 103.75944, 173.95953, 97.48539, 191.56044, 88.88061, 208.37973, 78.82463, 224.57187, 67.78375, 240.24689, 56.01888, 255.4933, 43.702812, 270.37387, 30.946793, 284.93628, 17.828445, 299.21683, 4.403684, 313.24338, -9.286268, 327.0373, -23.210758, 340.61124, -37.349792, 353.97253, -51.689888, 367.1174, -66.22866, 380, -81, 380, 500)
 
-[node name="Path2D" type="Path2D" parent="StaticBody2D2"]
+[node name="Path2D" type="Path2D" parent="Ramp"]
 curve = SubResource("Curve2D_8nqhk")
+
+[node name="Polygon" type="StaticBody2D" parent="."]
+position = Vector2(0, 42)
+script = ExtResource("2_3vvmj")
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon"]
+polygon = PackedVector2Array(0, 0, 43, 0, 43, 52, 149, 122, 192, 122, 193, 500, -85, 499, -98, 3)
