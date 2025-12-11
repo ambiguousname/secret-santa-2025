@@ -50,9 +50,13 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 				state = State.CLIMBING;
 				return;
 		State.SKATING:
+			#if st.get_contact_count() > 0:
+				#self.linear_velocity += Vector2(1, -1) * st.step * pow(stats.skateboarding.level + 1, 2);
+				#self.linear_velocity += Vector2(0, -1) * 980 * st.step;
 			for i in range(st.get_contact_count()):
 				var normal = st.get_contact_local_normal(i);
-				self.linear_velocity += st.step * normal.rotated(PI/2) * (stats.skateboarding.level + 1) * 300.0;
+				self.linear_velocity += st.step * normal.rotated(PI/2) * 30 * (stats.skateboarding.level + 1);
+				self.angular_velocity += 0.01;
 		State.CLIMBING:
 			self.linear_velocity += Vector2.UP * 985 * st.step;
 			for i in range(st.get_contact_count()):
