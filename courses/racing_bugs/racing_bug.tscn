@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://rbosbafylvvw" path="res://courses/racing_bugs/racing_bug.gd" id="1_8raqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8raqk"]
-size = Vector2(50, 50)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_80pvq"]
-size = Vector2(50, 50)
+size = Vector2(20, 20)
 
 [node name="RacingBug" type="RigidBody2D"]
 collision_layer = 2
