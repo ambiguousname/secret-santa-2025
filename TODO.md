@@ -21,6 +21,11 @@
 			- [ ] Error printing
 		- [ ] Volume settings
 - [ ] Races
+	- [X] Sample track
+	- [X] Stat effects
+	- [ ] End timer display on < 3 secs
+	- [ ] Kill conditions
+	- [ ] Transition to and from stats screen
 	- [ ] Window expanding to show race course
 		- Don't go above maximum window width
 		- Camera2D for the rest
