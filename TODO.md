@@ -35,6 +35,7 @@
 		- [ ] Slow walking (optional)
 		- [ ] Sitting (optional)
 	- [ ] Race course obstacles
+	- [ ] Skateboard
 - [ ] Sound effects
 	- [ ] Racing sounds (one for each sound)
 	- [ ] Item use sounds (probably one exclusive for eating)
