@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bylxu2i2xmwp1"]
+[gd_scene load_steps=6 format=3 uid="uid://bylxu2i2xmwp1"]
 
 [ext_resource type="Script" uid="uid://rbosbafylvvw" path="res://courses/racing_bugs/racing_bug.gd" id="1_8raqk"]
 
@@ -6,6 +6,12 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_80pvq"]
 size = Vector2(20, 20)
+
+[sub_resource type="Gradient" id="Gradient_8raqk"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hwbcj"]
+gradient = SubResource("Gradient_8raqk")
+width = 31
 
 [node name="RacingBug" type="RigidBody2D"]
 collision_layer = 2
@@ -16,3 +22,8 @@ shape = SubResource("CircleShape2D_8raqk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_80pvq")
+
+[node name="Skateboard" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 10)
+texture = SubResource("GradientTexture1D_hwbcj")

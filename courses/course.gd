@@ -14,7 +14,10 @@ func _ready() -> void:
 			var scene_name = args[scene_arg + 1];
 			
 			if scene_name == get_tree().current_scene.scene_file_path:
-				setup_race(Stats.new());
+				var tmp = Stats.new();
+				tmp.running.level = 100;
+				tmp.skateboarding.level = 2;
+				setup_race(tmp);
 
 var racing_bug = preload("uid://bylxu2i2xmwp1");
 var racing_bugs : Array[RacingBug] = [];
