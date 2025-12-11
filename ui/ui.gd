@@ -16,9 +16,11 @@ func fade_ui(vis : bool, duration : float, callback: Callable):
 	if vis:
 		from = 0.0;
 		to = 1.0;
+		self.visible = vis;
 	
 	tween.tween_property(self, "modulate", Color(1, 1, 1, to), duration).from(Color(1, 1, 1, from));
 	tween.finished.connect(func():
 		self.visible = vis;
-		callback.call();
+		if !callback.is_null():
+			callback.call();
 	);

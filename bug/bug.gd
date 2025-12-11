@@ -1,6 +1,9 @@
 class_name Bug extends Sprite2D
 
 @onready var window : Window = self.get_window();
+@onready var _end_adventure : Button = $EndAdventure;
+
+signal adventure_ended();
 
 var _screen_size : Vector2i;
 var _adventuring : bool = false;
@@ -12,8 +15,9 @@ var stats : Stats;
 func _ready():
 	stats = Stats.load_st();
 	_initialize_adventure();
+	_end_adventure.pressed.connect(end_adventure);
 
-func jump():
+func jump(callback : Callable = Callable()):
 	var tween = create_tween();
 	var squash_amount : float = 0.8;
 	tween.tween_property(self, "scale", Vector2(1.2, squash_amount), 0.2);
@@ -23,6 +27,7 @@ func jump():
 	tween.tween_property(self, "scale", Vector2(0.6, 1.5), 0.2).set_delay(0.05);
 	tween.parallel();
 	tween.tween_property(self, "position", self.position + Vector2.UP * 400, 0.2).set_delay(0.05);
+	tween.tween_callback(callback);
 
 func land(delay : float, start : Vector2, pos : Vector2, callback : Callable):
 	var tween = create_tween();
@@ -35,6 +40,11 @@ func begin_adventure():
 	_adventuring = true;
 	_screen_size = DisplayServer.screen_get_size(window.current_screen);
 
+func end_adventure():
+	_adventuring = false;
+	adventure_ended.emit();
+	_end_adventure.visible = false;
+
 var _adventure_dir : float = 1;
 
 var _adventure_delta_update : float = 0;
@@ -43,6 +53,16 @@ var _adventure_noise : FastNoiseLite = FastNoiseLite.new();
 
 func _initialize_adventure() -> void:
 	_adventure_noise.noise_type = FastNoiseLite.TYPE_PERLIN;
+
+func _input(event: InputEvent) -> void:
+	if !_adventuring:
+		return;
+	if event is InputEventMouseMotion:
+		var pos = event.position;
+		pos.x -= extents.size.x/2.0;
+		pos.y -= extents.size.y/2.0;
+		_end_adventure.visible = self.get_rect().has_point(to_local(pos));
+		window.mouse_passthrough = !_end_adventure.visible;
 
 func _process(delta: float) -> void:
 	if _adventuring:

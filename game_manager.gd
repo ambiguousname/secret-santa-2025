@@ -5,6 +5,7 @@ extends Node2D
 @onready var bug : Bug = $Bug;
 @onready var camera : Camera2D = $Camera2D; 
 
+var _stats_window_pos : Vector2i = Vector2i.ZERO;
 func _ready() -> void:
 	tcp_client.status_updated.connect(_tcp_update);
 	tcp_client.connect_to_host();
@@ -16,6 +17,7 @@ func _ready() -> void:
 		ui.fade_ui(false, 1.0, func():
 			var size = DisplayServer.screen_get_size(window.current_screen);
 			window.size = Vector2i(size.x - 100, 250);
+			_stats_window_pos = window.position;
 			window.position = Vector2i(50, size.y - 250);
 			bug.extents = Rect2i(window.position, window.size);
 			
@@ -37,6 +39,23 @@ func _ready() -> void:
 		#tween.parallel();
 		#tween.tween_method(DisplayServer.window_set_position, Vector2i(0, size.y - 500), Vector2i(50, size.y - 250), 1.0);
 		#tween.finished.connect(bug.begin_adventure);
+	);
+	bug.adventure_ended.connect(func():
+		bug.jump(func():
+			var window = get_window();
+			window.size = Vector2i(500, 500);
+			camera.offset = Vector2i(250, 250);
+			window.position = _stats_window_pos;
+			
+			ui.fade_ui(true, 1.0, func():
+				bug.land(0.1, Vector2(250, -250), Vector2(250, 250), Callable());
+				if bug.stats.energy > 0:
+					ui.adventure.disabled = false;
+			);
+			window.set_flag(Window.FLAG_ALWAYS_ON_TOP, false);
+			window.set_flag(Window.FLAG_BORDERLESS, false);
+			window.mouse_passthrough = false;
+		);
 	);
 
 func _tcp_update(status : TCPClient.Status):
