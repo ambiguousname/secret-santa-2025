@@ -50,9 +50,11 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 	- Max cannot be increased
 	- Can be replenished with food
 - Running
+	- Run unless any of the below happens.
 - Climbing
+	- Climb whenever there's a collision to the right, unless on a skateboard
 - Jumping
-	- Determines arc of your jump over a gap
+	- Determines arc of your jump over a gap. Determine if there's a jump with a trigger.
 	- Lose if you fall in
 	- Add soft barrier right before any jumps to set x-accel to zero (to force the bug to land before hitting the hole)
 		- OR have the bug calculate where it will land (since this will be a fixed position based on jump skill), and decrease jump arc until a valid hit.
