@@ -31,5 +31,5 @@ func _physics_process(delta: float) -> void:
 			if get_contact_count() == 0:
 				state = State.FALLING;
 				return;
-			self.apply_force(Vector2.RIGHT * (stats.running.level + 1) * 500);
+			self.apply_force(Vector2.RIGHT * (stats.running.level + 1));
 	#self.apply_force(Vector2(1, -1) * 1000.0);
