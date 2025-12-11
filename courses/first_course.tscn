@@ -11,5 +11,19 @@ position = Vector2(190, 162)
 [node name="Polygon" parent="." instance=ExtResource("2_e37jp")]
 position = Vector2(0, 42)
 
+[node name="Polygon2" parent="." instance=ExtResource("2_e37jp")]
+position = Vector2(667, 78)
+
+[node name="CollisionPolygon2D" parent="Polygon2" index="0"]
+polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
+
+[node name="Polygon3" parent="." instance=ExtResource("2_e37jp")]
+position = Vector2(891, 21)
+
+[node name="CollisionPolygon2D" parent="Polygon3" index="0"]
+polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
+
 [editable path="Ramp"]
 [editable path="Polygon"]
+[editable path="Polygon2"]
+[editable path="Polygon3"]
