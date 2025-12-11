@@ -1,23 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://t428mw4jpmqx"]
+[gd_scene load_steps=4 format=3 uid="uid://cwb4fbjlm6jac"]
 
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="1_3vvmj"]
+[ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_8nqhk"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_e37jp"]
 
-[node name="FirstCourse" type="Node2D"]
+[node name="FirstCourse" instance=ExtResource("1_8nqhk")]
 
-[node name="Ramp" parent="." instance=ExtResource("1_3vvmj")]
+[node name="Finish" parent="." index="0"]
+position = Vector2(896, -4)
+
+[node name="KillPlane" parent="." index="1"]
+position = Vector2(0, 462)
+
+[node name="Ramp" parent="." index="2" instance=ExtResource("1_3vvmj")]
 position = Vector2(190, 162)
 
-[node name="Polygon" parent="." instance=ExtResource("2_e37jp")]
+[node name="Polygon" parent="." index="3" instance=ExtResource("2_e37jp")]
 position = Vector2(0, 42)
 
-[node name="Polygon2" parent="." instance=ExtResource("2_e37jp")]
+[node name="Polygon2" parent="." index="4" instance=ExtResource("2_e37jp")]
 position = Vector2(667, 78)
 
 [node name="CollisionPolygon2D" parent="Polygon2" index="0"]
 polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
 
-[node name="Polygon3" parent="." instance=ExtResource("2_e37jp")]
+[node name="Polygon3" parent="." index="5" instance=ExtResource("2_e37jp")]
 position = Vector2(891, 21)
 
 [node name="CollisionPolygon2D" parent="Polygon3" index="0"]
