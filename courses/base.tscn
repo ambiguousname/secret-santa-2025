@@ -27,7 +27,8 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="RacingCamera" type="Camera2D" parent="."]
 limit_left = 0
-limit_right = 1000
+limit_right = 900
+limit_bottom = 500
 
 [node name="PhantomCameraHost" type="Node" parent="RacingCamera"]
 process_priority = 300

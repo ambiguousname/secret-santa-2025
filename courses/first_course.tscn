@@ -8,7 +8,8 @@
 friction = 0.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e37jp"]
-friction = 0.0
+friction = 0.5
+rough = true
 
 [node name="FirstCourse" instance=ExtResource("1_8nqhk")]
 
@@ -23,8 +24,6 @@ limit_bottom = 500
 
 [node name="RacingCamera" parent="." index="1"]
 position = Vector2(253, 112)
-limit_right = 900
-limit_bottom = 500
 
 [node name="Ramp" parent="." index="2" instance=ExtResource("1_3vvmj")]
 position = Vector2(190, 162)
