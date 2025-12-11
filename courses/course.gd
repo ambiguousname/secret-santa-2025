@@ -3,6 +3,7 @@ class_name Course extends Node2D
 @onready var racer_start : Node2D = $RacerStart;
 @onready var finish : Area2D = $Finish;
 @onready var kill : Area2D = $KillPlane;
+@onready var camera : PhantomCamera2D = $PhantomCamera2D;
 
 func _ready() -> void:
 	if OS.is_debug_build():
@@ -20,16 +21,19 @@ var racing_bugs : Array[RacingBug] = [];
 
 func setup_race(player_bug_stats : Stats):
 	racing_bugs.clear();
-	add_racer(player_bug_stats);
+	var bug : RacingBug = add_racer(player_bug_stats);
+	camera.follow_target = bug;
+	
 	for i in range(3):
 		add_racer(Stats.new());
 
-func add_racer(stats : Stats):
+func add_racer(stats : Stats) -> RacingBug:
 	var bug : RacingBug = racing_bug.instantiate();
 	bug.stats = stats;
 	
 	racing_bugs.push_back(bug);
 	racer_start.add_child(bug);
+	return bug;
 
 func cleanup_race():
 	for b in racing_bugs:

@@ -1,19 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwb4fbjlm6jac"]
+[gd_scene load_steps=6 format=3 uid="uid://cwb4fbjlm6jac"]
 
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="1_3vvmj"]
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_8nqhk"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_e37jp"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2c1mk"]
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e37jp"]
+friction = 0.0
+
 [node name="FirstCourse" instance=ExtResource("1_8nqhk")]
 
-[node name="Finish" parent="." index="1"]
-position = Vector2(896, -4)
+[node name="PhantomCamera2D" parent="." index="0"]
+position = Vector2(250, 29)
+tween_on_load = false
+dead_zone_height = 1.0
+limit_bottom = 300
+
+[node name="RacingCamera" parent="." index="1"]
+position = Vector2(250, 29)
+limit_bottom = 300
 
 [node name="Ramp" parent="." index="2" instance=ExtResource("1_3vvmj")]
 position = Vector2(190, 162)
+physics_material_override = SubResource("PhysicsMaterial_2c1mk")
 
 [node name="Polygon" parent="." index="3" instance=ExtResource("2_e37jp")]
 position = Vector2(0, 42)
+physics_material_override = SubResource("PhysicsMaterial_e37jp")
 
 [node name="Polygon2" parent="." index="4" instance=ExtResource("2_e37jp")]
 position = Vector2(667, 78)
@@ -27,7 +42,10 @@ position = Vector2(891, 21)
 [node name="CollisionPolygon2D" parent="Polygon3" index="0"]
 polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
 
-[node name="KillPlane" parent="." index="6"]
+[node name="Finish" parent="." index="7"]
+position = Vector2(896, -4)
+
+[node name="KillPlane" parent="." index="8"]
 position = Vector2(0, 462)
 
 [editable path="Ramp"]
