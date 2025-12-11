@@ -53,5 +53,11 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 - Climbing
 - Jumping
 	- Determines arc of your jump over a gap
-	- Lose if you fall in (no sequential jumps to avoid unfairness)
-- Skill 4
+	- Lose if you fall in
+	- Add soft barrier right before any jumps to set x-accel to zero (to force the bug to land before hitting the hole)
+		- OR have the bug calculate where it will land (since this will be a fixed position based on jump skill), and decrease jump arc until a valid hit.
+- Skateboarding
+	- Skateboards will show up in front of half-pipes
+	- Determines how fast the bug will go down the half-pipe (while hopping on the skateboard)
+	- Like jumping, dismounting on the half-pipe will create a jump arc (?)
+	- Trigger to auto-equip skateboard (regardless of y-pos)
