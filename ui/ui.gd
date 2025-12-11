@@ -6,6 +6,7 @@ func update_tcp_status(text : String):
 	tcp_status.text = text;
 
 @onready var adventure : Button = $Buttons/Adventure;
+@onready var race : Button = $Buttons/Race;
 
 func fade_ui(vis : bool, duration : float, callback: Callable):
 	var tween = create_tween();

@@ -95,6 +95,11 @@ alignment = 1
 layout_mode = 2
 text = "Adventure!"
 
+[node name="Race" type="Button" parent="UI/Buttons"]
+visible = false
+layout_mode = 2
+text = "Start Race"
+
 [node name="Stats" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
