@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://tspnrtdlp6wb"]
+
+[ext_resource type="Script" uid="uid://c5sl2sxs2n8c0" path="res://courses/course_segments/jumping_trigger.gd" id="1_o68ej"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e37jp"]
+normal = Vector2(-1, 0)
+
+[node name="JumpTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_o68ej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_e37jp")

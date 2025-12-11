@@ -22,6 +22,9 @@ func end_skate():
 	skateboard.visible = false;
 	state = State.FALLING;
 
+func jump():
+	state = State.JUMPING;
+
 func _ready() -> void:
 	self.contact_monitor = true;
 	self.max_contacts_reported = 4;
@@ -66,6 +69,10 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 				self.linear_velocity += Vector2.UP * 980.0 * st.step * 20.0;
 				state = State.FALLING_RIGHT;
 				return;
+		State.JUMPING:
+			if st.get_contact_count() > 0:
+				self.linear_velocity += Vector2(1, -1) * 25 * pow(stats.jumping.level + 1, 2) * st.step;
+				state = State.FALLING;
 
 func _physics_process(delta: float) -> void:
 	match state:

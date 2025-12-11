@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwb4fbjlm6jac"]
+[gd_scene load_steps=9 format=3 uid="uid://cwb4fbjlm6jac"]
 
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="1_3vvmj"]
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_8nqhk"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_e37jp"]
 [ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="4_2c1mk"]
+[ext_resource type="PackedScene" uid="uid://tspnrtdlp6wb" path="res://courses/course_segments/jumping_trigger.tscn" id="5_k652w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2c1mk"]
 friction = 0.0
@@ -70,6 +71,9 @@ position = Vector2(164, 0)
 [node name="SkateboardTrigger2" parent="." index="10" instance=ExtResource("4_2c1mk")]
 position = Vector2(583, 0)
 skateboard = false
+
+[node name="JumpTrigger" parent="." index="12" instance=ExtResource("5_k652w")]
+position = Vector2(668, 4)
 
 [editable path="Ramp"]
 [editable path="Polygon"]
