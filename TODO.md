@@ -1,3 +1,6 @@
+# Current Priorities
+- Getting races done (get one course fully functional by Sunday)
+# List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen
