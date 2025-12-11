@@ -51,3 +51,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlane"]
 shape = SubResource("WorldBoundaryShape2D_oiww5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
