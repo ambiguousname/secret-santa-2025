@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://r0v8kkcl0rmn"]
 
-[ext_resource type="Script" uid="uid://bsgg3cxj07swb" path="res://courses/course_segments/ramp.gd" id="1_d5g4k"]
+[ext_resource type="Script" uid="uid://cktce6746wtxg" path="res://courses/course_segments/polygon.gd" id="1_d5g4k"]
 
 [node name="Polygon" type="StaticBody2D"]
 script = ExtResource("1_d5g4k")
-color = Color(0, 0, 0, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 43, 0, 43, 52, 149, 122, 192, 122, 193, 500, -85, 499, -98, 3)
