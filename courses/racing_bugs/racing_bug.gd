@@ -71,7 +71,8 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 				return;
 		State.JUMPING:
 			if st.get_contact_count() > 0:
-				self.linear_velocity += Vector2(1, -1) * 25 * pow(stats.jumping.level + 1, 2) * st.step;
+				self.linear_velocity += Vector2(0, -10000) * st.step;
+				self.linear_velocity += Vector2(1, -1) * 5 * pow(stats.jumping.level + 1, 2) * st.step;
 				state = State.FALLING;
 
 func _physics_process(delta: float) -> void:

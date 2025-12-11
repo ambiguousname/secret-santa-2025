@@ -26,6 +26,7 @@ func _ready() -> void:
 				var tmp = Stats.new();
 				#tmp.running.level = 100;
 				#tmp.skateboarding.level = 10;
+				#tmp.jumping.level = 100;
 				start_race(tmp);
 
 var racing_bug = preload("uid://bylxu2i2xmwp1");
