@@ -51,3 +51,4 @@ Extras:
 - [ ] Graveyard of past bugs
 - [ ] Cosmetics
 - [ ] Configure server port with .ini (allow changing in settings)
+- [ ] Mood text
