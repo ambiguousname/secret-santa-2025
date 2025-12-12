@@ -16,7 +16,9 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
-	ui.set_day(7 - save.adv_info.day);
+	set_day(save.adv_info.day);
+	
+	check_win();
 	
 	save.adv_info.mark_dirty.connect(func():
 		var end_adventure = false;
@@ -26,7 +28,7 @@ func _ready() -> void:
 		if save.adv_info.day_progress_time <= 0:
 			save.adv_info.day += 1;
 			end_adventure = true;
-			ui.advance_day(7 - save.adv_info.day);
+			set_day(save.adv_info.day, true);
 			# Reset progress for the next time:
 			save.adv_info.day_progress_time = 100;
 		
@@ -95,6 +97,8 @@ func _ready() -> void:
 			# window.mouse_passthrough = false;
 		);
 	);
+	
+	ui.race.pressed.connect(start_race);
 
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";
@@ -110,3 +114,51 @@ func _tcp_update(status : TCPClient.Status):
 		_:
 			text = "Undefined state.";
 	ui.update_tcp_status(text);
+
+func set_day(day_progress : int, advance: bool = false):
+	if day_progress == 7:
+		ui.start_race_day();
+		return;
+	ui.set_day(7 - day_progress, advance);
+
+func start_race():
+	var race_scene : PackedScene = null;
+	match save.adv_info.week:
+		0:
+			race_scene = preload("uid://cwb4fbjlm6jac");
+	if race_scene == null:
+		printerr("Could not get race for week %d" % save.adv_info.week);
+		return;
+	
+	bug.jump(func():
+		bug.visible = false;
+		ui.fade_ui(false, 1.2, func(): 
+			ui.visible = false;
+			camera.enabled = false;
+			var race : Course = race_scene.instantiate();
+			race.modulate = Color(0, 0, 0, 0);
+			var t = race.create_tween();
+			t.tween_property(race, "modulate", Color(1, 1, 1, 1), 0.5).from(Color(1, 1, 1, 0));
+			t.tween_callback(func():
+				race.start_race(save.stats);
+			);
+			add_child(race);
+		);
+		var window = get_window();
+		var size = DisplayServer.screen_get_size(window.current_screen);
+		var tween = create_tween();
+		tween.tween_property(window, "position", Vector2i(size.x/4, window.position.y), 0.5);
+		#tween.parallel();
+		tween.tween_property(window, "size", Vector2i(size.x/2, 500), 0.5);
+	);
+	
+
+func finish_race():
+	save.adv_info.week += 1;
+	check_win();
+	save.write_save();
+
+func check_win():
+	# TODO: Expand.
+	if save.adv_info.week == 1:
+		ui.win();

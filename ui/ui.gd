@@ -66,12 +66,19 @@ func fade_ui(vis : bool, duration : float, callback: Callable):
 	);
 
 @onready var day_label : Label = $FullInfo/Day/Label;
-func advance_day(day : int):
-	set_day(day);
-
-func set_day(day : int):
+func set_day(day : int, advance: bool):
 	day_label.text = "RACE IN\n%d DAYS" % day;
+
+func start_race_day():
+	day_label.text = "RACE TODAY";
+	adventure.visible = false;
+	race.visible = true;
 
 @onready var energy : ProgressBar = %Energy;
 func set_energy(e : float):
 	energy.value = e;
+
+func win():
+	adventure.visible = false;
+	race.visible = false;
+	# TODO: Expand, retirement?

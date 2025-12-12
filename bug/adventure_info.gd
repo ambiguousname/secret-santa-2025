@@ -11,17 +11,21 @@ signal mark_dirty();
 
 var day_progress_time : float = 100.0;
 var day : int = 0;
+var week : int = 0;
 
 func from_dict(d : Dictionary):
 	if "day_progress_time" in d:
 		day_progress_time = d["day_progress_time"];
 	if "day" in d:
 		day = d["day"];
+	if "week" in d:
+		week = d["week"];
 
 func to_dict() -> Dictionary:
 	return {
 		"day_progress_time": day_progress_time,
 		"day": day,
+		"week": week,
 	};
 
 var mark_dirty_timer : float = 0.0;
