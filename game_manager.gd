@@ -16,6 +16,7 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
+	ui.set_day(7 - save.adv_info.day);
 	
 	save.adv_info.mark_dirty.connect(func():
 		var end_adventure = false;
