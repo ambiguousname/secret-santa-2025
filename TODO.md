@@ -8,7 +8,7 @@
 		- [ ] Autostart adventure loop on Hollow Knight start
 	- [ ] Skilling up
 	- [ ] Getting items
-	- [ ] Exiting on depletion of energy
+	- [X] Exiting on depletion of energy
 - [ ] Functional UI
 	- [ ] Stats
 		- Thinking roughly 4, to keep it simple.
