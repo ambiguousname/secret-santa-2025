@@ -65,16 +65,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -89.0
+offset_left = -92.0
 offset_top = 100.0
-offset_right = 89.0
+offset_right = 92.0
 offset_bottom = 131.0
 grow_horizontal = 2
 theme_override_colors/font_uneditable_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_styles/read_only = SubResource("StyleBoxFlat_272bh")
 text = "Mozzarella Squeem"
 alignment = 1
+max_length = 24
 editable = false
+expand_to_text_length = true
 
 [node name="TCPStatus" type="Label" parent="UI"]
 visible = false

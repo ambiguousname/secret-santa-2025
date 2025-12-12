@@ -16,7 +16,14 @@ func update_tcp_status(text : String):
 signal setup_ended(b_name : String);
 
 func setup_bug():
-	#const NAMES : Array[String] = ["Mozzarella "];
+	const NAMES : Array[String] = ["Mozzarella", "Quibble", "Cloof", "Blast", "Cloak", "Palt",
+	"Grub", "Emboss", "Phobos", "Bud", "Trinity", "Gouda", "Margherita", "Wensleydale", "Young", "Old"];
+	const SURNAMES : Array[String] = ["Sera", "Squeem", "Chew", "Gready", "Yon",
+	"Undefeated", "Pizza", "Fizzle", "Chosen", "Untold", "Buggy", "Goat", "Blue", "Grognard"];
+	if randi() % 100 >= 80:
+		bug_name.text = NAMES[randi() % NAMES.size()];
+	else:
+		bug_name.text = "%s %s" % [NAMES[randi() % NAMES.size()], SURNAMES[randi() % SURNAMES.size()]];
 	bug_name.editable = true;
 	
 	full_info.visible = false;
