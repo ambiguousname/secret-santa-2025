@@ -37,7 +37,7 @@ func _ready() -> void:
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
 			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), bug.begin_adventure);
-			window.mouse_passthrough = true;
+			# window.mouse_passthrough = true;
 		);
 		
 		window.set_flag(Window.FLAG_ALWAYS_ON_TOP, true);
@@ -67,7 +67,7 @@ func _ready() -> void:
 			);
 			window.set_flag(Window.FLAG_ALWAYS_ON_TOP, false);
 			window.set_flag(Window.FLAG_BORDERLESS, false);
-			window.mouse_passthrough = false;
+			# window.mouse_passthrough = false;
 		);
 	);
 
