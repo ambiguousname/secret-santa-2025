@@ -32,11 +32,12 @@ func _ready() -> void:
 			window.size = Vector2i(size.x - 100, 250);
 			_stats_window_pos = window.position;
 			window.position = Vector2i(50, size.y - 250);
-			bug.extents = Rect2i(window.position, window.size);
 			
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
-			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), bug.begin_adventure);
+			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), func():
+				bug.begin_adventure(Rect2i(window.position, window.size));
+			);
 			# window.mouse_passthrough = true;
 		);
 		

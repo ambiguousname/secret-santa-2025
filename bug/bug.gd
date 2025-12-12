@@ -8,7 +8,7 @@ signal adventure_ended();
 var _screen_size : Vector2i;
 var _adventuring : bool = false;
 
-var extents : Rect2i;
+var _extents : Rect2i;
 
 func _ready():
 	_initialize_adventure();
@@ -33,7 +33,8 @@ func land(delay : float, start : Vector2, pos : Vector2, callback : Callable):
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).from(Vector2(0.6, 1.5));
 	tween.tween_callback(callback).set_delay(0.01);
 
-func begin_adventure():
+func begin_adventure(extents : Rect2i):
+	_extents = extents;
 	_adventuring = true;
 	_screen_size = DisplayServer.screen_get_size(window.current_screen);
 
@@ -56,8 +57,8 @@ func _input(event: InputEvent) -> void:
 		return;
 	if event is InputEventMouseMotion:
 		var pos = event.position;
-		pos.x -= extents.size.x/2.0;
-		pos.y -= extents.size.y/2.0;
+		pos.x -= _extents.size.x/2.0;
+		pos.y -= _extents.size.y/2.0;
 		_end_adventure.visible = self.get_rect().has_point(to_local(pos));
 		# window.mouse_passthrough = !_end_adventure.visible;
 
@@ -71,7 +72,7 @@ func _process(delta: float) -> void:
 		var passthrough_polygon = PackedVector2Array();
 		
 		var rect = get_rect();
-		rect.position += extents.size/2.0 + self.global_position;
+		rect.position += _extents.size/2.0 + self.global_position;
 		const MARGIN : float = 10.0;
 		
 		passthrough_polygon.push_back(rect.position + Vector2(-MARGIN, -MARGIN));
@@ -83,9 +84,9 @@ func _process(delta: float) -> void:
 		_adventure_delta_update += delta;
 		
 		_adventure_dir = _adventure_noise.get_noise_1d(Time.get_ticks_msec()/500.0);
-		if self.position.x + extents.size.x/2.0 > extents.end.x - 250 && _adventure_dir > 0:
+		if self.position.x + _extents.size.x/2.0 > _extents.end.x - 250 && _adventure_dir > 0:
 			_adventure_dir = 0;
-		elif self.position.x + extents.size.x/2.0 < extents.position.x + 250 && _adventure_dir < 0:
+		elif self.position.x + _extents.size.x/2.0 < _extents.position.x + 250 && _adventure_dir < 0:
 			_adventure_dir = 0;
 		
 		self.position.x += _adventure_dir;
