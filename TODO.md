@@ -1,5 +1,5 @@
 # Current Priorities
-- Getting races done (get one course fully functional by Sunday)
+- MVP (minus item usage and TCP communication, ready by Sunday). For playtesting.
 # List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
