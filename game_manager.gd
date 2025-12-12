@@ -18,8 +18,18 @@ func _ready() -> void:
 	ui.set_energy(save.stats.energy);
 	
 	save.adv_info.mark_dirty.connect(func():
+		var end_adventure = false;
 		if save.stats.energy <= 0:
 			save.stats.energy = 0;
+			end_adventure = true;
+		if save.adv_info.day_progress_time <= 0:
+			save.adv_info.day += 1;
+			end_adventure = true;
+			ui.advance_day(7 - save.adv_info.day);
+			# Reset progress for the next time:
+			save.adv_info.day_progress_time = 100;
+		
+		if end_adventure:
 			bug.end_adventure();
 		save.write_save();
 	);

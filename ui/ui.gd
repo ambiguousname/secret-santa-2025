@@ -65,6 +65,13 @@ func fade_ui(vis : bool, duration : float, callback: Callable):
 			callback.call();
 	);
 
+@onready var day_label : Label = $FullInfo/Day/Label;
+func advance_day(day : int):
+	set_day(day);
+
+func set_day(day : int):
+	day_label.text = "DAYS LEFT\n%d" % day;
+
 @onready var energy : ProgressBar = %Energy;
 func set_energy(e : float):
 	energy.value = e;
