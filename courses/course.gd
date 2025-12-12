@@ -7,14 +7,30 @@ class_name Course extends Node2D
 
 @onready var end_timer : Timer = $Timer;
 
+signal race_end(player_win : bool);
+
+var winner : bool = false;
+
 func _ready() -> void:
-	end_timer.timeout.connect(end_race);
+	end_timer.timeout.connect(func():
+		end_race(false);
+	);
 	kill.body_entered.connect(func(b : PhysicsBody2D):
 		if b is RacingBug:
 			racing_bugs.remove_at(racing_bugs.find(b));
+			if b.player:
+				end_race(false);
 			b.queue_free();
 		# TODO: Failure code
 	);
+	
+	finish.body_entered.connect(func(b : PhysicsBody2D):
+		if b is RacingBug:
+			if b.player && !winner:
+				end_race(true);
+			winner = true;
+	);
+	
 	if OS.is_debug_build():
 		var args = OS.get_cmdline_args();
 		
@@ -35,6 +51,7 @@ var racing_bugs : Array[RacingBug] = [];
 func start_race(player_bug_stats : Stats):
 	racing_bugs.clear();
 	var bug : RacingBug = add_racer(player_bug_stats);
+	bug.player = true;
 	camera.follow_target = bug;
 	
 	for i in range(3):
@@ -49,9 +66,8 @@ func add_racer(stats : Stats) -> RacingBug:
 	racer_start.add_child(bug);
 	return bug;
 
-func end_race():
-	print("RACE ENDED");
-	cleanup_race();
+func end_race(player_win : bool):
+	race_end.emit(player_win);
 
 func cleanup_race():
 	for b in racing_bugs:

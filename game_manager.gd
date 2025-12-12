@@ -136,6 +136,15 @@ func start_race():
 			ui.visible = false;
 			camera.enabled = false;
 			var race : Course = race_scene.instantiate();
+			race.race_end.connect(func(won : bool):
+				var end_t = race.create_tween();
+				end_t.tween_property(race, "modulate", Color(1, 1, 1, 0), 0.5);
+				end_t.tween_callback(func():
+					race.queue_free();
+					finish_race();
+				);
+			);
+			
 			race.modulate = Color(0, 0, 0, 0);
 			var t = race.create_tween();
 			t.tween_property(race, "modulate", Color(1, 1, 1, 1), 0.5).from(Color(1, 1, 1, 0));
@@ -145,6 +154,8 @@ func start_race():
 			add_child(race);
 		);
 		var window = get_window();
+		_stats_window_pos = window.position;
+		
 		var size = DisplayServer.screen_get_size(window.current_screen);
 		var tween = create_tween();
 		tween.tween_property(window, "position", Vector2i(size.x/4, window.position.y), 0.5);
@@ -155,10 +166,27 @@ func start_race():
 
 func finish_race():
 	save.adv_info.week += 1;
+	save.adv_info.day = 0;
 	check_win();
+	
+	
+	var window = get_window();
+	
+	var tween = create_tween();
+	tween.tween_property(window, "size", Vector2i(500, 500), 0.5);
+	tween.tween_property(window, "position", _stats_window_pos, 0.5);
+	#tween.parallel();
+	tween.tween_callback(func():
+		camera.enabled = true;
+		ui.fade_ui(true, 1.0, func():
+			bug.visible = true;
+			bug.land(0.0, Vector2(250, -250), Vector2(250, 250), Callable());
+		);
+	);
+	
 	save.write_save();
 
 func check_win():
 	# TODO: Expand.
-	if save.adv_info.week == 1:
+	if save.adv_info.week == 2:
 		ui.win();

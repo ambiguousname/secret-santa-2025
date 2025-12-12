@@ -3,6 +3,7 @@ class_name RacingBug extends RigidBody2D
 @onready var skateboard : Sprite2D = $Skateboard;
 
 var stats : Stats = Stats.new();
+var player : bool = false;
 
 enum State {
 	RUNNING,
