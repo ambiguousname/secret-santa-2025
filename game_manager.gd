@@ -9,13 +9,17 @@ var _stats_window_pos : Vector2i = Vector2i.ZERO;
 var save : Save = Save.new();
 
 func _ready() -> void:
-	if !FileAccess.file_exists(save.SAVE_FILE):
-		ui.setup_bug();
 	ui.setup_ended.connect(func(n : String):
 		save.stats.name = n;
 		save.write_save();
 	);
 	save.load_save();
+	
+	if !FileAccess.file_exists(save.SAVE_FILE):
+		ui.setup_bug();
+	else:
+		ui.bug_name.text = save.stats.name;
+	
 	tcp_client.status_updated.connect(_tcp_update);
 	tcp_client.connect_to_host();
 	
