@@ -13,6 +13,9 @@
 	- [ ] Stats
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
+	- [X] Day Progression
+		- [ ] Visible day counting down
+		- [ ] Racing day
 	- [ ] Using Items
 	- [X] Naming bugs
 	- [ ] Settings
