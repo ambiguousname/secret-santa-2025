@@ -12,7 +12,7 @@
 - [ ] Functional UI
 	- [ ] Stats
 		- Thinking roughly 4, to keep it simple.
-	- [ ] Energy
+	- [X] Energy
 	- [ ] Using Items
 	- [X] Naming bugs
 	- [ ] Settings
