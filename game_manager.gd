@@ -72,6 +72,7 @@ func _ready() -> void:
 		
 		bug.jump(func():
 			var window = get_window();
+			window.mouse_passthrough_polygon = [];
 			window.size = Vector2i(500, 500);
 			camera.offset = Vector2i(250, 250);
 			window.position = _stats_window_pos;
