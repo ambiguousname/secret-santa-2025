@@ -14,7 +14,7 @@
 		- Thinking roughly 4, to keep it simple.
 	- [ ] Energy
 	- [ ] Using Items
-	- [ ] Naming bugs
+	- [X] Naming bugs
 	- [ ] Settings
 		- [ ] Connecting to Hollow Knight
 			- [X] Bundling DLLs with files
