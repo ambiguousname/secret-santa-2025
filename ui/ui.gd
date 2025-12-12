@@ -70,7 +70,7 @@ func advance_day(day : int):
 	set_day(day);
 
 func set_day(day : int):
-	day_label.text = "DAYS LEFT\n%d" % day;
+	day_label.text = "RACE IN\n%d DAYS" % day;
 
 @onready var energy : ProgressBar = %Energy;
 func set_energy(e : float):
