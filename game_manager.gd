@@ -52,7 +52,7 @@ func _ready() -> void:
 			
 			ui.fade_ui(true, 1.0, func():
 				bug.land(0.1, Vector2(250, -250), Vector2(250, 250), Callable());
-				if bug.stats.energy > 0:
+				if save.stats.energy > 0:
 					ui.adventure.disabled = false;
 			);
 			window.set_flag(Window.FLAG_ALWAYS_ON_TOP, false);
