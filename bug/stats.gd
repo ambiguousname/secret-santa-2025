@@ -17,26 +17,16 @@ var climbing : Stat = Stat.new();
 var jumping : Stat = Stat.new();
 var skateboarding : Stat = Stat.new();
 
-const BUG_FILE : String = "user://bug.json";
-static func load_st() -> Stats:
-	if FileAccess.file_exists(BUG_FILE):
-		var f = FileAccess.open(BUG_FILE, FileAccess.READ);
-		var bug_save = JSON.parse_string(f.get_as_text());
-		var this = Stats.new();
-		if bug_save is Dictionary:
-			this.running.from_dict(bug_save["running"]);
-			this.climbing.from_dict(bug_save["climbing"]);
-			this.jumping.from_dict(bug_save["jumping"]);
-			this.skateboarding.from_dict(bug_save["skateboarding"]);
-		else:
-			printerr("Could not read user settings.");
-		f.close();
-		return this;
-	else:
-		return Stats.new();
-func save():
+func from_dict(dict : Dictionary):
+	self.running.from_dict(dict["running"]);
+	self.climbing.from_dict(dict["climbing"]);
+	self.jumping.from_dict(dict["jumping"]);
+	self.skateboarding.from_dict(dict["skateboarding"]);
+
+func to_dict() -> Dictionary:
 	var out = {};
 	out["running"] = self.running.to_dict();
 	out["climbing"] = self.climbing.to_dict();
 	out["jumping"] = self.jumping.to_dict();
 	out["skateboarding"] = self.skateboarding.to_dict();
+	return out;

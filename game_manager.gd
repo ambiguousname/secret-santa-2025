@@ -6,7 +6,10 @@ extends Node2D
 @onready var camera : Camera2D = $Camera2D; 
 
 var _stats_window_pos : Vector2i = Vector2i.ZERO;
+var save : Save = Save.new();
+
 func _ready() -> void:
+	save.load_save();
 	tcp_client.status_updated.connect(_tcp_update);
 	tcp_client.connect_to_host();
 	

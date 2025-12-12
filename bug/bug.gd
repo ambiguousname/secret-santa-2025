@@ -10,10 +10,7 @@ var _adventuring : bool = false;
 
 var extents : Rect2i;
 
-var stats : Stats;
-
 func _ready():
-	stats = Stats.load_st();
 	_initialize_adventure();
 	_end_adventure.pressed.connect(end_adventure);
 
