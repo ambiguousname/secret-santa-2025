@@ -14,10 +14,11 @@
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
 	- [X] Day Progression
-		- [ ] Visible day counting down
+		- [ ] Visible day counting down transition
 		- [ ] Racing day
 	- [ ] Using Items
 	- [X] Naming bugs
+	- [ ] Winning
 	- [ ] Settings
 		- [ ] Connecting to Hollow Knight
 			- [X] Bundling DLLs with files

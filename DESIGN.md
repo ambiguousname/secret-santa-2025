@@ -14,6 +14,7 @@ subgraph Adventure_Loop [Adventure Loop]
 	ENERGY --> ITEMS(["Get items, e.g., food"])
 	ENERGY --> SKILL(["Upgrade stats"])
 	ENERGY -->|Should deplete in 30 mins or so| NO_ENERGY(["Energy depleted."])
+	NO_ENERGY -->|No Items| NEXT_DAY(["Start next day with full energy."])
 
 	ITEMS --> LOSE_ENERGY(["Lose Energy."])
 	SKILL --> LOSE_ENERGY
@@ -23,7 +24,7 @@ end
 Adventure_Loop --> INPUT
 
 IDLE(["Adventure Idly"]) -->|Less efficient| Adventure_Loop
-PLAY(["Play Hollow Knight"]) ==>|Tied into in-game events (e.g., taking damage improves your energy?)| Adventure_Loop
+PLAY(["Play Hollow Knight"]) ==>|Tied into in-game events e.g., taking damage improves your energy?| Adventure_Loop
 
 EVENT(["Join event"]) -->|If stats meet threshhold| Win
 EVENT -->|Otherwise| Lose
@@ -63,3 +64,9 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 	- Determines how fast the bug will go down the half-pipe (while hopping on the skateboard)
 	- Like jumping, dismounting on the half-pipe will create a jump arc (?)
 	- Trigger to auto-equip skateboard (regardless of y-pos)
+
+## Items
+- Each should offer three choices:
+	1. Upgrade Skill 1 for Y amount
+	2. Upgrade Skill 2 for Y amount
+	3. Replenish X energy
