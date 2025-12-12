@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=12 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0, 0, 0, 0.45490196)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h2yge"]
 
@@ -67,8 +70,11 @@ offset_top = 100.0
 offset_right = 89.0
 offset_bottom = 131.0
 grow_horizontal = 2
+theme_override_colors/font_uneditable_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_styles/read_only = SubResource("StyleBoxFlat_272bh")
 text = "Mozzarella Squeem"
 alignment = 1
+editable = false
 
 [node name="TCPStatus" type="Label" parent="UI"]
 visible = false
@@ -99,23 +105,52 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -156.0
-offset_top = -163.0
+offset_top = -161.0
 offset_right = 156.0
-offset_bottom = -11.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
 [node name="Adventure" type="Button" parent="UI/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Adventure!"
 
 [node name="Race" type="Button" parent="UI/Buttons"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Start Race"
 
-[node name="Stats" type="Control" parent="UI"]
+[node name="Submit" type="Button" parent="UI/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Submit Name"
+
+[node name="FullInfo" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Day" type="PanelContainer" parent="UI/FullInfo"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 107.0
+offset_bottom = 107.0
+
+[node name="Label" type="Label" parent="UI/FullInfo/Day"]
+layout_mode = 2
+text = "DAYS LEFT
+3"
+horizontal_alignment = 1
+
+[node name="Stats" type="Control" parent="UI/FullInfo"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +159,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Energy" type="ProgressBar" parent="UI/Stats"]
+[node name="Energy" type="ProgressBar" parent="UI/FullInfo/Stats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,7 +177,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_lquwl")
 value = 100.0
 show_percentage = false
 
-[node name="LeftStats" type="VBoxContainer" parent="UI/Stats"]
+[node name="LeftStats" type="VBoxContainer" parent="UI/FullInfo/Stats"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -153,39 +188,39 @@ offset_right = 140.0
 offset_bottom = 75.0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/Stats/LeftStats"]
+[node name="Label" type="Label" parent="UI/FullInfo/Stats/LeftStats"]
 layout_mode = 2
 text = "Running"
 horizontal_alignment = 1
 
-[node name="StatWheel" parent="UI/Stats/LeftStats" instance=ExtResource("3_7mycd")]
+[node name="StatWheel" parent="UI/FullInfo/Stats/LeftStats" instance=ExtResource("3_7mycd")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stat" parent="UI/Stats/LeftStats/StatWheel" index="0"]
+[node name="Stat" parent="UI/FullInfo/Stats/LeftStats/StatWheel" index="0"]
 amount = 0.0
 radial_color = Color(0.35217595, 0.6294075, 1, 1)
 
-[node name="Label" parent="UI/Stats/LeftStats/StatWheel/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/LeftStats/StatWheel/Stat" index="0"]
 text = "1"
 
-[node name="Label2" type="Label" parent="UI/Stats/LeftStats"]
+[node name="Label2" type="Label" parent="UI/FullInfo/Stats/LeftStats"]
 layout_mode = 2
 text = "Skateboarding"
 horizontal_alignment = 1
 
-[node name="StatWheel2" parent="UI/Stats/LeftStats" instance=ExtResource("3_7mycd")]
+[node name="StatWheel2" parent="UI/FullInfo/Stats/LeftStats" instance=ExtResource("3_7mycd")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stat" parent="UI/Stats/LeftStats/StatWheel2" index="0"]
+[node name="Stat" parent="UI/FullInfo/Stats/LeftStats/StatWheel2" index="0"]
 amount = 0.0
 radial_color = Color(0, 0.75134885, 0.2976716, 1)
 
-[node name="Label" parent="UI/Stats/LeftStats/StatWheel2/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/LeftStats/StatWheel2/Stat" index="0"]
 text = "1"
 
-[node name="RightStats" type="VBoxContainer" parent="UI/Stats"]
+[node name="RightStats" type="VBoxContainer" parent="UI/FullInfo/Stats"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -199,55 +234,42 @@ offset_bottom = 75.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/Stats/RightStats"]
+[node name="Label" type="Label" parent="UI/FullInfo/Stats/RightStats"]
 layout_mode = 2
 text = "Climbing"
 horizontal_alignment = 1
 
-[node name="StatWheel3" parent="UI/Stats/RightStats" instance=ExtResource("3_7mycd")]
+[node name="StatWheel3" parent="UI/FullInfo/Stats/RightStats" instance=ExtResource("3_7mycd")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stat" parent="UI/Stats/RightStats/StatWheel3" index="0"]
+[node name="Stat" parent="UI/FullInfo/Stats/RightStats/StatWheel3" index="0"]
 amount = 0.0
 radial_color = Color(0.9999997, 0.2668397, 0.8245027, 1)
 
-[node name="Label" parent="UI/Stats/RightStats/StatWheel3/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/RightStats/StatWheel3/Stat" index="0"]
 text = "1"
 
-[node name="Label2" type="Label" parent="UI/Stats/RightStats"]
+[node name="Label2" type="Label" parent="UI/FullInfo/Stats/RightStats"]
 layout_mode = 2
 text = "Jumping"
 horizontal_alignment = 1
 
-[node name="StatWheel4" parent="UI/Stats/RightStats" instance=ExtResource("3_7mycd")]
+[node name="StatWheel4" parent="UI/FullInfo/Stats/RightStats" instance=ExtResource("3_7mycd")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stat" parent="UI/Stats/RightStats/StatWheel4" index="0"]
+[node name="Stat" parent="UI/FullInfo/Stats/RightStats/StatWheel4" index="0"]
 amount = 0.0
 radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
-[node name="Label" parent="UI/Stats/RightStats/StatWheel4/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/RightStats/StatWheel4/Stat" index="0"]
 text = "1"
-
-[node name="Day" type="PanelContainer" parent="UI"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 107.0
-offset_bottom = 107.0
-
-[node name="Label" type="Label" parent="UI/Day"]
-layout_mode = 2
-text = "DAYS LEFT
-3"
-horizontal_alignment = 1
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
 
-[editable path="UI/Stats/LeftStats/StatWheel"]
-[editable path="UI/Stats/LeftStats/StatWheel2"]
-[editable path="UI/Stats/RightStats/StatWheel3"]
-[editable path="UI/Stats/RightStats/StatWheel4"]
+[editable path="UI/FullInfo/Stats/LeftStats/StatWheel"]
+[editable path="UI/FullInfo/Stats/LeftStats/StatWheel2"]
+[editable path="UI/FullInfo/Stats/RightStats/StatWheel3"]
+[editable path="UI/FullInfo/Stats/RightStats/StatWheel4"]

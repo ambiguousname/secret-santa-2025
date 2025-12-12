@@ -5,8 +5,41 @@ class_name UI extends Control
 func update_tcp_status(text : String):
 	tcp_status.text = text;
 
-@onready var adventure : Button = $Buttons/Adventure;
-@onready var race : Button = $Buttons/Race;
+@onready var adventure : Button = %Adventure;
+@onready var race : Button = %Race;
+@onready var submit_name : Button = %Submit;
+
+@onready var full_info : Control = $FullInfo;
+
+@onready var bug_name : LineEdit = $"Bug Name";
+
+signal setup_ended(b_name : String);
+
+func setup_bug():
+	#const NAMES : Array[String] = ["Mozzarella "];
+	bug_name.editable = true;
+	
+	full_info.visible = false;
+	submit_name.visible = true;
+	bug_name.text_submitted.connect(end_setup, CONNECT_ONE_SHOT);
+	submit_name.pressed.connect(func():
+		end_setup(bug_name.text);
+	);
+	adventure.visible = false;
+
+func end_setup(n : String):
+	bug_name.editable = false;
+	
+	bug_name.text_submitted.disconnect(end_setup);
+	full_info.visible = true;
+	adventure.visible = true;
+	submit_name.visible = false;
+	
+	var tween = create_tween();
+	tween.tween_property(adventure, "modulate", Color(1, 1, 1, 1), 0.5).from(Color(1, 1, 1, 0));
+	tween.parallel();
+	tween.tween_property(full_info, "modulate", Color(1, 1, 1, 1), 0.5).from(Color(1, 1, 1, 0));
+	setup_ended.emit(n);
 
 func fade_ui(vis : bool, duration : float, callback: Callable):
 	var tween = create_tween();
