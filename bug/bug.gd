@@ -63,7 +63,7 @@ func _input(event: InputEvent) -> void:
 
 func _notification(what: int) -> void:
 	match what:
-		MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+		MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_MOUSE_EXIT:
 			_end_adventure.visible = false;
 
 func _process(delta: float) -> void:
