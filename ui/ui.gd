@@ -64,3 +64,7 @@ func fade_ui(vis : bool, duration : float, callback: Callable):
 		if !callback.is_null():
 			callback.call();
 	);
+
+@onready var energy : ProgressBar = %Energy;
+func set_energy(e : float):
+	energy.value = e;

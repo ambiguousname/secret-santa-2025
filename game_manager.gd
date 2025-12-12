@@ -13,7 +13,16 @@ func _ready() -> void:
 		save.stats.name = n;
 		save.write_save();
 	);
+	
 	save.load_save();
+	ui.set_energy(save.stats.energy);
+	
+	save.adv_info.mark_dirty.connect(func():
+		if save.stats.energy <= 0:
+			save.stats.energy = 0;
+			bug.end_adventure();
+		save.write_save();
+	);
 	
 	if !FileAccess.file_exists(save.SAVE_FILE):
 		ui.setup_bug();
@@ -36,7 +45,7 @@ func _ready() -> void:
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
 			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), func():
-				bug.begin_adventure(Rect2i(window.position, window.size));
+				bug.begin_adventure(Rect2i(window.position, window.size), save.adv_info);
 			);
 			# window.mouse_passthrough = true;
 		);
@@ -55,6 +64,9 @@ func _ready() -> void:
 		#tween.finished.connect(bug.begin_adventure);
 	);
 	bug.adventure_ended.connect(func():
+		# Write any outstanding data:
+		save.write_save();
+		
 		bug.jump(func():
 			var window = get_window();
 			window.size = Vector2i(500, 500);
@@ -66,6 +78,7 @@ func _ready() -> void:
 				if save.stats.energy > 0:
 					ui.adventure.disabled = false;
 			);
+			ui.set_energy(save.stats.energy);
 			window.set_flag(Window.FLAG_ALWAYS_ON_TOP, false);
 			window.set_flag(Window.FLAG_BORDERLESS, false);
 			# window.mouse_passthrough = false;

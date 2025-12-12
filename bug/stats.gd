@@ -24,6 +24,7 @@ func from_dict(dict : Dictionary):
 	self.climbing.from_dict(dict["climbing"]);
 	self.jumping.from_dict(dict["jumping"]);
 	self.skateboarding.from_dict(dict["skateboarding"]);
+	self.energy = dict["energy"];
 	self.name = dict["name"];
 
 func to_dict() -> Dictionary:
@@ -33,4 +34,5 @@ func to_dict() -> Dictionary:
 	out["jumping"] = self.jumping.to_dict();
 	out["skateboarding"] = self.skateboarding.to_dict();
 	out["name"] = self.name;
+	out["energy"] = self.energy;
 	return out;

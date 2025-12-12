@@ -9,6 +9,7 @@ var _screen_size : Vector2i;
 var _adventuring : bool = false;
 
 var _extents : Rect2i;
+var _adventure_info : AdventureInfo;
 
 func _ready():
 	_initialize_adventure();
@@ -33,8 +34,10 @@ func land(delay : float, start : Vector2, pos : Vector2, callback : Callable):
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).from(Vector2(0.6, 1.5));
 	tween.tween_callback(callback).set_delay(0.01);
 
-func begin_adventure(extents : Rect2i):
+func begin_adventure(extents : Rect2i, adventure_info : AdventureInfo):
 	_extents = extents;
+	_adventure_info = adventure_info;
+	
 	_adventuring = true;
 	_screen_size = DisplayServer.screen_get_size(window.current_screen);
 
@@ -69,6 +72,8 @@ func _notification(what: int) -> void:
 
 func _process(delta: float) -> void:
 	if _adventuring:
+		_adventure_info.adventure_update(delta);
+		
 		var passthrough_polygon = PackedVector2Array();
 		
 		var rect = get_rect();
