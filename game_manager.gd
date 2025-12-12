@@ -65,16 +65,6 @@ func _ready() -> void:
 		
 		window.set_flag(Window.FLAG_ALWAYS_ON_TOP, true);
 		window.set_flag(Window.FLAG_BORDERLESS, true);
-		
-		# TODO: Flashy effect to hide the bug, set the window to the width of the bottom of the screen,
-		# Then flashy effect for the bug to re-appear.
-		#var size :  Vector2i = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen());
-		#var tween = create_tween();
-		#tween.tween_method(DisplayServer.window_set_position, DisplayServer.window_get_position(), Vector2i(0, size.y - 500), 1.0);
-		#tween.tween_method(DisplayServer.window_set_size, Vector2i(500, 500), Vector2i(size.x - 100, 250), 1.0);
-		#tween.parallel();
-		#tween.tween_method(DisplayServer.window_set_position, Vector2i(0, size.y - 500), Vector2i(50, size.y - 250), 1.0);
-		#tween.finished.connect(bug.begin_adventure);
 	);
 	bug.adventure_ended.connect(func():
 		# Write any outstanding data:
@@ -137,6 +127,7 @@ func start_race():
 			camera.enabled = false;
 			var race : Course = race_scene.instantiate();
 			race.race_end.connect(func(won : bool):
+				# TODO: Show win, set ui to hide "Start Race" button.
 				var end_t = race.create_tween();
 				end_t.tween_property(race, "modulate", Color(1, 1, 1, 0), 0.5);
 				end_t.tween_callback(func():

@@ -28,9 +28,11 @@
 	- [X] Sample track
 	- [X] Stat effects
 	- [ ] End timer display on < 3 secs
-	- [ ] Kill conditions
-	- [ ] Transition to and from stats screen
-	- [ ] Window expanding to show race course
+		- Make end timer longer?
+	- [ ] Make lower-skilled skateboarding better
+	- [X] Kill conditions
+	- [X] Transition to and from stats screen
+	- [X] Window expanding to show race course
 		- Don't go above maximum window width
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
