@@ -89,7 +89,6 @@ func win():
 @onready var jumping : Radial = %Jumping/Stat;
 func set_stats(s : Stats):
 	running.amount = s.running.xp/s.running.to_level_up;
-	print(s.running.xp, " ", s.running.to_level_up);
 	running.get_node("Label").text = str(s.running.level);
 	
 	skateboarding.amount = s.skateboarding.xp/s.skateboarding.to_level_up;
