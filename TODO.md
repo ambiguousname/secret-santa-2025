@@ -14,7 +14,7 @@
 	- [ ] "Natures" (bug has priority of training some skills over others)
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
-	- [ ] Stats
+	- [X] Stats
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
 	- [X] Day Progression
@@ -62,3 +62,4 @@ Extras:
 - [ ] Cosmetics
 - [ ] Configure server port with .ini (allow changing in settings)
 - [ ] Mood text
+- [ ] Petting
