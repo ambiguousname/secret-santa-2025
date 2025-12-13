@@ -1,5 +1,8 @@
 # Current Priorities
-- MVP (minus item usage and TCP communication, ready by Sunday). For playtesting.
+- Loop playtesting.
+	- [ ] First course
+	- [ ] Get skateboarding working
+	- [ ] Skilling up
 # List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
@@ -15,7 +18,7 @@
 	- [X] Energy
 	- [X] Day Progression
 		- [ ] Visible day counting down transition
-		- [ ] Racing day
+		- [X] Racing day
 	- [ ] Using Items
 	- [X] Naming bugs
 	- [ ] Winning
