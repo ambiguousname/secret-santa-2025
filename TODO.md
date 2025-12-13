@@ -1,5 +1,5 @@
 # Current Priorities
-- Loop playtesting.
+- Loop playtesting (By Sunday)
 	- [ ] First course
 	- [ ] Get skateboarding working
 	- [ ] Skilling up
