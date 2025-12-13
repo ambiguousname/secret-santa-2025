@@ -1,5 +1,5 @@
 @tool
-extends Control
+class_name Radial extends Control
 
 @export var inner_width : float = 2.0:
 	set(v):

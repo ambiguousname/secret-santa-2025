@@ -1,16 +1,17 @@
 # Current Priorities
 - Loop playtesting (By Sunday)
-	- [ ] First course
+	- [ ] Can progress to first course 
 	- [ ] Get skateboarding working
-	- [ ] Skilling up
+	- [X] Skilling up
 # List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen
 	- [ ] Sending data from Hollow Knight to game
 		- [ ] Autostart adventure loop on Hollow Knight start
-	- [ ] Skilling up
+	- [X] Skilling up
 	- [ ] Getting items
+	- [ ] "Natures" (bug has priority of training some skills over others)
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
 	- [ ] Stats

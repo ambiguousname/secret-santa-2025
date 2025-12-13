@@ -30,13 +30,31 @@ func to_dict() -> Dictionary:
 
 var mark_dirty_timer : float = 0.0;
 
+var _focus_timer : float = 0.0;
+var _focus : int = randi() % 4;
+
 func adventure_update(delta: float):
 	# 100 energy/30 minutes = 3.3333333 energy per minute * 1/60 minute/seconds = 0.5555555 energy/second
 	var time_delta = 0.05555555 * delta;
 	_stats.energy -= time_delta;
 	day_progress_time -= time_delta;
 	
+	# Gain 1 XP every second:
+	match _focus:
+		0:
+			_stats.running.increase(delta);
+		1:
+			_stats.climbing.increase(delta);
+		2:
+			_stats.skateboarding.increase(delta);
+		3:
+			_stats.jumping.increase(delta);
+	
+	_focus_timer += delta;
 	mark_dirty_timer += delta;
 	if mark_dirty_timer > 5.0:
 		mark_dirty_timer = 0.0;
 		mark_dirty.emit();
+	if _focus_timer >= 60:
+		_focus_timer = 0;
+		_focus = randi() % 4;

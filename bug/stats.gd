@@ -10,6 +10,16 @@ class Stat:
 			"level": self.level,
 			"xp": self.xp
 		};
+	var to_level_up : float:
+		get():
+			return exp(self.level);
+		
+	func increase(amount : float):
+		self.xp += amount;
+		
+		if self.xp >= to_level_up:
+			self.level += 1;
+			self.xp = 0;
 
 var energy : float = 100.0;
 var running : Stat = Stat.new();

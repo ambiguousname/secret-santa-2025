@@ -82,3 +82,21 @@ func win():
 	adventure.visible = false;
 	race.visible = false;
 	# TODO: Expand, retirement?
+
+@onready var running : Radial = %Running/Stat;
+@onready var skateboarding : Radial = %Skateboarding/Stat;
+@onready var climbing : Radial = %Climbing/Stat;
+@onready var jumping : Radial = %Jumping/Stat;
+func set_stats(s : Stats):
+	running.amount = s.running.xp/s.running.to_level_up;
+	print(s.running.xp, " ", s.running.to_level_up);
+	running.get_node("Label").text = str(s.running.level);
+	
+	skateboarding.amount = s.skateboarding.xp/s.skateboarding.to_level_up;
+	skateboarding.get_node("Label").text = str(s.skateboarding.level);
+	
+	climbing.amount = s.climbing.xp/s.climbing.to_level_up;
+	climbing.get_node("Label").text = str(s.climbing.level);
+	
+	jumping.amount = s.jumping.xp/s.jumping.to_level_up;
+	jumping.get_node("Label").text = str(s.jumping.level);

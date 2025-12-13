@@ -17,6 +17,7 @@ func _ready() -> void:
 	save.load_save();
 	ui.set_energy(save.stats.energy);
 	set_day(save.adv_info.day);
+	ui.set_stats(save.stats);
 	
 	check_win();
 	
@@ -69,6 +70,8 @@ func _ready() -> void:
 	bug.adventure_ended.connect(func():
 		# Write any outstanding data:
 		save.write_save();
+		
+		ui.set_stats(save.stats);
 		
 		bug.jump(func():
 			var window = get_window();
