@@ -19,6 +19,7 @@
 	- [X] Day Progression
 		- [ ] Visible day counting down transition
 		- [X] Racing day
+		- [ ] Visible week transition
 	- [ ] Using Items
 	- [X] Naming bugs
 	- [ ] Winning
@@ -32,15 +33,14 @@
 	- [X] Stat effects
 	- [ ] End timer display on < 3 secs
 		- Make end timer longer?
-	- [ ] Make lower-skilled skateboarding better
 	- [X] Kill conditions
-	- [ ] Check kill plane
+	- [ ] Check kill plane/player killed condition
 	- [X] Transition to and from stats screen
 	- [X] Window expanding to show race course
 		- Don't go above maximum window width
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
-		- Skill level based on race #
+		- Randomized skill level based on race #
 - [ ] Art (ordered by priority)
 	- [ ] Bug idle
 	- [ ] Adventuring animations
