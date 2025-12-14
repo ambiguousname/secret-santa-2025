@@ -1,7 +1,7 @@
 # Current Priorities
 - Loop playtesting (By Sunday)
 	- [ ] Can progress to first course 
-	- [ ] Get skateboarding working
+	- [X] Get skateboarding working
 	- [X] Skilling up
 # List
 - [ ] Adventure Loop
