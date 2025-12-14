@@ -40,17 +40,19 @@
 		- Don't go above maximum window width
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
-- [ ] Art
-	- [ ] Skill Icons
-	- [ ] Racing animations
-		- [ ] One for each of the four sats?
+- [ ] Art (ordered by priority)
 	- [ ] Bug idle
 	- [ ] Adventuring animations
 		- [ ] Walking
 		- [ ] Slow walking (optional)
 		- [ ] Sitting (optional)
-	- [ ] Race course obstacles
 	- [ ] Skateboard
+	- [ ] Race course obstacles
+	- [ ] Racing animations
+		- Thanks to the physics, only walking would really make sense
+		- Although a rolling animation would be nice
+	- [ ] Hollow Buddy stats screen wrap (something like a tagamotchi display).
+	- [ ] Skill Icons
 - [ ] Sound effects
 	- [ ] Racing sounds (one for each sound)
 	- [ ] Item use sounds (probably one exclusive for eating)
