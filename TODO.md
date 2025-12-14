@@ -1,5 +1,4 @@
 # Current Priorities
-- [ ] Make climbing much slower on lower skills
 - [ ] Items
 - [ ] TCP Communication
 # List
@@ -39,6 +38,7 @@
 		- Don't go above maximum window width
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
+		- Skill level based on race #
 - [ ] Art (ordered by priority)
 	- [ ] Bug idle
 	- [ ] Adventuring animations

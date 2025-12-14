@@ -42,6 +42,7 @@ func _ready() -> void:
 				var tmp = Stats.new();
 				#tmp.running.level = 100;
 				#tmp.skateboarding.level = 10;
+				#tmp.climbing.level = 10;
 				#tmp.jumping.level = 25;
 				start_race(tmp);
 

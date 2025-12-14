@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
-	if save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+	if save.adv_info.day != 7 && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
 		new_day(save.adv_info.day + 1);
 	else:
 		set_day(save.adv_info.day);
