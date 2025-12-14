@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=13 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -16,6 +16,9 @@ bg_color = Color(0, 0, 0, 0.45490196)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
 noise = SubResource("FastNoiseLite_h2yge")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
 bg_color = Color(0, 0, 0, 0.4627451)
@@ -140,12 +143,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Items" type="PanelContainer" parent="UI/FullInfo"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/FullInfo/Items"]
+layout_mode = 2
+
+[node name="ItemsButton" type="Button" parent="UI/FullInfo"]
+layout_mode = 1
+offset_left = 114.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 85.0
+text = "Items"
+
 [node name="Day" type="PanelContainer" parent="UI/FullInfo"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 107.0
-offset_bottom = 107.0
+offset_right = 99.0
+offset_bottom = 85.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 
 [node name="Label" type="Label" parent="UI/FullInfo/Day"]
 layout_mode = 2
