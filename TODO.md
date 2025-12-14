@@ -1,6 +1,7 @@
 # Current Priorities
 - [ ] Items
 - [ ] TCP Communication
+(Both done by Tuesday)
 - [ ] Races 2-4 (Then victory)
 # List
 - [ ] Adventure Loop
@@ -21,7 +22,7 @@
 		- [X] Racing day
 		- [ ] Visible week transition
 	- [ ] Using Items
-			- [ ] New items notification dot
+    - [ ] New items notification dot
 	- [X] Naming bugs
 	- [ ] Winning
 	- [ ] Settings
