@@ -83,7 +83,8 @@ func _ready() -> void:
 			var window = get_window();
 			window.mouse_passthrough_polygon = [];
 			window.size = Vector2i(500, 500);
-			camera.offset = Vector2i(250, 250);
+			# Stupid hack:
+			camera.offset = Vector2i(250, 230);
 			window.position = _stats_window_pos;
 			
 			ui.fade_ui(true, 1.0, func():
