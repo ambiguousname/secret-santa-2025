@@ -1,8 +1,7 @@
 # Current Priorities
-- Loop playtesting (By Sunday)
-	- [X] Can progress to first course 
-	- [X] Get skateboarding working
-	- [X] Skilling up
+- [ ] Make climbing much slower on lower skills
+- [ ] Items
+- [ ] TCP Communication
 # List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
