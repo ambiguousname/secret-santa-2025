@@ -1,6 +1,7 @@
 # Current Priorities
 - [ ] Items
 - [ ] TCP Communication
+- [ ] Races 2-4 (Then victory)
 # List
 - [ ] Adventure Loop
 	- [X] UI/borders hiding on activate
