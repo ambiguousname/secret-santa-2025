@@ -116,14 +116,15 @@ func _tcp_update(status : TCPClient.Status):
 	ui.update_tcp_status(text);
 
 func new_day(day_progress : int):
+	save.adv_info.day = day_progress;
+	save.write_save();
+	
+	set_day(day_progress, true);
+	
 	if day_progress == 7:
-		ui.start_race_day();
 		return;
 	save.stats.energy += 20;
 	ui.set_energy(save.stats.energy);
-	save.adv_info.day = day_progress;
-	save.write_save();
-	set_day(day_progress, true);
 
 func set_day(day_progress : int, advance: bool = false):
 	if day_progress == 7:
