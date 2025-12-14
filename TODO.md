@@ -34,6 +34,7 @@
 		- Make end timer longer?
 	- [ ] Make lower-skilled skateboarding better
 	- [X] Kill conditions
+	- [ ] Check kill plane
 	- [X] Transition to and from stats screen
 	- [X] Window expanding to show race course
 		- Don't go above maximum window width

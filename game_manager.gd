@@ -153,7 +153,7 @@ func start_race():
 				end_t.tween_property(race, "modulate", Color(1, 1, 1, 0), 0.5);
 				end_t.tween_callback(func():
 					race.queue_free();
-					finish_race();
+					finish_race(won);
 				);
 			);
 			
@@ -176,11 +176,15 @@ func start_race():
 	);
 	
 
-func finish_race():
+func finish_race(winner : bool):
+	ui.end_race_day(winner);
+	
 	save.adv_info.week += 1;
 	save.adv_info.day = 0;
-	check_win();
+	# Day is advanced by end_race_day above.
+	ui.set_day(save.adv_info.day, false);
 	
+	check_win();
 	
 	var window = get_window();
 	

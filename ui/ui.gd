@@ -74,6 +74,10 @@ func start_race_day():
 	adventure.visible = false;
 	race.visible = true;
 
+func end_race_day(winner : bool):
+	adventure.visible = true;
+	race.visible = false;
+
 @onready var energy : ProgressBar = %Energy;
 func set_energy(e : float):
 	energy.value = e;
