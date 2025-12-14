@@ -9,6 +9,9 @@ func _init(s : Stats) -> void:
 ## Called when we want to save:
 signal mark_dirty();
 
+func can_regain_energy() -> bool:
+	return false;
+
 var day_progress_time : float = 100.0;
 var day : int = 0;
 var week : int = 0;

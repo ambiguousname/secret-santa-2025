@@ -16,7 +16,10 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
-	set_day(save.adv_info.day);
+	if save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+		new_day(save.adv_info.day + 1);
+	else:
+		set_day(save.adv_info.day);
 	ui.set_stats(save.stats);
 	
 	check_win();
@@ -27,10 +30,13 @@ func _ready() -> void:
 			save.stats.energy = 0;
 			end_adventure = true;
 		if save.adv_info.day_progress_time <= 0:
-			save.adv_info.day += 1;
 			end_adventure = true;
-			set_day(save.adv_info.day, true);
+			new_day(save.adv_info.day + 1);
 			# Reset progress for the next time:
+			save.adv_info.day_progress_time = 100;
+		
+		if save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+			new_day(save.adv_info.day + 1);
 			save.adv_info.day_progress_time = 100;
 		
 		if end_adventure:
@@ -108,6 +114,16 @@ func _tcp_update(status : TCPClient.Status):
 		_:
 			text = "Undefined state.";
 	ui.update_tcp_status(text);
+
+func new_day(day_progress : int):
+	if day_progress == 7:
+		ui.start_race_day();
+		return;
+	save.stats.energy += 20;
+	ui.set_energy(save.stats.energy);
+	save.adv_info.day = day_progress;
+	save.write_save();
+	set_day(day_progress, true);
 
 func set_day(day_progress : int, advance: bool = false):
 	if day_progress == 7:
