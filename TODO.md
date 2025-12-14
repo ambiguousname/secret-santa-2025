@@ -21,6 +21,7 @@
 		- [X] Racing day
 		- [ ] Visible week transition
 	- [ ] Using Items
+			- [ ] New items notification dot
 	- [X] Naming bugs
 	- [ ] Winning
 	- [ ] Settings
