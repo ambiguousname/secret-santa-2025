@@ -156,6 +156,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="ItemsButton" type="Button" parent="UI/FullInfo"]
+visible = false
 layout_mode = 1
 offset_left = 114.0
 offset_top = 5.0
