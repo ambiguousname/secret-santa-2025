@@ -70,3 +70,12 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 	1. Upgrade Skill 1 for Y amount
 	2. Upgrade Skill 2 for Y amount
 	3. Replenish X energy
+
+# Playtesting Notes
+
+## Playtester One
+
+- Appeared on second monitor (check which position it's appearing at?)
+- Energy needs a label
+- Need some documentation (either in-game or out of game) on how it works
+- Likes the super jump
