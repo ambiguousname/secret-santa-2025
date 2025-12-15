@@ -2,6 +2,7 @@ class_name AdventureInfo extends Object
 
 ## We're stored in the same save object (this is just mostly for organization purposes), so being able to access this save's stats is okay:
 var _stats : Stats;
+var items : Array = [];
 
 func _init(s : Stats) -> void:
 	_stats = s;
@@ -23,18 +24,26 @@ func from_dict(d : Dictionary):
 		day = d["day"];
 	if "week" in d:
 		week = d["week"];
+	if "items" in d:
+		items = d["items"].map(func(i : Dictionary): var it = Item.new(); return it.from_dict(i));
 
 func to_dict() -> Dictionary:
 	return {
 		"day_progress_time": day_progress_time,
 		"day": day,
 		"week": week,
+		"items": items.map(func(i : Item): return i.to_dict()),
 	};
 
 var mark_dirty_timer : float = 0.0;
 
 var _focus_timer : float = 0.0;
 var _focus : int = randi() % 4;
+
+var _item_timer : float = 0.0;
+const MIN_ITEM_TIME : float = 30;
+const MAX_ITEM_TIME : float = 900;
+var _item_duration : float = randf_range(MIN_ITEM_TIME, MAX_ITEM_TIME);
 
 func adventure_update(delta: float):
 	# 100 energy/30 minutes = 3.3333333 energy per minute * 1/60 minute/seconds = 0.5555555 energy/second
@@ -55,9 +64,16 @@ func adventure_update(delta: float):
 	
 	_focus_timer += delta;
 	mark_dirty_timer += delta;
+	_item_timer += delta;
+	
 	if mark_dirty_timer > 5.0:
 		mark_dirty_timer = 0.0;
 		mark_dirty.emit();
 	if _focus_timer >= 60:
 		_focus_timer = 0;
 		_focus = randi() % 4;
+	
+	if _item_timer >= _item_duration:
+		_item_timer = 0;
+		_item_duration = randf_range(MIN_ITEM_TIME, MAX_ITEM_TIME);
+		items.push_back(Item.new());
