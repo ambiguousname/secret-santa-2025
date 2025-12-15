@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var items : Array[Item] = [];
+
 @onready var tcp_client : TCPClient = $TCPClient;
 @onready var ui : UI = $UI;
 @onready var bug : Bug = $Bug;
@@ -9,6 +11,8 @@ var _stats_window_pos : Vector2i = Vector2i.ZERO;
 var save : Save = Save.new();
 
 func _ready() -> void:
+	save.adv_info.generate_item = generate_item;
+	
 	ui.setup_ended.connect(func(n : String):
 		save.stats.name = n;
 		save.write_save();
@@ -207,3 +211,6 @@ func check_win():
 	# TODO: Expand.
 	if save.adv_info.week == 2:
 		ui.win();
+
+func generate_item() -> Item:
+	return self.items[randi() % self.items.size()];

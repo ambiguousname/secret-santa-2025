@@ -4,6 +4,8 @@ class_name AdventureInfo extends Object
 var _stats : Stats;
 var items : Array = [];
 
+var generate_item : Callable;
+
 func _init(s : Stats) -> void:
 	_stats = s;
 
@@ -76,4 +78,4 @@ func adventure_update(delta: float):
 	if _item_timer >= _item_duration:
 		_item_timer = 0;
 		_item_duration = randf_range(MIN_ITEM_TIME, MAX_ITEM_TIME);
-		items.push_back(Item.new());
+		items.push_back(generate_item);
