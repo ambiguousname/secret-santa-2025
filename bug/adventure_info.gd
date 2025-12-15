@@ -78,4 +78,4 @@ func adventure_update(delta: float):
 	if _item_timer >= _item_duration:
 		_item_timer = 0;
 		_item_duration = randf_range(MIN_ITEM_TIME, MAX_ITEM_TIME);
-		items.push_back(generate_item);
+		items.push_back(generate_item.call());
