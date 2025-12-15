@@ -6,6 +6,8 @@ func to_dict() -> Dictionary:
 		"name": name,
 	};
 
-func from_dict(d : Dictionary):
+static func from_dict(d : Dictionary) -> Item:
+	var this := Item.new();
 	if "name" in d:
-		name = d["name"];
+		this.name = d["name"];
+	return this;

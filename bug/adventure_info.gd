@@ -27,7 +27,7 @@ func from_dict(d : Dictionary):
 	if "week" in d:
 		week = d["week"];
 	if "items" in d:
-		items = d["items"].map(func(i : Dictionary): var it = Item.new(); return it.from_dict(i));
+		items = d["items"].map(func(i : Dictionary): return Item.from_dict(i));
 
 func to_dict() -> Dictionary:
 	return {
