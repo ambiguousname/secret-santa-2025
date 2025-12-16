@@ -21,6 +21,7 @@ namespace BuddyServer
                 Log("Waiting for client...");
                 TcpClient c = await server.AcceptTcpClientAsync();
                 c.ReceiveTimeout = 1000;
+                c.SendTimeout = 1000;
                 NetworkStream st = c.GetStream();
                 Log("Client connected!");
 
