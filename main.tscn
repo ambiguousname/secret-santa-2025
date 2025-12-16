@@ -433,7 +433,7 @@ icon = ExtResource("6_5vw27")
 script = ExtResource("1_ig7tw")
 
 [node name="Timer" type="Timer" parent="TCPClient"]
-wait_time = 2.5
+wait_time = 30.0
 one_shot = true
 
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
