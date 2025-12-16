@@ -12,6 +12,7 @@ enum Status {
 var _status : Status = Status.DISCONNECTED;
 
 var should_connect : bool = false;
+var has_connection : bool = false;
 
 signal status_updated(s : Status);
 signal game_state_update(d : Dictionary);
@@ -49,6 +50,7 @@ func _connected_process():
 				peer.disconnect_from_host();
 				return;
 			print("Handshake succeeded!");
+			has_connection = true;
 			
 			_status = Status.CONNECTED;
 			status_updated.emit(_status);
@@ -78,6 +80,7 @@ func _process(delta: float) -> void:
 			if _status != Status.DISCONNECTED:
 				_status = Status.DISCONNECTED;
 				status_updated.emit(_status);
+				has_connection = false;
 				print("Disconnected. Retrying in %f seconds..." % timer.wait_time);
 				# Try again:
 				timer.start();

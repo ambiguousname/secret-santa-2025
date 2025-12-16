@@ -167,7 +167,7 @@ func _tcp_update(status : TCPClient.Status):
 			if !ui.adventure.disabled && !bug._adventuring:
 				ui.adventure.pressed.emit();
 		TCPClient.Status.DISCONNECTED:
-			if bug._adventuring:
+			if bug._adventuring && tcp_client.has_connection:
 				bug.end_adventure();
 			text = "Disconnected.";
 		_:
