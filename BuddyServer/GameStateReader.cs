@@ -59,10 +59,10 @@ namespace BuddyServer {
 
                     activeController.StartCoroutine(coroutine);
                     activeController.OnTakenDamage += () => {
-                        gameState.events.Add(new Event(Time.time, "Damage", activeController.playerData.health));
+                        gameState.events.Add(new Event(Time.time, "damage", activeController.playerData.health));
                     };
                     activeController.OnDeath += () => {
-                        gameState.events.Add(new Event(Time.time, "Death", activeController.playerData.health));
+                        gameState.events.Add(new Event(Time.time, "death", activeController.playerData.health));
                     };
                 }
             }
