@@ -58,16 +58,17 @@ func _ready() -> void:
 	
 	save.adv_info.mark_dirty.connect(func():
 		var end_adventure = false;
+		var new_day_call = false;
 		if save.stats.energy <= 0:
 			save.stats.energy = 0;
 			end_adventure = true;
+			if !save.adv_info.can_regain_energy():
+				new_day_call = true;
 		if save.adv_info.day_progress_time <= 0:
 			end_adventure = true;
-			new_day(save.adv_info.day + 1);
-			# Reset progress for the next time:
-			save.adv_info.day_progress_time = 100;
+			new_day_call = true;
 		
-		if save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+		if new_day_call: 
 			new_day(save.adv_info.day + 1);
 			save.adv_info.day_progress_time = 100;
 		
@@ -200,7 +201,7 @@ func set_day(day_progress : int, advance: bool = false):
 	if day_progress >= race_day:
 		ui.start_race_day();
 		return;
-	ui.set_day(race_day - day_progress, advance);
+	ui.set_day(race_day - day_progress, save.adv_info.day_progress_time, advance);
 
 func start_race():
 	var race_scene : PackedScene = null;
@@ -252,7 +253,7 @@ func finish_race(winner : bool):
 	save.adv_info.week += 1;
 	save.adv_info.day = 0;
 	# Day is advanced by end_race_day above.
-	ui.set_day(save.adv_info.day, false);
+	ui.set_day(save.adv_info.day, save.adv_info.day_progress_time, false);
 	
 	check_win();
 	
