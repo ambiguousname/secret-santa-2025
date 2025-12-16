@@ -10,6 +10,17 @@ extends Node2D
 var _stats_window_pos : Vector2i = Vector2i.ZERO;
 var save : Save = Save.new();
 
+var race_day : int:
+	get():
+		match save.adv_info.week:
+			0:
+				return 1;
+			1:
+				return 3;
+			_:
+				printerr("Invalid week.");
+				return 0;
+
 func _ready() -> void:
 	save.adv_info.generate_item = generate_item;
 	
@@ -20,7 +31,7 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
-	if save.adv_info.day != 7 && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+	if save.adv_info.day != race_day && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
 		new_day(save.adv_info.day + 1);
 	else:
 		set_day(save.adv_info.day);
@@ -180,16 +191,16 @@ func new_day(day_progress : int):
 	
 	set_day(day_progress, true);
 	
-	if day_progress == 7:
+	if day_progress >= race_day:
 		return;
 	save.stats.energy += 20;
 	ui.set_energy(save.stats.energy);
 
 func set_day(day_progress : int, advance: bool = false):
-	if day_progress == 7:
+	if day_progress >= race_day:
 		ui.start_race_day();
 		return;
-	ui.set_day(7 - day_progress, advance);
+	ui.set_day(race_day - day_progress, advance);
 
 func start_race():
 	var race_scene : PackedScene = null;
