@@ -106,6 +106,15 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_h2yge")
 
+[node name="ItemsButton" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 114.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 85.0
+text = "Items"
+
 [node name="Buttons" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
@@ -296,15 +305,6 @@ radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
 [node name="Label" parent="UI/FullInfo/Stats/RightStats/Jumping/Stat" index="0"]
 text = "1"
-
-[node name="ItemsButton" type="Button" parent="UI/FullInfo"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 114.0
-offset_top = 5.0
-offset_right = 208.0
-offset_bottom = 85.0
-text = "Items"
 
 [node name="ItemConfirm" type="Panel" parent="UI/FullInfo"]
 visible = false
