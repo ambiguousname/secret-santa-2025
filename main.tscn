@@ -434,6 +434,7 @@ script = ExtResource("1_ig7tw")
 
 [node name="Timer" type="Timer" parent="TCPClient"]
 wait_time = 2.5
+one_shot = true
 
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
 [editable path="UI/FullInfo/Stats/LeftStats/Skateboarding"]

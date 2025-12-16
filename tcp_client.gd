@@ -16,6 +16,7 @@ var should_connect : bool = false;
 signal status_updated(s : Status);
 
 func connect_to_host() -> Error:
+	print("Attempting to connect...");
 	if peer.get_status() != 0:
 		peer.disconnect_from_host();
 	_status = Status.UNACKNOWLEDGED;
@@ -68,7 +69,6 @@ func _process(delta: float) -> void:
 		peer.STATUS_CONNECTED:
 			_connected_process();
 		peer.STATUS_ERROR:
-			# TODO: reconnect attempts.
 			print("TCP Client is in error state! Most likely no host was found. Disconnecting...");
 			peer.disconnect_from_host();
 		peer.STATUS_NONE:
