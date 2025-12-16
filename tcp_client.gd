@@ -75,6 +75,6 @@ func _process(delta: float) -> void:
 			if _status != Status.DISCONNECTED:
 				_status = Status.DISCONNECTED;
 				status_updated.emit(_status);
-				print("Disconnected. Retrying in % seconds..." % timer.wait_time);
+				print("Disconnected. Retrying in %f seconds..." % timer.wait_time);
 				# Try again:
 				timer.start();
