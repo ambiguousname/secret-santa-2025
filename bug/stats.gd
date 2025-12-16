@@ -18,8 +18,8 @@ class Stat:
 		self.xp += amount;
 		
 		if self.xp >= to_level_up:
-			self.level += 1;
 			var next_amnt = self.xp - self.to_level_up;
+			self.level += 1;
 			self.xp = 0;
 			increase(next_amnt);
 
