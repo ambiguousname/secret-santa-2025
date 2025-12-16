@@ -23,7 +23,9 @@
 		- [X] Racing day
 		- [ ] Visible week transition
 	- [X] Using Items
+	- [ ] LCD filter/styling
     - [ ] New items notification dot
+		- [ ] "No items" text
 	- [X] Naming bugs
 	- [ ] Winning
 	- [ ] Settings

@@ -1,14 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=23 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://8b4xjwcvwwiu" path="res://bug/bug.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="2_272bh"]
 [ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui/ui.gd" id="2_h2yge"]
-[ext_resource type="Resource" uid="uid://dwcph8shq5nep" path="res://bug/items/foodstuff.tres" id="3_5vw27"]
+[ext_resource type="Resource" uid="uid://dp1b0idgbind0" path="res://bug/items/berry.tres" id="3_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bye5d13kp4ew" path="res://ui/stat_wheel.tscn" id="3_7mycd"]
+[ext_resource type="Resource" uid="uid://dwcph8shq5nep" path="res://bug/items/yes_juice.tres" id="4_4c57u"]
+[ext_resource type="Resource" uid="uid://cxlpi1wlhuw5b" path="res://bug/items/cool_skull.tres" id="5_efxa6"]
+[ext_resource type="Texture2D" uid="uid://doqx4vyo8e55w" path="res://art/MV Icons PACK 2/Individual Icons/bag.png" id="6_5vw27"]
+[ext_resource type="Resource" uid="uid://djexvecy6wise" path="res://bug/items/broccoli.tres" id="6_w48qg"]
 [ext_resource type="Script" uid="uid://ck6tx1wy4np5b" path="res://ui/items/items.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
+[ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
+[ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
@@ -32,7 +38,7 @@ bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
-items = Array[ExtResource("2_272bh")]([ExtResource("3_5vw27")])
+items = Array[ExtResource("2_272bh")]([ExtResource("3_5vw27"), ExtResource("4_4c57u"), ExtResource("5_efxa6"), ExtResource("6_w48qg"), ExtResource("7_vivmo"), ExtResource("8_vivmo")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(250, 250)
@@ -115,6 +121,7 @@ offset_top = 5.0
 offset_right = 208.0
 offset_bottom = 85.0
 text = "Items"
+icon = ExtResource("6_5vw27")
 
 [node name="Buttons" type="VBoxContainer" parent="UI"]
 layout_mode = 1

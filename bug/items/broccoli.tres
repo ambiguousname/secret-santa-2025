@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://djexvecy6wise"]
+
+[ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="1_07nss"]
+[ext_resource type="Texture2D" uid="uid://bwcajxek8pscf" path="res://art/MV Icons PACK 2/Individual Icons/broccoli.png" id="2_07nss"]
+
+[resource]
+script = ExtResource("1_07nss")
+name = "Broccoli"
+stat_one = 1
+stat_increase = 400.0
+stat_two = 2
+texture = ExtResource("2_07nss")
+metadata/_custom_type_script = "uid://cet4cw83qw2qv"

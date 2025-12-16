@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dp1b0idgbind0"]
+
+[ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="1_n5kjg"]
+[ext_resource type="Texture2D" uid="uid://tcdn8nwk7rsl" path="res://art/MV Icons PACK 2/Individual Icons/strawberry.png" id="2_m2heu"]
+
+[resource]
+script = ExtResource("1_n5kjg")
+name = "Berry"
+stat_two = 1
+texture = ExtResource("2_m2heu")
+metadata/_custom_type_script = "uid://cet4cw83qw2qv"

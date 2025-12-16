@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dwcph8shq5nep"]
+
+[ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="1_278fd"]
+[ext_resource type="Texture2D" uid="uid://bbnbwdxwh4rwo" path="res://art/MV Icons PACK 2/Individual Icons/can1.png" id="2_6abr2"]
+
+[resource]
+script = ExtResource("1_278fd")
+name = "Yes Juice"
+stat_one = 2
+stat_increase = 250.0
+stat_two = 3
+energy_increase = 45.0
+texture = ExtResource("2_6abr2")
+metadata/_custom_type_script = "uid://cet4cw83qw2qv"
