@@ -1,3 +1,5 @@
+#define TEST_WITHOUT_CLIENT
+
 using System;
 using System.Net;
 using System.Net.Sockets;
@@ -6,16 +8,20 @@ using System.Text;
 using Modding;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace BuddyServer
 {
     public class BuddyServer : Mod, ITogglableMod
     {
         private readonly TcpListener server = new TcpListener(IPAddress.Any, 5121);
+        private GameStateReader reader = new GameStateReader();
+
 
         async private void CreateServer() {
             server.Start();
             while (true) {
+#if !TEST_WITHOUT_CLIENT
                 Log("Waiting for client...");
                 TcpClient c = await server.AcceptTcpClientAsync();
                 c.ReceiveTimeout = 1000;
@@ -42,8 +48,15 @@ namespace BuddyServer
                 await st.WriteAsync(Encoding.UTF8.GetBytes("BuddyServer"), 0, expected.Length);
 
                 Log("Handshake succeeded.");
-
                 while (c.Connected) {
+#else
+                while (true) {
+#endif
+                    reader.Update();
+                    Log(reader.gameState.heroState);
+                    // Not sure how long each frame will take (and we don't always want to send the same each frame), so we just send over the most important bits
+                    // every second or so:
+                    Thread.Sleep(1000);
                     // TODO: Send over state data.
                 }
             }
