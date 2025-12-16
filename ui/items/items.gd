@@ -10,9 +10,6 @@ var active_item_display : ItemDisplay;
 signal use_item(i : Item, choice : int);
 
 func _ready() -> void:
-	close.pressed.connect(func():
-		self.visible = false;
-	);
 	item_confirm.item_used.connect(func(i : int):
 		item_confirm.visible = false;
 		self.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED;

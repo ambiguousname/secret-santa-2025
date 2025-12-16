@@ -10,7 +10,7 @@ func update_tcp_status(text : String):
 @onready var submit_name : Button = %Submit;
 @onready var items_button : Button = %ItemsButton;
 @onready var items : ItemManager = %Items;
-@onready var settings_button : Button = $SettingsButton;
+@onready var settings_button : Button = $FullInfo/SettingsButton;
 @onready var settings_menu : SettingsMenu = $SettingsMenu;
 
 @onready var full_info : Control = $FullInfo;
@@ -18,9 +18,19 @@ func update_tcp_status(text : String):
 func _ready() -> void:
 	items_button.pressed.connect(func():
 		items.visible = true;
+		full_info.visible = false;
+	);
+	items.close.pressed.connect(func():
+		items.visible = false;
+		full_info.visible = true;
 	);
 	settings_button.pressed.connect(func():
 		settings_menu.visible = true;
+		full_info.visible = false;
+	);
+	settings_menu.close.pressed.connect(func():
+		full_info.visible = true;
+		settings_menu.visible = false;
 	);
 
 @onready var bug_name : LineEdit = $"Bug Name";
