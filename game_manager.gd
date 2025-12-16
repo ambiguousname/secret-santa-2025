@@ -79,6 +79,12 @@ func _ready() -> void:
 		if b:
 			tcp_client.connect_to_host();
 	);
+	tcp_client.game_state_update.connect(func(d : Dictionary): 
+		if !("events" in d):
+			return;
+		for event in d["events"]:
+			print(event);
+	);
 	
 	ui.adventure.pressed.connect(func():
 		ui.adventure.disabled = true;
@@ -138,7 +144,7 @@ func _tcp_update(status : TCPClient.Status):
 			text = "Making handshake...";
 		TCPClient.Status.CONNECTED:
 			text = "Connected!";
-			if !ui.adventure.disabled:
+			if !ui.adventure.disabled && !bug._adventuring:
 				ui.adventure.pressed.emit();
 		TCPClient.Status.DISCONNECTED:
 			if bug._adventuring:

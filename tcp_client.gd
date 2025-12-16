@@ -14,6 +14,7 @@ var _status : Status = Status.DISCONNECTED;
 var should_connect : bool = false;
 
 signal status_updated(s : Status);
+signal game_state_update(d : Dictionary);
 
 func connect_to_host() -> Error:
 	print("Attempting to connect...");
@@ -53,7 +54,9 @@ func _connected_process():
 			status_updated.emit(_status);
 			return;
 		else:
-			pass;
+			var d = JSON.parse_string(peer.get_string(available_bytes));
+			if d != null:
+				game_state_update.emit(d);
 @onready var timer : Timer = $Timer;
 
 func _ready() -> void:
