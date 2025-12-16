@@ -138,7 +138,11 @@ func _tcp_update(status : TCPClient.Status):
 			text = "Making handshake...";
 		TCPClient.Status.CONNECTED:
 			text = "Connected!";
+			if !ui.adventure.disabled:
+				ui.adventure.pressed.emit();
 		TCPClient.Status.DISCONNECTED:
+			if bug._adventuring:
+				bug.end_adventure();
 			text = "Disconnected.";
 		_:
 			text = "Undefined state.";
