@@ -9,6 +9,7 @@ using Modding;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using UnityEngine;
+using Newtonsoft.Json;
 
 namespace BuddyServer
 {
@@ -16,7 +17,6 @@ namespace BuddyServer
     {
         private readonly TcpListener server = new TcpListener(IPAddress.Any, 5121);
         private GameStateReader reader = new GameStateReader();
-
 
         async private void CreateServer() {
             server.Start();
@@ -48,16 +48,22 @@ namespace BuddyServer
                 await st.WriteAsync(Encoding.UTF8.GetBytes("BuddyServer"), 0, expected.Length);
 
                 Log("Handshake succeeded.");
-                while (c.Connected) {
+#endif
+
+#if TEST_WITHOUT_CLIENT
+                while(true) { 
 #else
-                while (true) {
+                while (c.Connected) {
 #endif
                     reader.Update();
-                    Log(reader.gameState.heroState);
-                    // Not sure how long each frame will take (and we don't always want to send the same each frame), so we just send over the most important bits
-                    // every second or so:
+#if TEST_WITHOUT_CLIENT
+                    Log(JsonConvert.SerializeObject(reader.gameState));
+#else
+                    string state = JsonConvert.SerializeObject(reader.gameState);
+                    await st.WriteAsync(Encoding.UTF8.GetBytes(state), 0, state.Length);
+#endif
+                    // Not sure how to wait on reader's coroutine to process a frame, so we instead just wait each second and send only the important events.
                     Thread.Sleep(1000);
-                    // TODO: Send over state data.
                 }
             }
         }

@@ -1,6 +1,7 @@
 using Modding;
 using Modding.Converters;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +15,26 @@ namespace BuddyServer {
     internal class GameStateReader {
         HeroController activeController;
         public GameState gameState = new GameState();
+        IEnumerator coroutine;
+
+        public GameStateReader() {
+            coroutine = GameFrameUpdate();
+        }
 
         public void Update() {
             if (activeController == null) {
                 HeroController[] controllers = UnityEngine.Object.FindObjectsOfType<HeroController>();
                 if (controllers.Length > 0) {
                     activeController = controllers[0];
+                    activeController.StartCoroutine(coroutine);
                 }
-            } else {
-                if (activeController.acceptingInput) {
-                    gameState.heroState = activeController.hero_state.ToString();
-                }
+            }
+        }
+
+        IEnumerator GameFrameUpdate() {
+            while (true) {
+                gameState.heroState = activeController.hero_state.ToString();
+                yield return new WaitForEndOfFrame();
             }
         }
     }
