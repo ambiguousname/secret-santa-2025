@@ -47,6 +47,17 @@ static func stat_to_text(i : Type) -> String:
 		_:
 			return "Unknown";
 
+func increase_stat(t : Type, amount : float):
+	match t:
+		Type.RUNNING:
+			running.increase(amount);
+		Type.CLIMBING:
+			climbing.increase(amount);
+		Type.JUMPING:
+			jumping.increase(amount);
+		Type.SKATEBOARDING:
+			skateboarding.increase(amount);
+
 var name : String = "";
 
 func from_dict(dict : Dictionary):

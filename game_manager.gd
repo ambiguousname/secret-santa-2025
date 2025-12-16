@@ -28,6 +28,20 @@ func _ready() -> void:
 	
 	for i in save.adv_info.items:
 		ui.items.add_item(i);
+	ui.items.use_item.connect(func(i : Item, c : int):
+		match c:
+			0:
+				save.stats.increase_stat(i.stat_one, i.stat_increase);
+				ui.set_stats(save.stats);
+			1:
+				save.stats.increase_stat(i.stat_two, i.stat_increase);
+				ui.set_stats(save.stats);
+			2:
+				save.stats.energy = min(save.stats.energy + i.energy_increase, 100);
+				ui.set_energy(save.stats.energy);
+		save.adv_info.items.remove_at(save.adv_info.items.find(i));
+		save.write_save();
+	);
 	
 	check_win();
 	
