@@ -51,17 +51,18 @@ namespace BuddyServer
 #endif
 
 #if TEST_WITHOUT_CLIENT
-                while(true) { 
+                while(true) {
 #else
                 while (c.Connected) {
 #endif
                     reader.Update();
 #if TEST_WITHOUT_CLIENT
-                    Log(JsonConvert.SerializeObject(reader.gameState));
+                    Log(reader.GameStateString());
 #else
-                    string state = JsonConvert.SerializeObject(reader.gameState);
+                    string state = reader.GameStateString();
                     await st.WriteAsync(Encoding.UTF8.GetBytes(state), 0, state.Length);
 #endif
+                    reader.ClearState();
                     // Not sure how to wait on reader's coroutine to process a frame, so we instead just wait each second and send only the important events.
                     Thread.Sleep(1000);
                 }
