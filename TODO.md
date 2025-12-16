@@ -9,7 +9,7 @@
 	- [ ] Sending data from Hollow Knight to game
 		- [ ] Autostart adventure loop on Hollow Knight start
 	- [X] Skilling up
-	- [ ] Getting items
+	- [X] Getting items
 	- [ ] "Natures" (bug has priority of training some skills over others)
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
