@@ -17,8 +17,10 @@
 	- [X] Stats
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
+  - [ ] Energy text
 	- [X] Day Progression
 		- [ ] Visible day counting down transition
+  - [ ] Day progress bar (underneath text]
 		- [X] Racing day
 		- [ ] Visible week transition
 	- [ ] Using Items

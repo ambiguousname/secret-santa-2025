@@ -75,7 +75,10 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 
 ## Playtester One
 
-- Appeared on second monitor (check which position it's appearing at?)
+- Appeared on second monitor (check which position it's appearing at?) (Setting position to zero does not guarantee it's at the start of the current screen)
 - Energy needs a label (called it "psychic damage")
 - Need some documentation (either in-game or out of game) on how it works
 - Likes the super jump
+- Unclear of when to stop playing (day progression bar will help)
+- Make days until race longer and longer (start off at 1 day until race)
+- Day auto-advanced from 7 to 4 after running out of energy (???)
