@@ -34,6 +34,19 @@ enum Type {
 	SKATEBOARDING
 }
 
+static func stat_to_text(i : Type) -> String:
+	match i:
+		Type.RUNNING:
+			return "Running";
+		Type.CLIMBING:
+			return "Climbing";
+		Type.JUMPING:
+			return "Jumping";
+		Type.SKATEBOARDING:
+			return "Skateboarding";
+		_:
+			return "Unknown";
+
 var name : String = "";
 
 func from_dict(dict : Dictionary):

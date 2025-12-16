@@ -2,10 +2,19 @@ class_name ItemManager extends Panel
 
 @onready var grid : GridContainer = $GridContainer;
 @onready var close : Button = $Close;
+@onready var item_confirm : ItemConfirm = $"../ItemConfirm";
 
 func _ready() -> void:
 	close.pressed.connect(func():
 		self.visible = false;
+	);
+	item_confirm.item_used.connect(func(i : int):
+		item_confirm.visible = false;
+		self.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED;
+		if i == -1:
+			pass;
+		else:
+			pass;
 	);
 
 @onready var item_display = preload("uid://1lmen782bmps");
@@ -13,3 +22,8 @@ func add_item(i : Item):
 	var d : ItemDisplay = item_display.instantiate();
 	d.texture = i.texture;
 	grid.add_child(d);
+	d.pressed.connect(func():
+		item_confirm.pick_item(i);
+		item_confirm.visible = true;
+		self.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED;
+	);
