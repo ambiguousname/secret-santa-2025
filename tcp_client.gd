@@ -69,14 +69,12 @@ func _process(delta: float) -> void:
 			_connected_process();
 		peer.STATUS_ERROR:
 			# TODO: reconnect attempts.
-			print("TCP Client is in error state! Most likely no host was found.");
+			print("TCP Client is in error state! Most likely no host was found. Disconnecting...");
 			peer.disconnect_from_host();
-			
-			# Try again:
-			timer.start();
 		peer.STATUS_NONE:
 			if _status != Status.DISCONNECTED:
 				_status = Status.DISCONNECTED;
 				status_updated.emit(_status);
+				print("Disconnected. Retrying in % seconds..." % timer.wait_time);
 				# Try again:
 				timer.start();
