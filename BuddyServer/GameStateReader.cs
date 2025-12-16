@@ -23,8 +23,10 @@ namespace BuddyServer {
             start = s;
         }
     };
+
     internal class GameState {
         public string heroState = "";
+        public float hp = 0.0f;
         public List<Event> events = new List<Event>();
     }
 
@@ -45,13 +47,19 @@ namespace BuddyServer {
 
                     timer = Time.time;
                     currStateStart = timer;
+
                     activeController.StartCoroutine(coroutine);
+                    activeController.OnTakenDamage += () => {
+                        gameState.events.Add(new Event(Time.time, 0.0f, "Damage", activeController.playerData.health));
+                    };
+                    activeController.OnDeath += () => {
+                        gameState.events.Add(new Event(Time.time, 0.0f, "Death", activeController.playerData.health));
+                    };
                 }
             }
         }
 
         public void ClearState() {
-            gameState.heroState = "";
             gameState.events.Clear();
         }
 
@@ -62,17 +70,30 @@ namespace BuddyServer {
         float timer = 0.0f;
 
         float currStateStart = 0.0f;
-        string prevState = "";
+
+        float attackingStart = 0.0f;
+        bool attacking = false;
         IEnumerator GameFrameUpdate() {
             while (true) {
                 timer = Time.time;
+
                 var newState = activeController.hero_state.ToString();
-                if (prevState != newState) {
+                if (gameState.heroState != newState) {
                     gameState.events.Add(new Event(currStateStart, timer - currStateStart, "heroState", newState.ToString()));
                     currStateStart = timer;
                 }
                 gameState.heroState = newState;
-                prevState = newState;
+
+                if (activeController.cState.attacking && !attacking) {
+                    attacking = true;
+                    attackingStart = timer;
+                } else if (attacking && !activeController.cState.attacking) {
+                    attacking = false;
+                    gameState.events.Add(new Event(attackingStart, timer - attackingStart, "attack", ""));
+                }
+
+                gameState.hp = activeController.playerData.health;
+                
                 yield return new WaitForEndOfFrame();
             }
         }
