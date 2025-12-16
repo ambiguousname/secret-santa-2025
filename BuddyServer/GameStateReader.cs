@@ -22,6 +22,19 @@ namespace BuddyServer {
             value = v;
             start = s;
         }
+
+        public Event(Event copy) : this(copy.start, copy.duration, copy.name, copy.value) { }
+
+        public Event(float s, string n, object v) {
+            start = s;
+            name = n;
+            value = v;
+            duration = 0.0f;
+        }
+
+        public void Finalize(float time) {
+            duration = time - start;
+        }
     };
 
     internal class GameState {
@@ -50,10 +63,10 @@ namespace BuddyServer {
 
                     activeController.StartCoroutine(coroutine);
                     activeController.OnTakenDamage += () => {
-                        gameState.events.Add(new Event(Time.time, 0.0f, "Damage", activeController.playerData.health));
+                        gameState.events.Add(new Event(Time.time, "Damage", activeController.playerData.health));
                     };
                     activeController.OnDeath += () => {
-                        gameState.events.Add(new Event(Time.time, 0.0f, "Death", activeController.playerData.health));
+                        gameState.events.Add(new Event(Time.time, "Death", activeController.playerData.health));
                     };
                 }
             }
@@ -73,6 +86,9 @@ namespace BuddyServer {
 
         float attackingStart = 0.0f;
         bool attacking = false;
+
+        Event? bounceEvent;
+        Event? wallJumpEvent;
         IEnumerator GameFrameUpdate() {
             while (true) {
                 timer = Time.time;
@@ -93,7 +109,23 @@ namespace BuddyServer {
                 }
 
                 gameState.hp = activeController.playerData.health;
-                
+
+                if (activeController.cState.bouncing && bounceEvent == null) {
+                    bounceEvent = new Event(timer, "bounce", "");
+                } else if (!activeController.cState.bouncing && bounceEvent != null) {
+                    bounceEvent.Value.Finalize(timer);
+                    gameState.events.Add(new Event(bounceEvent.Value));
+                    bounceEvent = null;
+                }
+
+                if (activeController.cState.wallJumping && wallJumpEvent == null) {
+                    wallJumpEvent = new Event(timer, "wallJump", "");
+                } else if (!activeController.cState.wallJumping && wallJumpEvent != null) { 
+                    wallJumpEvent.Value.Finalize(timer);
+                    gameState.events.Add(new Event(wallJumpEvent.Value));
+                    wallJumpEvent = null;
+                }
+
                 yield return new WaitForEndOfFrame();
             }
         }
