@@ -91,6 +91,9 @@ func fade_ui(vis : bool, duration : float, callback: Callable):
 @onready var day_progress : ProgressBar = $FullInfo/Day/ProgressBar;
 func set_day(day : int, day_percent : float, advance: bool):
 	day_label.text = "RACE IN\n%d DAYS" % day;
+	set_day_progress(day_percent);
+
+func set_day_progress(day_percent : float):
 	day_progress.value = day_percent;
 
 func start_race_day():

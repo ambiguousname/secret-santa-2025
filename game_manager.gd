@@ -144,6 +144,7 @@ func _ready() -> void:
 		save.write_save();
 		
 		ui.set_stats(save.stats);
+		ui.set_day_progress(save.adv_info.day_progress_time);
 		
 		bug.jump(func():
 			var window = get_window();
