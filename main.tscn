@@ -424,6 +424,9 @@ mouse_filter = 2
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
 
+[node name="Timer" type="Timer" parent="TCPClient"]
+wait_time = 2.5
+
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
 [editable path="UI/FullInfo/Stats/LeftStats/Skateboarding"]
 [editable path="UI/FullInfo/Stats/RightStats/Climbing"]

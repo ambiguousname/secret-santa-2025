@@ -11,7 +11,7 @@ func update_tcp_status(text : String):
 @onready var items_button : Button = %ItemsButton;
 @onready var items : ItemManager = %Items;
 @onready var settings_button : Button = $SettingsButton;
-@onready var settings_menu : Control = $SettingsMenu;
+@onready var settings_menu : SettingsMenu = $SettingsMenu;
 
 @onready var full_info : Control = $FullInfo;
 

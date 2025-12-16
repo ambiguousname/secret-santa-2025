@@ -71,7 +71,14 @@ func _ready() -> void:
 		ui.bug_name.text = save.stats.name;
 	
 	tcp_client.status_updated.connect(_tcp_update);
-	tcp_client.connect_to_host();
+	tcp_client.should_connect = ui.settings_menu.install.connectable;
+	if tcp_client.should_connect:
+		tcp_client.connect_to_host();
+	ui.settings_menu.install.connectable_changed.connect(func(b : bool):
+		tcp_client.should_connect = b; 
+		if b:
+			tcp_client.connect_to_host();
+	);
 	
 	ui.adventure.pressed.connect(func():
 		ui.adventure.disabled = true;

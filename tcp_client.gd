@@ -11,6 +11,8 @@ enum Status {
 
 var _status : Status = Status.DISCONNECTED;
 
+var should_connect : bool = false;
+
 signal status_updated(s : Status);
 
 func connect_to_host() -> Error:
@@ -51,22 +53,30 @@ func _connected_process():
 			return;
 		else:
 			pass;
+@onready var timer : Timer = $Timer;
+
+func _ready() -> void:
+	timer.timeout.connect(connect_to_host);
 
 func _process(delta: float) -> void:
-	if peer == null:
+	if peer == null || should_connect == false:
 		return;
 	peer.poll();
 	match peer.get_status():
+		peer.STATUS_CONNECTING:
+			pass;
 		peer.STATUS_CONNECTED:
 			_connected_process();
 		peer.STATUS_ERROR:
 			# TODO: reconnect attempts.
 			print("TCP Client is in error state! Most likely no host was found.");
 			peer.disconnect_from_host();
+			
+			# Try again:
+			timer.start();
 		peer.STATUS_NONE:
 			if _status != Status.DISCONNECTED:
 				_status = Status.DISCONNECTED;
 				status_updated.emit(_status);
-			
-			# TODO: reconnect attempts.
-			pass;
+				# Try again:
+				timer.start();

@@ -1,4 +1,4 @@
-extends Control
+class_name InstallServer extends Control
 
 @onready var install : Button = $Grid/Install;
 
@@ -15,6 +15,12 @@ const FAIL : String = "❌";
 const SUCCEED : String = "✅";
 var fail_label : LabelSettings = preload("uid://co2wg8bh6obmh");
 var succeed_label : LabelSettings = preload("uid://dtp60wsp8bcae");
+
+const LIB_NAME : String = "BuddyServer.dll";
+signal connectable_changed(can_connect : bool);
+var connectable : bool:
+	get():
+		return FileAccess.file_exists(Settings.get_setting("mods_dir", "").path_join("BuddyServer/%s" % LIB_NAME));
 
 func _ready() -> void:
 	var mods_dir_set = Settings.get_setting("mods_dir", "");
@@ -41,8 +47,7 @@ func _ready() -> void:
 		if OS.get_name() == "macOS":
 			exe_loc = exe_loc.path_join("../../../");
 		
-		var lib_name = "BuddyServer.dll";
-		var lib_loc = exe_loc.path_join(lib_name);
+		var lib_loc = exe_loc.path_join(LIB_NAME);
 		var dir = Settings.get_setting("mods_dir", "");
 		if dir == "" || !DirAccess.dir_exists_absolute(dir):
 			_install_server_fail();
@@ -54,12 +59,14 @@ func _ready() -> void:
 			_install_server_fail();
 			return;
 		
-		var res : Error = DirAccess.copy_absolute(lib_loc, mod_dir.path_join(lib_name));
+		var res : Error = DirAccess.copy_absolute(lib_loc, mod_dir.path_join(LIB_NAME));
 		if res != OK:
 			_install_server_fail();
 			return;
 		_install_server_succeeded();
 	);
+	if connectable:
+		_install_server_succeeded();
 
 func _test_folder(dir : String):
 	var folder_name : String = dir.get_file();
@@ -114,6 +121,7 @@ func _test_folder(dir : String):
 func _folder_select_fail():
 	mods_dir_label.label_settings = fail_label;
 	mods_dir_label.text = "%s %s" % [FAIL, initial_mods_dir_text];
+	connectable_changed.emit(false);
 
 func _folder_select_succeed():
 	mods_dir_label.label_settings = succeed_label;
@@ -123,7 +131,9 @@ func _folder_select_succeed():
 func _install_server_fail():
 	install_server_label.label_settings = fail_label;
 	install_server_label.text = "%s %s" % [FAIL, initial_server_text];
+	connectable_changed.emit(false);
 
 func _install_server_succeeded():
 	install_server_label.label_settings = succeed_label;
 	install_server_label.text = "%s %s" % [SUCCEED, initial_server_text];
+	connectable_changed.emit(true);
