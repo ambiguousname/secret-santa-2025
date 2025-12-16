@@ -1,5 +1,4 @@
 # Current Priorities
-- [ ] Items
 - [ ] TCP Communication
 (Both done by Tuesday)
 - [ ] Races 2-4 (Then victory)
@@ -20,10 +19,10 @@
   - [ ] Energy text
 	- [X] Day Progression
 		- [ ] Visible day counting down transition
-  - [ ] Day progress bar (underneath text]
+  - [ ] Day progress bar (underneath text)
 		- [X] Racing day
 		- [ ] Visible week transition
-	- [ ] Using Items
+	- [X] Using Items
     - [ ] New items notification dot
 	- [X] Naming bugs
 	- [ ] Winning
