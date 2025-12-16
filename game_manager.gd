@@ -80,7 +80,7 @@ func _ready() -> void:
 			tcp_client.connect_to_host();
 	);
 	tcp_client.game_state_update.connect(func(d : Dictionary): 
-		if !("events" in d):
+		if !("events" in d) || !bug._adventuring:
 			return;
 		for event in d["events"]:
 			if "name" in event:
