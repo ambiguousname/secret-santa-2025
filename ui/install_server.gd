@@ -90,6 +90,9 @@ func _test_folder(dir : String):
 			_:
 				_folder_select_fail();
 	
+	# If everything but "Mods" exists, make a mods folder:
+	if DirAccess.dir_exists_absolute(dir.path_join("..")):
+		DirAccess.make_dir_absolute(dir);
 	if !DirAccess.dir_exists_absolute(dir):
 		_folder_select_fail();
 		return;
