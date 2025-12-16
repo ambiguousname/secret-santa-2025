@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=16 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c4f0jjiedvc44" path="res://ui/ui.gd" id="2_h2yge"]
 [ext_resource type="Resource" uid="uid://dwcph8shq5nep" path="res://bug/items/foodstuff.tres" id="3_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bye5d13kp4ew" path="res://ui/stat_wheel.tscn" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://ck6tx1wy4np5b" path="res://ui/items/items.gd" id="7_5vw27"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
@@ -19,14 +20,14 @@ bg_color = Color(0, 0, 0, 0.45490196)
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
 noise = SubResource("FastNoiseLite_h2yge")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
 bg_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(0.8980392, 0.7254902, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -146,89 +147,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Items" type="PanelContainer" parent="UI/FullInfo"]
+[node name="Items" type="Panel" parent="UI/FullInfo"]
+unique_name_in_owner = true
 visible = false
+z_index = 10
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_5vw27")
+
+[node name="Close" type="Button" parent="UI/FullInfo/Items"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
 
 [node name="GridContainer" type="GridContainer" parent="UI/FullInfo/Items"]
-layout_mode = 2
-
-[node name="ItemsButton" type="Button" parent="UI/FullInfo"]
-visible = false
-layout_mode = 1
-offset_left = 114.0
-offset_top = 5.0
-offset_right = 208.0
-offset_bottom = 85.0
-text = "Items"
-
-[node name="ItemConfirm" type="Panel" parent="UI/FullInfo"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 94.0
-offset_top = 94.0
-offset_right = -94.0
-offset_bottom = -94.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Grid" type="GridContainer" parent="UI/FullInfo/ItemConfirm"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -93.0
-offset_right = 93.0
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/FullInfo/ItemConfirm/Grid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "USE X?"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
-layout_mode = 2
-text = "Choice 1"
-
-[node name="Button2" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
-layout_mode = 2
-text = "Choice 2"
-
-[node name="Button3" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
-layout_mode = 2
-text = "Choice 3"
-
-[node name="Button4" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
-layout_mode = 2
-text = "Cancel"
-
-[node name="Day" type="PanelContainer" parent="UI/FullInfo"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 99.0
-offset_bottom = 85.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
-
-[node name="Label" type="Label" parent="UI/FullInfo/Day"]
-layout_mode = 2
-text = "DAYS LEFT
-7"
-horizontal_alignment = 1
+offset_top = 31.0
+offset_right = 500.0
+offset_bottom = 469.0
+columns = 10
 
 [node name="Stats" type="Control" parent="UI/FullInfo"]
 layout_mode = 1
@@ -350,6 +296,79 @@ radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
 [node name="Label" parent="UI/FullInfo/Stats/RightStats/Jumping/Stat" index="0"]
 text = "1"
+
+[node name="ItemsButton" type="Button" parent="UI/FullInfo"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 114.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 85.0
+text = "Items"
+
+[node name="ItemConfirm" type="Panel" parent="UI/FullInfo"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = 94.0
+offset_right = -94.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="UI/FullInfo/ItemConfirm"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -93.0
+offset_right = 93.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/FullInfo/ItemConfirm/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "USE X?"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
+layout_mode = 2
+text = "Choice 1"
+
+[node name="Button2" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
+layout_mode = 2
+text = "Choice 2"
+
+[node name="Button3" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
+layout_mode = 2
+text = "Choice 3"
+
+[node name="Button4" type="Button" parent="UI/FullInfo/ItemConfirm/Grid"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Day" type="PanelContainer" parent="UI/FullInfo"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 99.0
+offset_bottom = 85.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
+
+[node name="Label" type="Label" parent="UI/FullInfo/Day"]
+layout_mode = 2
+text = "DAYS LEFT
+7"
+horizontal_alignment = 1
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")

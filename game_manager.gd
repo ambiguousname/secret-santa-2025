@@ -26,6 +26,9 @@ func _ready() -> void:
 		set_day(save.adv_info.day);
 	ui.set_stats(save.stats);
 	
+	for i in save.adv_info.items:
+		ui.items.add_item(i);
+	
 	check_win();
 	
 	save.adv_info.mark_dirty.connect(func():

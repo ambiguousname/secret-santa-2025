@@ -8,8 +8,15 @@ func update_tcp_status(text : String):
 @onready var adventure : Button = %Adventure;
 @onready var race : Button = %Race;
 @onready var submit_name : Button = %Submit;
+@onready var items_button : Button = %ItemsButton;
+@onready var items : ItemManager = %Items;
 
 @onready var full_info : Control = $FullInfo;
+
+func _ready() -> void:
+	items_button.pressed.connect(func():
+		items.visible = true;
+	);
 
 @onready var bug_name : LineEdit = $"Bug Name";
 
