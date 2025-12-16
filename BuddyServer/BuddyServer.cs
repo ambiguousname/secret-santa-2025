@@ -1,15 +1,11 @@
-#define TEST_WITHOUT_CLIENT
+//#define TEST_WITHOUT_CLIENT
 
-using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
 using Modding;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
-using UnityEngine;
-using Newtonsoft.Json;
 
 namespace BuddyServer
 {
