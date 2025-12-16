@@ -83,7 +83,27 @@ func _ready() -> void:
 		if !("events" in d):
 			return;
 		for event in d["events"]:
-			print(event);
+			if "name" in event:
+				match event["name"]:
+					"heroState":
+						if event["value"] == "running":
+							save.stats.running.increase(event["duration"]);
+							save.write_save();
+					"wallSlide", "wallTouch":
+						save.stats.climbing.increase(event["duration"]);
+						save.write_save();
+					"jump":
+						save.stats.jumping.increase(event["duration"]);
+						save.write_save();
+					"bounce", "attack":
+						save.stats.skateboarding.increase(event["duration"]);
+						save.write_save();
+					"damage":
+						if randi() % 100 > 10 * d["hp"]:
+							generate_item();
+					"death":
+						if randi() % 100 > 50:
+							generate_item();
 	);
 	
 	ui.adventure.pressed.connect(func():
