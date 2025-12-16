@@ -27,6 +27,13 @@ var climbing : Stat = Stat.new();
 var jumping : Stat = Stat.new();
 var skateboarding : Stat = Stat.new();
 
+enum Type {
+	RUNNING,
+	CLIMBING,
+	JUMPING,
+	SKATEBOARDING
+}
+
 var name : String = "";
 
 func from_dict(dict : Dictionary):

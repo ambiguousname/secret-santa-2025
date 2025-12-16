@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dwcph8shq5nep"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dwcph8shq5nep"]
 
 [ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="1_i0lhd"]
+
+[sub_resource type="Gradient" id="Gradient_i0lhd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iqq2q"]
+gradient = SubResource("Gradient_i0lhd")
 
 [resource]
 script = ExtResource("1_i0lhd")
 name = "Foodstuffs"
+stat_two = 1
+texture = SubResource("GradientTexture2D_iqq2q")
 metadata/_custom_type_script = "uid://cet4cw83qw2qv"
