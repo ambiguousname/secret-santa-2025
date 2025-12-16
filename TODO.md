@@ -1,13 +1,12 @@
 # Current Priorities
-- [ ] TCP Communication
-(Both done by Tuesday)
+- [ ] Playtest feedback
 - [ ] Races 2-4 (Then victory)
 # List
-- [ ] Adventure Loop
+- [X] Adventure Loop
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen
-	- [ ] Sending data from Hollow Knight to game
-		- [ ] Autostart adventure loop on Hollow Knight start
+	- [X] Sending data from Hollow Knight to game
+		- [X] Autostart adventure loop on Hollow Knight start
 	- [X] Skilling up
 	- [X] Getting items
 	- [ ] "Natures" (bug has priority of training some skills over others)
@@ -25,6 +24,7 @@
 		- [ ] Visible week transition
 	- [X] Using Items
 	- [ ] LCD filter/styling
+	- [ ] Nicer background
     - [ ] New items notification dot
 		- [ ] "No items" text
 	- [X] Naming bugs
