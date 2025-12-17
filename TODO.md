@@ -1,5 +1,7 @@
 # Current Priorities
 - [ ] Race 1 balancing
+- [ ] Other racer stats
+- [ ] Race loss (including timing)
 - [ ] Races 2 & 3
 - [ ] Win/Loss conditions
 - [ ] Playtest feedback (emphasis on clarity and usability)
