@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm07uogntc5rs"]
+[gd_scene load_steps=7 format=3 uid="uid://cm07uogntc5rs"]
 
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_3tluo"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_1363n"]
 [ext_resource type="PackedScene" uid="uid://tspnrtdlp6wb" path="res://courses/course_segments/jumping_trigger.tscn" id="3_3ft3r"]
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="4_i2hxn"]
 [ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="5_fr26j"]
+
+[sub_resource type="Curve2D" id="Curve2D_fr26j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 151, 202, -521.6437, 12.104614, 521.6437, -12.104614, 1147, 1175, 0, 0, 0, 0, 1820, 724)
+}
+point_count = 3
 
 [node name="BaseCourse" instance=ExtResource("1_3tluo")]
 mean = 30.0
@@ -52,7 +58,10 @@ position = Vector2(961, -147)
 bottom = 1500.0
 
 [node name="CollisionPolygon2D" parent="Ramp" index="0"]
-polygon = PackedVector2Array(184, 1500, 184, 227, 216.74022, 332.70062, 255.1467, 436.48587, 298.66968, 538.2306, 347.59732, 637.48627, 402.52872, 733.54315, 464.31622, 825.329, 534.0332, 911.22656, 612.8757, 988.7945, 701.8236, 1054.4575, 800.84174, 1103.5099, 907.77454, 1131.187, 1018.0357, 1131.8083, 1124.0591, 1101.1775, 1220.692, 1047.5674, 1307.562, 979.1272, 1386.0437, 901.1538, 1457.6399, 816.7894, 1523.579, 727.9213, 1584.7957, 635.7306, 1641.9856, 540.98486, 1695.6603, 444.2022, 1746.185, 345.73755, 1793.7902, 245.82874, 1838.5392, 144.60742, 1880, 42, 1880, 1500)
+polygon = PackedVector2Array(151, 1500, 151, 202, 193.49763, 284.11725, 238.51256, 364.8856, 285.63596, 444.44235, 334.84003, 522.7291, 386.2059, 599.6144, 439.88443, 674.9021, 496.0879, 748.3228, 555.0934, 819.50916, 617.2499, 887.9579, 682.9897, 952.96704, 752.8285, 1013.5409, 827.345, 1068.2379, 907.08563, 1114.9507, 992.28107, 1150.6722, 1082.2358, 1171.482, 1174.5242, 1173.9513, 1266.4253, 1164.1436, 1356.5984, 1143.9218, 1443.5538, 1112.6594, 1525.6674, 1070.2902, 1601.4215, 1017.3837, 1669.613, 955.0264, 1729.4058, 884.5688, 1780.1124, 807.3125, 1820, 724, 1820, 1500)
+
+[node name="Path2D" parent="Ramp" index="1"]
+curve = SubResource("Curve2D_fr26j")
 
 [node name="SkateboardTrigger" parent="." index="9" instance=ExtResource("5_fr26j")]
 position = Vector2(1130, -68)
