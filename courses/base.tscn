@@ -21,6 +21,7 @@ top_level = true
 script = ExtResource("2_e3463")
 follow_mode = 5
 tween_resource = SubResource("Resource_3ogki")
+tween_on_load = false
 limit_left = 0
 limit_right = 1000
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

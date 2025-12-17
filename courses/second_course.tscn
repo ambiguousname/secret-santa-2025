@@ -17,6 +17,7 @@ mean = 15.0
 
 [node name="PhantomCamera2D" parent="." index="0"]
 zoom = Vector2(0.8, 0.8)
+tween_on_load = false
 limit_right = 2200
 limit_bottom = 500
 
