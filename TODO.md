@@ -1,6 +1,8 @@
 # Current Priorities
-- [ ] Playtest feedback
-- [ ] Races 2-4 (Then victory)
+- [ ] Race 1 balancing
+- [ ] Races 2 & 3
+- [ ] Win/Loss conditions
+- [ ] Playtest feedback (emphasis on clarity and usability)
 # List
 - [X] Adventure Loop
 	- [X] UI/borders hiding on activate
