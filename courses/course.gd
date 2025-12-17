@@ -7,6 +7,9 @@ class_name Course extends Node2D
 
 @onready var end_timer : Timer = $Timer;
 
+@export var mean : float = 6.0;
+@export var std : float = 1.0;
+
 signal race_end(player_win : bool);
 
 var winner : bool = false;
@@ -55,13 +58,24 @@ func start_race(player_bug_stats : Stats):
 	bug.player = true;
 	camera.follow_target = bug;
 	
+	var stat_gen = RandomNumberGenerator.new();
+	stat_gen.randomize();
+	
 	for i in range(3):
-		add_racer(Stats.new());
+		var stats = Stats.new();
+		stats.running.level = max(round(stat_gen.randfn(mean, std)), 0);
+		stats.climbing.level = max(round(stat_gen.randfn(mean, std)), 0);
+		stats.skateboarding.level = max(round(stat_gen.randfn(mean, std)), 0);
+		stats.jumping.level = max(round(stat_gen.randfn(mean, std)), 0);
+		#print("%d %d %d %d" % [stats.running.level, stats.climbing.level, stats.skateboarding.level, stats.jumping.level]);
+		add_racer(stats);
 	end_timer.start();
 
 func add_racer(stats : Stats) -> RacingBug:
 	var bug : RacingBug = racing_bug.instantiate();
 	bug.stats = stats;
+	# Start with random angular velocity:
+	bug.angular_velocity = randf();
 	
 	racing_bugs.push_back(bug);
 	racer_start.add_child(bug);

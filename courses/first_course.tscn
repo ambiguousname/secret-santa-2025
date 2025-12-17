@@ -16,6 +16,8 @@ rough = true
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k652w"]
 
 [node name="FirstCourse" instance=ExtResource("1_8nqhk")]
+mean = 4.0
+std = 1.25
 
 [node name="PhantomCamera2D" parent="." index="0"]
 position = Vector2(253, 112)

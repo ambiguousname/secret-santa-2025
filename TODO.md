@@ -1,6 +1,6 @@
 # Current Priorities
-- [ ] Race 1 balancing
-- [ ] Other racer stats
+- [X] Race 1 balancing
+- [X] Other racer stats
 - [ ] Race loss (including timing)
 - [ ] Races 2 & 3
 - [ ] Win/Loss conditions
@@ -50,7 +50,7 @@
 		- Don't go above maximum window width
 		- Camera2D for the rest
 	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
-		- Randomized skill level based on race #
+		- [X] Randomized skill level based on race #
 - [ ] Art (ordered by priority)
 	- [ ] Bug idle
 	- [ ] Adventuring animations
