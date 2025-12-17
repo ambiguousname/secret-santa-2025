@@ -15,6 +15,8 @@ func update_tcp_status(text : String):
 
 @onready var full_info : Control = $FullInfo;
 
+signal retire();
+
 func _ready() -> void:
 	items_button.pressed.connect(func():
 		items.visible = true;
@@ -31,6 +33,9 @@ func _ready() -> void:
 	settings_menu.close.pressed.connect(func():
 		full_info.visible = true;
 		settings_menu.visible = false;
+	);
+	$WinScreen/VBoxContainer/Button.pressed.connect(func():
+		retire.emit();
 	);
 
 @onready var bug_name : LineEdit = $"Bug Name";
@@ -118,10 +123,12 @@ func end_race_day(winner : bool):
 func set_energy(e : float):
 	energy.value = e;
 
-func win():
+func win(b_name : String):
 	adventure.visible = false;
 	race.visible = false;
-	# TODO: Expand, retirement?
+	full_info.visible = false;
+	$WinScreen/VBoxContainer/Label.text = "%s is a champion!" % b_name;
+	$WinScreen.visible = true;
 
 @onready var running : Radial = %Running/Stat;
 @onready var skateboarding : Radial = %Skateboarding/Stat;

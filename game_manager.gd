@@ -20,8 +20,7 @@ var race_day : int:
 			2:
 				return 7;
 			_:
-				printerr("Invalid week.");
-				return 0;
+				return -1;
 
 func _ready() -> void:
 	save.adv_info.generate_item = generate_item;
@@ -33,7 +32,7 @@ func _ready() -> void:
 	
 	save.load_save();
 	ui.set_energy(save.stats.energy);
-	if save.adv_info.day != race_day && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+	if race_day > 0 && save.adv_info.day != race_day && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
 		new_day(save.adv_info.day + 1);
 	else:
 		set_day(save.adv_info.day);
@@ -169,6 +168,13 @@ func _ready() -> void:
 	);
 	
 	ui.race.pressed.connect(start_race);
+	
+	ui.retire.connect(func():
+		# TODO: Save retired bugs to file.
+		ui.get_node("WinScreen").visible = false;
+		reset_to_setup();
+		ui.setup_bug();
+	);
 
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";
@@ -195,13 +201,13 @@ func new_day(day_progress : int):
 	
 	set_day(day_progress, true);
 	
-	if day_progress >= race_day:
+	if race_day > 0 && day_progress >= race_day:
 		return;
 	save.stats.energy += 20;
 	ui.set_energy(save.stats.energy);
 
 func set_day(day_progress : int, advance: bool = false):
-	if day_progress >= race_day:
+	if race_day > 0 && day_progress >= race_day:
 		ui.start_race_day();
 		return;
 	ui.set_day(race_day - day_progress, save.adv_info.day_progress_time, advance);
@@ -267,12 +273,7 @@ func finish_race(winner : bool):
 		
 		check_win();
 	else:
-		save.clear();
-		
-		ui.set_energy(100);
-		ui.set_day(race_day - 0, 100, false);
-		ui.set_stats(save.stats);
-		ui.items.clear();
+		reset_to_setup();
 	
 	var window = get_window();
 	
@@ -305,8 +306,16 @@ func finish_race(winner : bool):
 
 func check_win():
 	# TODO: Expand.
-	if save.adv_info.week == 3:
-		ui.win();
+	if save.adv_info.week >= 3:
+		ui.win(save.stats.name);
 
 func generate_item() -> Item:
 	return self.items[randi() % self.items.size()];
+
+func reset_to_setup():
+	save.clear();
+	
+	ui.set_energy(100);
+	ui.set_day(race_day - 0, 100, false);
+	ui.set_stats(save.stats);
+	ui.items.clear();
