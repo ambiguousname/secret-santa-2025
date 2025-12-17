@@ -268,6 +268,11 @@ func finish_race(winner : bool):
 		check_win();
 	else:
 		save.clear();
+		
+		ui.set_energy(100);
+		ui.set_day(race_day - 0, 100, false);
+		ui.set_stats(save.stats);
+		ui.items.clear();
 	
 	var window = get_window();
 	
