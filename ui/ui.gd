@@ -70,7 +70,6 @@ func end_setup(n : String):
 	$SetupText.visible = false;
 	bug_name.editable = false;
 	
-	bug_name.text_submitted.disconnect(end_setup);
 	full_info.visible = true;
 	adventure.visible = true;
 	submit_name.visible = false;
