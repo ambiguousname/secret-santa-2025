@@ -17,6 +17,8 @@ var race_day : int:
 				return 1;
 			1:
 				return 3;
+			2:
+				return 7;
 			_:
 				printerr("Invalid week.");
 				return 0;
@@ -209,6 +211,10 @@ func start_race():
 	match save.adv_info.week:
 		0:
 			race_scene = preload("uid://cwb4fbjlm6jac");
+		1:
+			race_scene = preload("uid://cfadllsrcwd4j");
+		2:
+			race_scene = preload("uid://cm07uogntc5rs");
 	if race_scene == null:
 		printerr("Could not get race for week %d" % save.adv_info.week);
 		return;
