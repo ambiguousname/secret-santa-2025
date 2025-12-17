@@ -76,7 +76,7 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 ## Playtester One
 
 - [ ] (Probably done?) Appeared on second monitor (check which position it's appearing at?) (Setting position to zero does not guarantee it's at the start of the current screen)
-- [ ] Energy needs a label (called it "psychic damage")
+- [X] Energy needs a label (called it "psychic damage")
 - [ ] Need some documentation (either in-game or out of game) on how it works
 - Likes the super jump
 - [X] Unclear of when to stop playing (day progression bar will help)
@@ -88,13 +88,13 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 - [ ] Unclear how to run and install Scarab (and note on detailed instructions to explainer in settings).
 	- Also need to be clearer on HOW using this mod helps with  the game
 - [ ] Buddy should be smaller on screen
-- [ ] Need to test race kill conditions (and make them obvious)
+- [X] Need to test race kill conditions (and make them obvious)
 - "It's kinda funny, I'm not against it." On having the pink square on bottom of screen
 - [ ] Check TCP sending data on a quit to menu and reload
 - "I did not realize I could input a name"
-- [ ] Need a bug rename state
+- [X] Need a bug rename state
 - [ ] Buddy should be minimized after adventure is done and while TCP is active
-- [ ] Jumping at level 6 was not enough to clear
+- [X] Jumping at level 6 was not enough to clear
 - Got two items, both Cool Skull. Had averages of skills around 6 or 7
 - [ ] Need to test if this is better than without TCP (and if first race is passable almost regardless of stats)
 - [ ] Racing backgrounds need a texture to be able to see on purely black.
