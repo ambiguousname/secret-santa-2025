@@ -1,13 +1,9 @@
 # Current Priorities
-- [X] Race 1 balancing
-- [X] Other racer stats
-- [X] Race loss (including timing)
-- [X] Races 2 & 3
-- [X] Overall Win/Loss conditions
-	- [X] Loss screen
-	- [X] Win condition + screen
 - [ ] Playtest feedback (emphasis on clarity and usability)
 - [ ] Make build and test continuous runthrough for balancing (do all throughout Thursday)
+- [ ] SFX
+- [ ] Art implementation
+	- [ ] LCD stylization
 # List
 - [X] Adventure Loop
 	- [X] UI/borders hiding on activate
