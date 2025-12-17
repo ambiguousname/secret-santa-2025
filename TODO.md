@@ -12,7 +12,7 @@
 	- [ ] "Natures" (bug has priority of training some skills over others)
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
-	- [ ] Fix camera issue on return from borderless
+	- [X] Fix camera issue on return from borderless
 	- [X] Stats
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy

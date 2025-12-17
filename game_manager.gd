@@ -149,9 +149,9 @@ func _ready() -> void:
 		bug.jump(func():
 			var window = get_window();
 			window.mouse_passthrough_polygon = [];
+			window.set_flag(Window.FLAG_BORDERLESS, false);
 			window.size = Vector2i(500, 500);
-			# Stupid hack:
-			camera.offset = Vector2i(250, 230);
+			camera.offset = Vector2i(250, 250);
 			window.position = _stats_window_pos;
 			
 			ui.fade_ui(true, 1.0, func():
@@ -161,7 +161,6 @@ func _ready() -> void:
 			);
 			ui.set_energy(save.stats.energy);
 			window.set_flag(Window.FLAG_ALWAYS_ON_TOP, false);
-			window.set_flag(Window.FLAG_BORDERLESS, false);
 			# window.mouse_passthrough = false;
 		);
 	);
