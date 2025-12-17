@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=29 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dlxkdu3gv8hr8" path="res://ui/credits.tscn" id="14_cegan"]
 [ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
 [ext_resource type="PackedScene" uid="uid://b6aj7dlcr2mcw" path="res://ui/install_server.tscn" id="16_yaehf"]
@@ -248,6 +249,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_074og")
 
+[node name="TabContainer" type="TabContainer" parent="UI/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="InstallServer" parent="UI/SettingsMenu/TabContainer" instance=ExtResource("16_yaehf")]
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 0
+
+[node name="Credits" parent="UI/SettingsMenu/TabContainer" instance=ExtResource("14_cegan")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
 [node name="Close" type="Button" parent="UI/SettingsMenu"]
 layout_mode = 1
 anchors_preset = 1
@@ -257,17 +278,6 @@ offset_left = -50.0
 offset_bottom = 50.0
 grow_horizontal = 0
 text = "X"
-
-[node name="InstallServer" parent="UI/SettingsMenu" instance=ExtResource("16_yaehf")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 500.0
-offset_bottom = 500.0
-grow_horizontal = 1
-grow_vertical = 1
-mouse_filter = 2
 
 [node name="FullInfo" type="Control" parent="UI"]
 layout_mode = 1
