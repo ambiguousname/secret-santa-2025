@@ -17,6 +17,11 @@ func load_save():
 			printerr("Could not read user settings.");
 		f.close();
 
+func clear():
+	stats.clear();
+	adv_info.clear();
+	write_save();
+
 func write_save():
 	var f = FileAccess.open(SAVE_FILE, FileAccess.WRITE);
 	var d = {};

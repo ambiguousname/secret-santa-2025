@@ -12,7 +12,6 @@ std = 1.25
 
 [node name="PhantomCamera2D" parent="." index="0"]
 position = Vector2(253, 112)
-tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.5, 0.5)
 dead_zone_height = 1.0

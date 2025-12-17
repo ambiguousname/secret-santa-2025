@@ -37,6 +37,10 @@ func _ready() -> void:
 
 signal setup_ended(b_name : String);
 
+func setup_bug_dead(bug_name : String):
+	setup_bug();
+	$SetupText.text = "%s lost! You must start again." % bug_name;
+
 func setup_bug():
 	const NAMES : Array[String] = ["Mozzarella", "Quibble", "Cloof", "Blast", "Cloak", "Palt",
 	"Grub", "Emboss", "Phobos", "Bud", "Trinity", "Gouda", "Margherita", "Wensleydale", "Young", "Old"];
@@ -55,8 +59,10 @@ func setup_bug():
 		end_setup(bug_name.text);
 	);
 	adventure.visible = false;
+	$SetupText.text = "Start your journey, name your bug!";
 
 func end_setup(n : String):
+	$SetupText.visible = false;
 	bug_name.editable = false;
 	
 	bug_name.text_submitted.disconnect(end_setup);
@@ -104,6 +110,9 @@ func start_race_day():
 func end_race_day(winner : bool):
 	adventure.visible = true;
 	race.visible = false;
+	if !winner:
+		full_info.visible = false;
+		adventure.visible = false;
 
 @onready var energy : ProgressBar = %Energy;
 func set_energy(e : float):

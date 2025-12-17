@@ -18,7 +18,6 @@ std = 5.0
 
 [node name="PhantomCamera2D" parent="." index="0"]
 zoom = Vector2(0.5, 0.5)
-tween_on_load = false
 limit_right = 5000
 limit_bottom = 1000
 

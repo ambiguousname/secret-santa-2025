@@ -37,6 +37,12 @@ func to_dict() -> Dictionary:
 		"items": items.map(func(i : Item): return i.to_dict()),
 	};
 
+func clear():
+	day_progress_time = 100;
+	day = 0;
+	week = 0;
+	items = [];
+
 var mark_dirty_timer : float = 0.0;
 
 var _focus_timer : float = 0.0;

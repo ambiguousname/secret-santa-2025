@@ -29,6 +29,14 @@ var climbing : Stat = Stat.new();
 var jumping : Stat = Stat.new();
 var skateboarding : Stat = Stat.new();
 
+func clear():
+	energy = 100.0;
+	running = Stat.new();
+	climbing = Stat.new();
+	jumping = Stat.new();
+	skateboarding = Stat.new();
+	name = "";
+
 enum Type {
 	RUNNING,
 	CLIMBING,

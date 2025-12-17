@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=32 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -22,6 +22,91 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
+
+[sub_resource type="Animation" id="Animation_cegan"]
+resource_name = "die"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bug:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(250, 250), Vector2(255, 255), Vector2(350, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bug:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.04363323, 0.98611104]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bug:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.69965345, 0.69965345, 0.69965345, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_82xsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bug:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bug:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bug:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82xsv"]
+_data = {
+&"RESET": SubResource("Animation_82xsv"),
+&"die": SubResource("Animation_cegan")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
 bg_color = Color(0, 0, 0, 0.45490196)
@@ -58,6 +143,12 @@ position = Vector2(250, 250)
 texture = SubResource("PlaceholderTexture2D_h2yge")
 script = ExtResource("2_1bvp3")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bug"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_82xsv")
+}
+
 [node name="EndAdventure" type="Button" parent="Bug"]
 visible = false
 anchors_preset = 8
@@ -83,6 +174,18 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_h2yge")
+
+[node name="SetupText" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 63.0
+offset_right = 88.0
+offset_bottom = 86.0
+grow_horizontal = 2
+horizontal_alignment = 1
 
 [node name="Bug Name" type="LineEdit" parent="UI"]
 layout_mode = 1
@@ -448,6 +551,7 @@ offset_bottom = 64.0
 text = "DAYS LEFT
 7"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="ItemsButton" type="Button" parent="UI/FullInfo"]
 unique_name_in_owner = true

@@ -2,6 +2,7 @@ class_name Bug extends Sprite2D
 
 @onready var window : Window = self.get_window();
 @onready var _end_adventure : Button = $EndAdventure;
+@onready var animation : AnimationPlayer = $AnimationPlayer;
 
 signal adventure_ended();
 
@@ -31,7 +32,7 @@ func land(delay : float, start : Vector2, pos : Vector2, callback : Callable):
 	var tween = create_tween();
 	tween.tween_property(self, "position", pos, 0.1).from(start).set_delay(delay);
 	tween.parallel();
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).from(Vector2(0.6, 1.5));
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_delay(delay).from(Vector2(0.6, 1.5));
 	tween.tween_callback(callback).set_delay(0.01);
 
 func begin_adventure(extents : Rect2i, adventure_info : AdventureInfo):

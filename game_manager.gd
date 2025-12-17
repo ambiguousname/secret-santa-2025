@@ -79,7 +79,7 @@ func _ready() -> void:
 		save.write_save();
 	);
 	
-	if !FileAccess.file_exists(save.SAVE_FILE):
+	if !FileAccess.file_exists(save.SAVE_FILE) || save.stats.name == "":
 		ui.setup_bug();
 	else:
 		ui.bug_name.text = save.stats.name;
@@ -258,13 +258,16 @@ func start_race():
 
 func finish_race(winner : bool):
 	ui.end_race_day(winner);
-	
-	save.adv_info.week += 1;
-	save.adv_info.day = 0;
-	# Day is advanced by end_race_day above.
-	ui.set_day(save.adv_info.day, save.adv_info.day_progress_time, false);
-	
-	check_win();
+	var bug_name = String(save.stats.name);
+	if winner:
+		save.adv_info.week += 1;
+		save.adv_info.day = 0;
+		# Day is advanced by end_race_day above.
+		ui.set_day(save.adv_info.day, save.adv_info.day_progress_time, false);
+		
+		check_win();
+	else:
+		save.clear();
 	
 	var window = get_window();
 	
@@ -277,6 +280,19 @@ func finish_race(winner : bool):
 		ui.fade_ui(true, 1.0, func():
 			bug.visible = true;
 			bug.land(0.0, Vector2(250, -250), Vector2(250, 250), Callable());
+			
+			if !winner:
+				bug.animation.play(&"die");
+				bug.animation.animation_finished.connect(func(_a : String):
+					bug.visible = false;
+					bug.animation.play(&"RESET");
+					bug.position = Vector2(250, -250);
+					bug.animation.animation_finished.connect(func(_b : String):
+						bug.position = Vector2(250, -250);
+						bug.visible = true;
+						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), ui.setup_bug_dead.bind(bug_name));
+					, CONNECT_ONE_SHOT);
+				, CONNECT_ONE_SHOT);
 		);
 	);
 	
@@ -284,7 +300,7 @@ func finish_race(winner : bool):
 
 func check_win():
 	# TODO: Expand.
-	if save.adv_info.week == 2:
+	if save.adv_info.week == 3:
 		ui.win();
 
 func generate_item() -> Item:

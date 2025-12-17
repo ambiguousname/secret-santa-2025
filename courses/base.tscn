@@ -37,25 +37,31 @@ script = ExtResource("2_ihg6i")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="RaceUI" type="Control" parent="RacingCamera"]
+z_index = 5
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TimeLeft" type="Label" parent="RacingCamera/RaceUI"]
 visible = false
-layout_mode = 0
-offset_left = -38.0
-offset_right = 78.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "30"
 horizontal_alignment = 1
 

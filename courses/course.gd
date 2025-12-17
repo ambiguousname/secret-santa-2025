@@ -30,8 +30,8 @@ func _ready() -> void:
 	
 	finish.body_entered.connect(func(b : PhysicsBody2D):
 		if b is RacingBug:
-			if b.player && !winner:
-				end_race(true);
+			if b.player:
+				end_race(!winner);
 			winner = true;
 	);
 	
@@ -53,7 +53,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if race_done:
 		return;
-	if end_timer.time_left < 10:
+	if end_timer.time_left > 0 && end_timer.time_left < 10:
 		time_left.visible = true;
 		time_left.text = str(int(end_timer.time_left));
 
@@ -64,7 +64,7 @@ func start_race(player_bug_stats : Stats):
 	racing_bugs.clear();
 	var bug : RacingBug = add_racer(player_bug_stats);
 	bug.player = true;
-	#camera.follow_target = bug;
+	camera.follow_target = bug;
 	
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
