@@ -64,7 +64,7 @@ func start_race(player_bug_stats : Stats):
 	racing_bugs.clear();
 	var bug : RacingBug = add_racer(player_bug_stats);
 	bug.player = true;
-	camera.follow_target = bug;
+	#camera.follow_target = bug;
 	
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
@@ -76,7 +76,8 @@ func start_race(player_bug_stats : Stats):
 		stats.skateboarding.level = max(round(stat_gen.randfn(mean, std)), 0);
 		stats.jumping.level = max(round(stat_gen.randfn(mean, std)), 0);
 		#print("%d %d %d %d" % [stats.running.level, stats.climbing.level, stats.skateboarding.level, stats.jumping.level]);
-		add_racer(stats);
+		var _o = add_racer(stats);
+		#camera.follow_target = _o;
 	end_timer.start();
 
 func add_racer(stats : Stats) -> RacingBug:

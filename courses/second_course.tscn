@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfadllsrcwd4j"]
+
+[ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_x2fv7"]
+[ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_sq8pa"]
+[ext_resource type="PackedScene" uid="uid://tspnrtdlp6wb" path="res://courses/course_segments/jumping_trigger.tscn" id="3_ysrwf"]
+[ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="4_uj43v"]
+[ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="5_re1m6"]
+
+[node name="BaseCourse" instance=ExtResource("1_x2fv7")]
+mean = 15.0
+
+[node name="PhantomCamera2D" parent="." index="0"]
+zoom = Vector2(0.8, 0.8)
+limit_right = 2200
+limit_bottom = 500
+
+[node name="RacingCamera" parent="." index="1"]
+zoom = Vector2(0.8, 0.8)
+limit_right = 2200
+limit_bottom = 500
+
+[node name="Finish" parent="." index="3"]
+position = Vector2(2095, -107)
+
+[node name="KillPlane" parent="." index="4"]
+position = Vector2(235, 597)
+
+[node name="Polygon" parent="." index="6" instance=ExtResource("2_sq8pa")]
+position = Vector2(6, 18)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionPolygon2D" parent="Polygon" index="0"]
+polygon = PackedVector2Array(120, 68, 127, 659, -98, 657, -98, 3)
+
+[node name="Polygon2" parent="." index="7" instance=ExtResource("2_sq8pa")]
+position = Vector2(293, 126)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionPolygon2D" parent="Polygon2" index="0"]
+polygon = PackedVector2Array(124, 31, 128, 495, -49, 498, -48, 4)
+
+[node name="Polygon3" parent="." index="8" instance=ExtResource("2_sq8pa")]
+position = Vector2(551, -20)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionPolygon2D" parent="Polygon3" index="0"]
+polygon = PackedVector2Array(125, 1, 130, 642, -47, 641, -49, 0)
+
+[node name="Polygon4" parent="." index="9" instance=ExtResource("2_sq8pa")]
+position = Vector2(2008, -68)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionPolygon2D" parent="Polygon4" index="0"]
+polygon = PackedVector2Array(291, 1, 291, 642, -47, 641, -55, 3)
+
+[node name="JumpTrigger" parent="." index="10" instance=ExtResource("3_ysrwf")]
+position = Vector2(117, 1)
+
+[node name="JumpTrigger2" parent="." index="11" instance=ExtResource("3_ysrwf")]
+position = Vector2(405, 85)
+
+[node name="Ramp" parent="." index="12" instance=ExtResource("4_uj43v")]
+position = Vector2(674, -23)
+bottom = 653.04
+
+[node name="CollisionPolygon2D" parent="Ramp" index="0"]
+polygon = PackedVector2Array(2, 653.04, 2, 4, 22.199682, 46.4271, 44.256264, 87.92234, 67.921036, 128.52194, 93.21972, 168.12347, 120.26377, 206.5532, 149.22464, 243.55794, 180.32478, 278.78076, 213.8369, 311.71176, 250.06398, 341.6206, 289.27255, 367.47977, 331.56317, 387.87793, 376.59448, 401.10498, 423.30017, 405.5579, 470.15393, 402.1332, 516.7383, 395.96054, 562.9982, 387.6949, 608.8935, 377.59512, 654.40125, 365.8699, 699.50854, 352.68683, 744.2077, 338.17938, 788.49207, 322.45023, 832.3511, 305.57138, 875.7671, 287.58307, 918.6979, 268.4667, 961, 248, 961, 653.04)
+
+[node name="SkateboardTrigger" parent="." index="13" instance=ExtResource("5_re1m6")]
+position = Vector2(686, -71)
+
+[node name="SkateboardTrigger2" parent="." index="14" instance=ExtResource("5_re1m6")]
+position = Vector2(1626, 169)
+skateboard = false
+
+[editable path="Polygon"]
+[editable path="Polygon2"]
+[editable path="Polygon3"]
+[editable path="Polygon4"]
+[editable path="Ramp"]
