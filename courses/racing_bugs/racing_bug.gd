@@ -72,6 +72,7 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 				self.linear_velocity += normal.rotated(PI/2) * (stats.climbing.level + 1) * st.step;
 			if st.get_contact_count() == 0:
 				self.linear_velocity += Vector2.UP * 980.0 * st.step * 20.0;
+				self.linear_velocity += Vector2.UP * stats.jumping.level;
 				state = State.FALLING_RIGHT;
 				return;
 		State.JUMPING:
