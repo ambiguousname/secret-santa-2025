@@ -3,7 +3,7 @@
 - [X] Other racer stats
 - [X] Race loss (including timing)
 - [ ] Races 2 & 3
-- [ ] Win/Loss conditions
+- [ ] Overall Win/Loss conditions
 - [ ] Playtest feedback (emphasis on clarity and usability)
 - [ ] Make build and test continuous runthrough for balancing (do all throughout Thursday)
 # List
