@@ -41,8 +41,8 @@
 - [ ] Races
 	- [X] Sample track
 	- [X] Stat effects
-	- [ ] End timer display on < 3 secs
-		- Make end timer longer?
+	- [X] End timer display on < 3 secs
+		- [X] Make end timer longer?
 	- [X] Kill conditions
 	- [ ] Check kill plane/player killed condition
 	- [X] Transition to and from stats screen

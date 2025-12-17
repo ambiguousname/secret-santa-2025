@@ -6,6 +6,7 @@ class_name Course extends Node2D
 @onready var camera : PhantomCamera2D = $PhantomCamera2D;
 
 @onready var end_timer : Timer = $Timer;
+@onready var time_left : Label = $RacingCamera/RaceUI/TimeLeft;
 
 @export var mean : float = 6.0;
 @export var std : float = 1.0;
@@ -49,6 +50,13 @@ func _ready() -> void:
 				#tmp.jumping.level = 25;
 				start_race(tmp);
 
+func _process(delta: float) -> void:
+	if race_done:
+		return;
+	if end_timer.time_left < 10:
+		time_left.visible = true;
+		time_left.text = str(int(end_timer.time_left));
+
 var racing_bug = preload("uid://bylxu2i2xmwp1");
 var racing_bugs : Array[RacingBug] = [];
 
@@ -81,7 +89,10 @@ func add_racer(stats : Stats) -> RacingBug:
 	racer_start.add_child(bug);
 	return bug;
 
+var race_done : bool = false;
 func end_race(player_win : bool):
+	race_done = true;
+	time_left.visible = false;
 	race_end.emit(player_win);
 
 func cleanup_race():
