@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfadllsrcwd4j"]
+[gd_scene load_steps=7 format=3 uid="uid://cfadllsrcwd4j"]
 
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_x2fv7"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_sq8pa"]
 [ext_resource type="PackedScene" uid="uid://tspnrtdlp6wb" path="res://courses/course_segments/jumping_trigger.tscn" id="3_ysrwf"]
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="4_uj43v"]
 [ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="5_re1m6"]
+
+[sub_resource type="Curve2D" id="Curve2D_re1m6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 4, -256.63, 17.996002, 256.63, -17.996002, 438, 405, 0, 0, 0, 0, 961, 248)
+}
+point_count = 3
 
 [node name="BaseCourse" instance=ExtResource("1_x2fv7")]
 mean = 15.0
@@ -65,6 +71,9 @@ bottom = 653.04
 
 [node name="CollisionPolygon2D" parent="Ramp" index="0"]
 polygon = PackedVector2Array(2, 653.04, 2, 4, 22.199682, 46.4271, 44.256264, 87.92234, 67.921036, 128.52194, 93.21972, 168.12347, 120.26377, 206.5532, 149.22464, 243.55794, 180.32478, 278.78076, 213.8369, 311.71176, 250.06398, 341.6206, 289.27255, 367.47977, 331.56317, 387.87793, 376.59448, 401.10498, 423.30017, 405.5579, 470.15393, 402.1332, 516.7383, 395.96054, 562.9982, 387.6949, 608.8935, 377.59512, 654.40125, 365.8699, 699.50854, 352.68683, 744.2077, 338.17938, 788.49207, 322.45023, 832.3511, 305.57138, 875.7671, 287.58307, 918.6979, 268.4667, 961, 248, 961, 653.04)
+
+[node name="Path2D" parent="Ramp" index="1"]
+curve = SubResource("Curve2D_re1m6")
 
 [node name="SkateboardTrigger" parent="." index="13" instance=ExtResource("5_re1m6")]
 position = Vector2(686, -71)
