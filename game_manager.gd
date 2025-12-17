@@ -124,9 +124,10 @@ func _ready() -> void:
 		var window = get_window();
 		ui.fade_ui(false, 1.0, func():
 			var size = DisplayServer.screen_get_size(window.current_screen);
+			var pos = DisplayServer.screen_get_position(window.current_screen);
 			window.size = Vector2i(size.x - 100, 250);
 			_stats_window_pos = window.position;
-			window.position = Vector2i(50, size.y - 250);
+			window.position = Vector2i(pos.x + 50, size.y - 250);
 			
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
@@ -240,8 +241,10 @@ func start_race():
 		_stats_window_pos = window.position;
 		
 		var size = DisplayServer.screen_get_size(window.current_screen);
+		var pos = DisplayServer.screen_get_position(window.current_screen);
+		
 		var tween = create_tween();
-		tween.tween_property(window, "position", Vector2i(size.x/4, window.position.y), 0.5);
+		tween.tween_property(window, "position", Vector2i(size.x/4 + pos.x, window.position.y), 0.5);
 		#tween.parallel();
 		tween.tween_property(window, "size", Vector2i(size.x/2, 500), 0.5);
 	);
