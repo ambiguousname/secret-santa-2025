@@ -24,8 +24,8 @@
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
   - [ ] Energy text
-	- [X] Day Progression
-		- [ ] Visible day counting down transition
+  - [X] Day Progression
+	- [ ] Visible day counting down transition
   - [ ] Day progress bar (underneath text)
 		- [X] Racing day
 		- [ ] Visible week transition
@@ -47,7 +47,7 @@
 	- [X] End timer display on < 3 secs
 		- [X] Make end timer longer?
 	- [X] Kill conditions
-	- [ ] Check kill plane/player killed condition
+	- [X] Check kill plane/player killed condition
 	- [X] Transition to and from stats screen
 	- [X] Window expanding to show race course
 		- Don't go above maximum window width
