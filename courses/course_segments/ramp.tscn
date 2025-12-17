@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy85js11srkop"]
+[gd_scene load_steps=4 format=3 uid="uid://dy85js11srkop"]
 
 [ext_resource type="Script" uid="uid://bsgg3cxj07swb" path="res://courses/course_segments/ramp.gd" id="1_7wghn"]
+[ext_resource type="PhysicsMaterial" uid="uid://bp5167etkcspa" path="res://courses/course_segments/ramp_mat.tres" id="1_toiap"]
 
 [sub_resource type="Curve2D" id="Curve2D_8nqhk"]
 _data = {
@@ -9,6 +10,7 @@ _data = {
 point_count = 3
 
 [node name="Ramp" type="StaticBody2D"]
+physics_material_override = ExtResource("1_toiap")
 script = ExtResource("1_7wghn")
 color = Color(0, 0, 0, 1)
 
