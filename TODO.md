@@ -4,6 +4,8 @@
 - [X] Race loss (including timing)
 - [X] Races 2 & 3
 - [ ] Overall Win/Loss conditions
+	- [X] Loss screen
+	- [ ] Win condition + screen
 - [ ] Playtest feedback (emphasis on clarity and usability)
 - [ ] Make build and test continuous runthrough for balancing (do all throughout Thursday)
 # List
