@@ -49,7 +49,7 @@ position = Vector2(667, 78)
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionPolygon2D" parent="Polygon2" index="0"]
-polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
+polygon = PackedVector2Array(-97, 3, 78, 3, 45, 537, -97, 537)
 
 [node name="Polygon3" parent="." index="5" instance=ExtResource("2_e37jp")]
 position = Vector2(891, 21)
@@ -57,7 +57,7 @@ physics_material_override = SubResource("PhysicsMaterial_k652w")
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionPolygon2D" parent="Polygon3" index="0"]
-polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -97, 537)
+polygon = PackedVector2Array(-97, 3, 45, 3, 45, 537, -129, 536)
 
 [node name="Finish" parent="." index="7"]
 position = Vector2(896, -4)
@@ -73,7 +73,7 @@ position = Vector2(583, 0)
 skateboard = false
 
 [node name="JumpTrigger" parent="." index="12" instance=ExtResource("5_k652w")]
-position = Vector2(701, 4)
+position = Vector2(740, 4)
 
 [editable path="Ramp"]
 [editable path="Polygon"]
