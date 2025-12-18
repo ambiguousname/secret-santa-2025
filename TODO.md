@@ -19,7 +19,7 @@
 	- [X] Stats
 		- Thinking roughly 4, to keep it simple.
 	- [X] Energy
-  - [ ] Energy text
+  - [X] Energy text
   - [X] Day Progression
 	- [ ] Visible day counting down transition
   - [ ] Day progress bar (underneath text)
@@ -31,7 +31,7 @@
     - [X] New items notification dot
 		- [ ] "No items" text
 	- [X] Naming bugs
-	- [ ] Winning
+	- [X] Winning
 	- [ ] Settings
 		- [ ] Connecting to Hollow Knight
 			- [X] Bundling DLLs with files
