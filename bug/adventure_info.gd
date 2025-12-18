@@ -103,6 +103,7 @@ func adventure_update(delta: float):
 			cumulative += nature[i];
 			if selection <= cumulative:
 				_focus = i;
+				break;
 	
 	if _item_timer >= _item_duration:
 		_item_timer = 0;
