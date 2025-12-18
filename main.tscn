@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
 [ext_resource type="PackedScene" uid="uid://b6aj7dlcr2mcw" path="res://ui/install_server.tscn" id="16_yaehf"]
-[ext_resource type="Texture2D" uid="uid://bwx8lahgmjo8j" path="res://art/LCDIcons/bag.png" id="18_82xsv"]
+[ext_resource type="Texture2D" uid="uid://bwx8lahgmjo8j" path="res://art/LCD/bag.png" id="18_82xsv"]
 [ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
@@ -128,10 +128,10 @@ fill_from = Vector2(0.5, 0.5)
 bg_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
-bg_color = Color(0.08627451, 0.41960785, 0, 1)
+bg_color = Color(0.08235294, 0.56078434, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
+bg_color = Color(0.083999984, 0.56, 0, 0.43529412)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.17254902, 0.17254902, 0.17254902, 0)

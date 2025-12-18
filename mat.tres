@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cln24iig5jto2"]
+
+[ext_resource type="Shader" uid="uid://bdxkhsht3xx18" path="res://ui/main.gdshader" id="1_swt14"]
+
+[resource]
+shader = ExtResource("1_swt14")
+shader_parameter/light_col = Color(0.2166667, 1, 0, 1)
+shader_parameter/dark_col = Color(0.05425842, 0.3708341, 0, 1)
+shader_parameter/mid_col = Color(0.10499998, 0.7, 0, 1)

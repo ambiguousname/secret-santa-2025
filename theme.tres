@@ -1,4 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://d1d3m8g8k3xqn"]
 
 [resource]
-Button/colors/icon_normal_color = Color(0.08627451, 0.41960785, 0, 1)
+Button/colors/icon_focus_color = Color(0.14999998, 1, 0, 1)
+Button/colors/icon_hover_color = Color(0.12599997, 0.84, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0.14901961, 1, 0, 1)
+Button/colors/icon_normal_color = Color(0.14901961, 1, 0, 1)
+Button/colors/icon_pressed_color = Color(0.08235294, 0.56078434, 0, 1)
