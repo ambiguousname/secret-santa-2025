@@ -26,6 +26,7 @@ func _ready() -> void:
 	save.adv_info.generate_item = generate_item;
 	
 	ui.setup_ended.connect(func(n : String):
+		save.adv_info.select_nature();
 		save.stats.name = n;
 		save.write_save();
 	);

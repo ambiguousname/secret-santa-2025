@@ -18,6 +18,7 @@ func can_regain_energy() -> bool:
 var day_progress_time : float = 100.0;
 var day : int = 0;
 var week : int = 0;
+var nature : Array = [0.25, 0.25, 0.25, 0.25];
 
 func from_dict(d : Dictionary):
 	if "day_progress_time" in d:
@@ -28,6 +29,8 @@ func from_dict(d : Dictionary):
 		week = d["week"];
 	if "items" in d:
 		items = d["items"].map(func(i : Dictionary): return Item.from_dict(i));
+	if "nature" in d:
+		nature = d["nature"];
 
 func to_dict() -> Dictionary:
 	return {
@@ -35,6 +38,7 @@ func to_dict() -> Dictionary:
 		"day": day,
 		"week": week,
 		"items": items.map(func(i : Item): return i.to_dict()),
+		"nature": nature,
 	};
 
 func clear():
@@ -42,6 +46,20 @@ func clear():
 	day = 0;
 	week = 0;
 	items = [];
+	nature = [0.25, 0.25, 0.25, 0.25];
+
+func select_nature():
+	var stats = [0, 1, 2, 3];
+	var primary = randi() % stats.size();
+	nature[stats[primary]] = 0.5;
+	stats.remove_at(primary);
+	
+	var secondary = randi() % stats.size();
+	nature[stats[secondary]] = 0.25;
+	stats.remove_at(secondary);
+	
+	nature[stats[0]] = 0.125;
+	nature[stats[1]] = 0.125;
 
 var mark_dirty_timer : float = 0.0;
 
@@ -79,7 +97,12 @@ func adventure_update(delta: float):
 		mark_dirty.emit();
 	if _focus_timer >= 60:
 		_focus_timer = 0;
-		_focus = randi() % 4;
+		var selection = randf();
+		var cumulative = 0.0;
+		for i in range(nature.size()):
+			cumulative += nature[i];
+			if selection <= cumulative:
+				_focus = i;
 	
 	if _item_timer >= _item_duration:
 		_item_timer = 0;

@@ -12,7 +12,7 @@
 		- [X] Autostart adventure loop on Hollow Knight start
 	- [X] Skilling up
 	- [X] Getting items
-	- [ ] "Natures" (bug has priority of training some skills over others)
+	- [X] "Natures" (bug has priority of training some skills over others)
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
 	- [X] Fix camera issue on return from borderless
