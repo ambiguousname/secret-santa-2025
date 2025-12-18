@@ -27,7 +27,7 @@
 		- [ ] Visible week transition
 	- [X] Using Items
 	- [ ] LCD filter/styling
-	- [ ] Nicer background
+	- [X] Nicer background
     - [X] New items notification dot
 		- [ ] "No items" text
 	- [X] Naming bugs

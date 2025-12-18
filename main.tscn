@@ -112,10 +112,16 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
 bg_color = Color(0, 0, 0, 0.45490196)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_h2yge"]
+[sub_resource type="Gradient" id="Gradient_82xsv"]
+offsets = PackedFloat32Array(0, 0.5466667, 1)
+colors = PackedColorArray(0, 0.39999986, 1, 1, 0.035118528, 0.083933234, 0.16417909, 1, 0.039215688, 0.047058824, 0.06666667, 1)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
-noise = SubResource("FastNoiseLite_h2yge")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_getpj"]
+gradient = SubResource("Gradient_82xsv")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.4813084, 0.50934577)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
 bg_color = Color(0, 0, 0, 0.4627451)
@@ -225,7 +231,8 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("NoiseTexture2D_h2yge")
+texture = SubResource("GradientTexture2D_getpj")
+expand_mode = 1
 
 [node name="Buttons" type="VBoxContainer" parent="UI"]
 layout_mode = 1
