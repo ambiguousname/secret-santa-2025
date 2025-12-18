@@ -6,6 +6,7 @@
 	- [ ] LCD stylization
 # List
 - [X] Adventure Loop
+	- [ ] Bug loses saturation at lower energies
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen
 	- [X] Sending data from Hollow Knight to game
