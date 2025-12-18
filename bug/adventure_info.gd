@@ -13,7 +13,7 @@ func _init(s : Stats) -> void:
 signal mark_dirty();
 
 func can_regain_energy() -> bool:
-	return false;
+	return items.size() > 0;
 
 var day_progress_time : float = 100.0;
 var day : int = 0;
