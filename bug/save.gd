@@ -4,6 +4,11 @@ var stats : Stats = Stats.new();
 var adv_info : AdventureInfo = AdventureInfo.new(stats);
 const SAVE_FILE : String = "user://save.json";
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		stats.free();
+		adv_info.free();
+
 func load_save():
 	if FileAccess.file_exists(SAVE_FILE):
 		var f = FileAccess.open(SAVE_FILE, FileAccess.READ);

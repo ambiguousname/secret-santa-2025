@@ -23,7 +23,6 @@ func clear():
 	for c in grid.get_children():
 		c.queue_free();
 
-
 @onready var item_display = preload("uid://1lmen782bmps");
 func add_item(i : Item, notify : bool = false):
 	if notify:
