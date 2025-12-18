@@ -202,8 +202,6 @@ func new_day(day_progress : int):
 	
 	set_day(day_progress, true);
 	
-	if race_day > 0 && day_progress >= race_day:
-		return;
 	save.stats.energy += 20;
 	ui.set_energy(save.stats.energy);
 
@@ -322,3 +320,6 @@ func reset_to_setup():
 	ui.set_day(race_day - 0, 100, false);
 	ui.set_stats(save.stats);
 	ui.items.clear();
+
+func _exit_tree() -> void:
+	save.free();
