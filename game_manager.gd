@@ -268,7 +268,7 @@ func finish_race(winner : bool):
 		save.adv_info.week += 1;
 		save.adv_info.day = 0;
 		# Day is advanced by end_race_day above.
-		ui.set_day(save.adv_info.day, save.adv_info.day_progress_time, false);
+		set_day(save.adv_info.day, false);
 		
 		check_win();
 	else:
