@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bye5d13kp4ew" path="res://ui/stat_wheel.tscn" id="3_7mycd"]
 [ext_resource type="Resource" uid="uid://dwcph8shq5nep" path="res://bug/items/yes_juice.tres" id="4_4c57u"]
 [ext_resource type="Resource" uid="uid://cxlpi1wlhuw5b" path="res://bug/items/cool_skull.tres" id="5_efxa6"]
-[ext_resource type="Texture2D" uid="uid://doqx4vyo8e55w" path="res://art/MV Icons PACK 2/Individual Icons/bag.png" id="6_5vw27"]
 [ext_resource type="Resource" uid="uid://djexvecy6wise" path="res://bug/items/broccoli.tres" id="6_w48qg"]
 [ext_resource type="Script" uid="uid://ck6tx1wy4np5b" path="res://ui/items/items.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
 [ext_resource type="PackedScene" uid="uid://b6aj7dlcr2mcw" path="res://ui/install_server.tscn" id="16_yaehf"]
+[ext_resource type="Texture2D" uid="uid://bwx8lahgmjo8j" path="res://art/LCDIcons/bag.png" id="18_82xsv"]
 [ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
@@ -113,21 +113,22 @@ _data = {
 bg_color = Color(0, 0, 0, 0.45490196)
 
 [sub_resource type="Gradient" id="Gradient_82xsv"]
-offsets = PackedFloat32Array(0, 0.5466667, 1)
-colors = PackedColorArray(0, 0.39999986, 1, 1, 0.035118528, 0.083933234, 0.16417909, 1, 0.039215688, 0.047058824, 0.06666667, 1)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.033333335, 0.3, 0.5733333)
+colors = PackedColorArray(0.13019998, 0.30979338, 0.62, 1, 0.035118528, 0.083933234, 0.16417909, 1, 0.039215688, 0.047058824, 0.06666667, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_getpj"]
 gradient = SubResource("Gradient_82xsv")
 width = 1024
 height = 1024
 fill = 1
-fill_from = Vector2(0.4813084, 0.50934577)
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
 bg_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
-bg_color = Color(0.8980392, 0.7254902, 0, 1)
+bg_color = Color(0.08627451, 0.41960785, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.09803922, 0.29411766, 0, 0.5529412)
@@ -224,10 +225,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 6.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -569,7 +566,7 @@ offset_top = 5.0
 offset_right = 208.0
 offset_bottom = 85.0
 text = "Items"
-icon = ExtResource("6_5vw27")
+icon = ExtResource("18_82xsv")
 
 [node name="NotifDot" type="Control" parent="UI/FullInfo/ItemsButton"]
 visible = false

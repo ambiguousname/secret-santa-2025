@@ -34,6 +34,10 @@ window/per_pixel_transparency/allowed=true
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://d1d3m8g8k3xqn"
+
 [physics]
 
 common/physics_interpolation=true
