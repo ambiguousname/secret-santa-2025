@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=33 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
 [ext_resource type="PackedScene" uid="uid://b6aj7dlcr2mcw" path="res://ui/install_server.tscn" id="16_yaehf"]
+[ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
 size = Vector2(150, 150)
@@ -562,6 +563,17 @@ offset_right = 208.0
 offset_bottom = 85.0
 text = "Items"
 icon = ExtResource("6_5vw27")
+
+[node name="NotifDot" type="Control" parent="UI/FullInfo/ItemsButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_82xsv")
+radius = 4.17
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://crvqxxyu1q12i"
 
 [node name="WinScreen" type="Panel" parent="UI"]
 visible = false

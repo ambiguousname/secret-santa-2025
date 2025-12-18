@@ -310,7 +310,9 @@ func check_win():
 		ui.win(save.stats.name);
 
 func generate_item() -> Item:
-	return self.items[randi() % self.items.size()];
+	var i = self.items[randi() % self.items.size()];
+	ui.items.add_item(i, true);
+	return i;
 
 func reset_to_setup():
 	save.clear();

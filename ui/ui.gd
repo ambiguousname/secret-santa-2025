@@ -12,6 +12,7 @@ func update_tcp_status(text : String):
 @onready var items : ItemManager = %Items;
 @onready var settings_button : Button = $FullInfo/SettingsButton;
 @onready var settings_menu : SettingsMenu = $SettingsMenu;
+@onready var item_notif : Control = items_button.get_node("NotifDot");
 
 @onready var full_info : Control = $FullInfo;
 
@@ -21,10 +22,14 @@ func _ready() -> void:
 	items_button.pressed.connect(func():
 		items.visible = true;
 		full_info.visible = false;
+		item_notif.visible = false;
 	);
 	items.close.pressed.connect(func():
 		items.visible = false;
 		full_info.visible = true;
+	);
+	items.item_added.connect(func():
+		item_notif.visible = true;
 	);
 	settings_button.pressed.connect(func():
 		settings_menu.visible = true;

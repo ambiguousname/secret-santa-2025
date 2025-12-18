@@ -7,6 +7,7 @@ class_name ItemManager extends Panel
 var item_to_use : Item;
 var active_item_display : ItemDisplay;
 
+signal item_added();
 signal use_item(i : Item, choice : int);
 
 func _ready() -> void:
@@ -24,7 +25,9 @@ func clear():
 
 
 @onready var item_display = preload("uid://1lmen782bmps");
-func add_item(i : Item):
+func add_item(i : Item, notify : bool = false):
+	if notify:
+		item_added.emit();
 	var d : ItemDisplay = item_display.instantiate();
 	d.texture = i.texture;
 	grid.add_child(d);

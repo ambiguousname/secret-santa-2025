@@ -28,7 +28,7 @@
 	- [X] Using Items
 	- [ ] LCD filter/styling
 	- [ ] Nicer background
-    - [ ] New items notification dot
+    - [X] New items notification dot
 		- [ ] "No items" text
 	- [X] Naming bugs
 	- [ ] Winning
