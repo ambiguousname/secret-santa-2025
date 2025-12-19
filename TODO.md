@@ -8,7 +8,7 @@
 	- [ ] LCD stylization
 # List
 - [X] Adventure Loop
-	- [ ] Bug loses saturation at lower energies
+	- [X] Bug loses saturation at lower energies
 		- [ ] Bug eyes gain color when connected to Hollow Knight.
 	- [X] UI/borders hiding on activate
 	- [X] Pet wandering screen

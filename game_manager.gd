@@ -189,6 +189,12 @@ func _ready() -> void:
 		reset_to_setup();
 		ui.setup_bug();
 	);
+	
+	save.stats.energy_updated.connect(func():
+		var amnt = 0.5 + 0.5 * save.stats.energy/100.0;
+		bug.modulate = Color(amnt, amnt, amnt, 1.0);
+	);
+	save.stats.energy_updated.emit();
 
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";

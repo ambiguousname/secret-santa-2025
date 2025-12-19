@@ -24,11 +24,16 @@ class Stat:
 			self.xp = 0;
 			increase(next_amnt);
 
-var energy : float = 100.0;
+var energy : float = 100.0:
+	set(v):
+		energy = v;
+		energy_updated.emit();
 var running : Stat = Stat.new();
 var climbing : Stat = Stat.new();
 var jumping : Stat = Stat.new();
 var skateboarding : Stat = Stat.new();
+
+signal energy_updated();
 
 func clear():
 	energy = 100.0;
