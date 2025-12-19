@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=34 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
+[ext_resource type="PackedScene" uid="uid://huuajgfta6fx" path="res://ui/week_transition.tscn" id="11_getpj"]
 [ext_resource type="PackedScene" uid="uid://dlxkdu3gv8hr8" path="res://ui/credits.tscn" id="14_cegan"]
 [ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
@@ -641,6 +642,11 @@ text = "You win!"
 [node name="Button" type="Button" parent="UI/WinScreen/VBoxContainer"]
 layout_mode = 2
 text = "Retire"
+
+[node name="WeekTransition" parent="UI" instance=ExtResource("11_getpj")]
+visible = false
+z_index = 1
+layout_mode = 1
 
 [node name="TCPClient" type="Node" parent="."]
 script = ExtResource("1_ig7tw")

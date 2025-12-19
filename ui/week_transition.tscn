@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://huuajgfta6fx"]
+
+[ext_resource type="Script" uid="uid://gna6ue8b3t6s" path="res://ui/week_transition.gd" id="1_ypa3w"]
+[ext_resource type="Texture2D" uid="uid://qxwh7y0o74ku" path="res://art/arrow.svg" id="1_ysybq"]
+
+[node name="WeekTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ypa3w")
+
+[node name="Bug" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -82.0
+offset_right = -130.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Winner" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 64.0
+offset_right = 58.0
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "BUG won!"
+horizontal_alignment = 1
+
+[node name="FromWeek" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -36.5
+offset_right = 170.0
+offset_bottom = 36.5
+grow_vertical = 2
+text = "Week 0
+
+Beginner's Grove"
+
+[node name="ToWeek" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = 36.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Week 2
+
+Sobbing Speedway"
+horizontal_alignment = 2
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -30.0
+offset_right = 58.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ysybq")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -124.0
+offset_right = 49.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ONWARDS!"

@@ -286,6 +286,7 @@ func finish_race(winner : bool):
 	ui.end_race_day(winner);
 	var bug_name = String(save.stats.name);
 	if winner:
+		ui.set_week(bug_name, save.adv_info.week, save.adv_info.week + 1);
 		save.adv_info.week += 1;
 		save.adv_info.day = 0;
 		# Day is advanced by end_race_day above.
