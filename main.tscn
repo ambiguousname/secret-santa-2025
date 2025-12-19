@@ -301,7 +301,7 @@ text = "X"
 
 [node name="GridContainer" type="GridContainer" parent="UI/Items"]
 layout_mode = 0
-offset_top = 31.0
+offset_top = 40.0
 offset_right = 500.0
 offset_bottom = 469.0
 columns = 9
