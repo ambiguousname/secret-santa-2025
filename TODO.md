@@ -62,7 +62,7 @@
 		- [ ] Walking
 		- [ ] Slow walking (optional)
 		- [ ] Sitting (optional)
-	- [ ] Skateboard
+	- [X] Skateboard
 	- [ ] Race course obstacles
 	- [ ] Racing animations
 		- Thanks to the physics, only walking would really make sense
