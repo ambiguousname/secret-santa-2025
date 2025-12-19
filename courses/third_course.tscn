@@ -13,8 +13,8 @@ _data = {
 point_count = 3
 
 [node name="BaseCourse" instance=ExtResource("1_3tluo")]
-mean = 30.0
-std = 5.0
+mean = 16.0
+std = 3.0
 
 [node name="PhantomCamera2D" parent="." index="0"]
 zoom = Vector2(0.5, 0.5)

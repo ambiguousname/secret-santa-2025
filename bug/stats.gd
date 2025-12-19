@@ -12,7 +12,7 @@ class Stat:
 		};
 	var to_level_up : float:
 		get():
-			return exp(self.level);
+			return 2 * exp(self.level/4);
 		
 	func increase(amount : float):
 		self.xp += amount;
