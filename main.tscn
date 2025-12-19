@@ -401,10 +401,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
-offset_top = 8.0
-offset_right = -3.0
-offset_bottom = 48.0
+offset_left = -116.0
+offset_top = 16.0
+offset_right = -9.0
+offset_bottom = 56.0
 grow_horizontal = 0
 text = "Settings"
 icon = ExtResource("15_2cqfq")
@@ -531,10 +531,10 @@ text = "1"
 
 [node name="Day" type="Panel" parent="UI/FullInfo"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 99.0
-offset_bottom = 85.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 88.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 
@@ -562,10 +562,10 @@ autowrap_mode = 2
 [node name="ItemsButton" type="Button" parent="UI/FullInfo"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 114.0
-offset_top = 5.0
-offset_right = 208.0
-offset_bottom = 85.0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 206.0
+offset_bottom = 88.0
 text = "Items"
 icon = ExtResource("18_82xsv")
 
