@@ -18,8 +18,8 @@ func _ready() -> void:
 		if i > -1:
 			use_item.emit(item_to_use, i);
 			active_item_display.queue_free();
-		if grid.get_child_count() <= 0:
-			no_items.visible = false;
+		if grid.get_child_count() <= 1:
+			no_items.visible = true;
 	);
 
 func clear():
