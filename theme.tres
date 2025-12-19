@@ -33,9 +33,6 @@ content_margin_top = 4.0
 content_margin_right = 10.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 1)
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
 content_margin_left = 10.0
@@ -47,9 +44,6 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yin2u"]
 content_margin_left = 10.0
@@ -59,9 +53,6 @@ content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.17254902)
 border_width_left = 1
 border_width_right = 1
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
 content_margin_left = 10.0
@@ -69,9 +60,6 @@ content_margin_top = 4.0
 content_margin_right = 10.0
 content_margin_bottom = 4.0
 bg_color = Color(1, 1, 1, 0.17254902)
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 content_margin_left = 10.0
@@ -79,9 +67,6 @@ content_margin_top = 4.0
 content_margin_right = 10.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.72156864)
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
 
 [resource]
 Button/colors/icon_focus_color = Color(0.14999998, 1, 0, 1)
