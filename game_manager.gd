@@ -209,6 +209,8 @@ func _tcp_update(status : TCPClient.Status):
 			if bug._adventuring && tcp_client.has_connection:
 				bug.end_adventure();
 			text = "Disconnected.";
+			if tcp_client.timer.time_left > 0:
+				text += "\nRetrying in %d seconds..." % int(tcp_client.timer.time_left);
 		_:
 			color = Color.RED;
 			text = "[color=red]Undefined state.[/color]";

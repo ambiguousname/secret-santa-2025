@@ -84,8 +84,8 @@ func _process(delta: float) -> void:
 		peer.STATUS_NONE:
 			if _status != Status.DISCONNECTED:
 				_status = Status.DISCONNECTED;
+				timer.start();
 				status_updated.emit(_status);
 				has_connection = false;
 				print("Disconnected. Retrying in %f seconds..." % timer.wait_time);
 				# Try again:
-				timer.start();
