@@ -461,7 +461,7 @@ size_flags_vertical = 3
 amount = 0.0
 radial_color = Color(0.35217595, 0.6294075, 1, 1)
 
-[node name="Label" parent="UI/FullInfo/Stats/LeftStats/Running/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/LeftStats/Running/Stat" index="1"]
 text = "1"
 
 [node name="Label2" type="Label" parent="UI/FullInfo/Stats/LeftStats"]
@@ -478,7 +478,7 @@ size_flags_vertical = 3
 amount = 0.0
 radial_color = Color(0, 0.75134885, 0.2976716, 1)
 
-[node name="Label" parent="UI/FullInfo/Stats/LeftStats/Skateboarding/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/LeftStats/Skateboarding/Stat" index="1"]
 text = "1"
 
 [node name="RightStats" type="VBoxContainer" parent="UI/FullInfo/Stats"]
@@ -509,7 +509,7 @@ size_flags_vertical = 3
 amount = 0.0
 radial_color = Color(0.9999997, 0.2668397, 0.8245027, 1)
 
-[node name="Label" parent="UI/FullInfo/Stats/RightStats/Climbing/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/RightStats/Climbing/Stat" index="1"]
 text = "1"
 
 [node name="Label2" type="Label" parent="UI/FullInfo/Stats/RightStats"]
@@ -526,7 +526,7 @@ size_flags_vertical = 3
 amount = 0.0
 radial_color = Color(0.94612247, 0.47995144, 0, 1)
 
-[node name="Label" parent="UI/FullInfo/Stats/RightStats/Jumping/Stat" index="0"]
+[node name="Label" parent="UI/FullInfo/Stats/RightStats/Jumping/Stat" index="1"]
 text = "1"
 
 [node name="Day" type="Panel" parent="UI/FullInfo"]
@@ -556,6 +556,7 @@ offset_bottom = 64.0
 text = "DAYS LEFT
 7"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ItemsButton" type="Button" parent="UI/FullInfo"]

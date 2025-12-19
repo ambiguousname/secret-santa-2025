@@ -12,4 +12,4 @@ class_name Circle extends Control
 		queue_redraw();
 
 func _draw() -> void:
-	draw_circle(self.position, radius, color);
+	draw_circle(Vector2.ZERO, radius, color);

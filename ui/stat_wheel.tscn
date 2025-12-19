@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 inner_width = 6.0
 amount = 0.735
-unfilled_color = Color(0.105882354, 0.105882354, 0.105882354, 0.5254902)
+unfilled_color = Color(0.11, 0.11, 0.11, 1)
 
 [node name="Label" type="Label" parent="Stat"]
 layout_mode = 1
@@ -40,3 +40,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "I"
 horizontal_alignment = 1
+vertical_alignment = 1

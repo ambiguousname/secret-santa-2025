@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://8gehpwm01irg"]
+[gd_scene load_steps=3 format=3 uid="uid://8gehpwm01irg"]
 
+[ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="2_fn3pm"]
 [ext_resource type="Script" uid="uid://bps7bjcnm5c12" path="res://ui/radial/radial.gd" id="2_uy12q"]
 
 [node name="Radial" type="Control"]
@@ -8,3 +9,18 @@ anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 54.0
 script = ExtResource("2_uy12q")
+
+[node name="Circle" type="Control" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_fn3pm")
+radius = 25.465
+color = Color(0.08235294, 0.56078434, 0, 1)
+metadata/_custom_type_script = "uid://crvqxxyu1q12i"
