@@ -91,6 +91,7 @@ content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.72156864)
 
 [resource]
+default_font = ExtResource("1_e1x85")
 Button/colors/icon_focus_color = Color(0.14999998, 1, 0, 1)
 Button/colors/icon_hover_color = Color(0.12599997, 0.84, 0, 1)
 Button/colors/icon_hover_pressed_color = Color(0.14901961, 1, 0, 1)
@@ -100,7 +101,6 @@ Button/styles/normal = SubResource("StyleBoxFlat_cjfk0")
 CheckBox/colors/checkbox_unchecked_color = Color(0, 0, 0, 1)
 CheckBox/styles/normal = SubResource("StyleBoxFlat_ttqs8")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_wdt2l")
-Node/fonts/font = ExtResource("1_e1x85")
 Panel/styles/panel = SubResource("StyleBoxFlat_e1x85")
 TabContainer/constants/side_margin = 6
 TabContainer/constants/tab_separation = 16

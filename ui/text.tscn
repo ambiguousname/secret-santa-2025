@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://sqhxra3s62ch"]
+
+[ext_resource type="Script" uid="uid://db40svaunkcw7" path="res://ui/text.gd" id="1_v7iyd"]
+
+[node name="Text" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7iyd")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Font"
+
+[node name="FontFamily" type="OptionButton" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Quixel"
+popup/item_0/id = 0
+popup/item_1/text = "NotoSans"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Font Size"
+
+[node name="SpinBox" type="SpinBox" parent="GridContainer"]
+layout_mode = 2
+min_value = 8.0
+max_value = 32.0
+value = 16.0
