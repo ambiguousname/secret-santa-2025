@@ -1,4 +1,4 @@
-class_name Stats extends Object
+class_name Stats extends RefCounted
 class Stat:
 	var level : int = 0;
 	var xp : float = 0;

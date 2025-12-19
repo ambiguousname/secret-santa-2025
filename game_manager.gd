@@ -324,6 +324,3 @@ func reset_to_setup():
 	ui.set_day(race_day - 0, 100, false);
 	ui.set_stats(save.stats);
 	ui.items.clear();
-
-func _exit_tree() -> void:
-	save.free();

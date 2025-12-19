@@ -1,13 +1,13 @@
-class_name AdventureInfo extends Object
+class_name AdventureInfo extends RefCounted
 
 ## We're stored in the same save object (this is just mostly for organization purposes), so being able to access this save's stats is okay:
-var _stats : Stats;
+var _stats : WeakRef;
 var items : Array = [];
 
 var generate_item : Callable;
 
 func _init(s : Stats) -> void:
-	_stats = s;
+	_stats = weakref(s);
 
 ## Called when we want to save:
 signal mark_dirty();
@@ -74,19 +74,20 @@ var _item_duration : float = randf_range(MIN_ITEM_TIME, MAX_ITEM_TIME);
 func adventure_update(delta: float):
 	# 100 energy/30 minutes = 3.3333333 energy per minute * 1/60 minute/seconds = 0.5555555 energy/second
 	var time_delta = 0.05555555 * delta;
-	_stats.energy -= time_delta;
+	var s = _stats.get_ref();
+	s.energy -= time_delta;
 	day_progress_time -= time_delta;
 	
 	# Gain 1 XP every second:
 	match _focus:
 		0:
-			_stats.running.increase(delta);
+			s.running.increase(delta);
 		1:
-			_stats.climbing.increase(delta);
+			s.climbing.increase(delta);
 		2:
-			_stats.skateboarding.increase(delta);
+			s.skateboarding.increase(delta);
 		3:
-			_stats.jumping.increase(delta);
+			s.jumping.increase(delta);
 	
 	_focus_timer += delta;
 	mark_dirty_timer += delta;
