@@ -57,6 +57,9 @@ func _ready() -> void:
 		
 		if race_day > 0 && save.adv_info.day != race_day && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
 			new_day(save.adv_info.day + 1);
+		
+		if save.stats.energy > 0:
+			ui.adventure.disabled = false;
 	);
 	
 	check_win();
