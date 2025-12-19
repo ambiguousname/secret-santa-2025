@@ -421,6 +421,14 @@ grow_horizontal = 0
 text = "Settings"
 icon = ExtResource("15_2cqfq")
 
+[node name="NotifDot" type="Control" parent="UI/FullInfo/SettingsButton"]
+visible = false
+anchors_preset = 0
+script = ExtResource("19_82xsv")
+radius = 4.17
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://crvqxxyu1q12i"
+
 [node name="Stats" type="Control" parent="UI/FullInfo"]
 layout_mode = 1
 anchors_preset = 15
