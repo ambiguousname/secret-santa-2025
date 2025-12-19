@@ -13,7 +13,7 @@ _data = {
 point_count = 3
 
 [node name="BaseCourse" instance=ExtResource("1_3tluo")]
-mean = 16.0
+mean = 13.0
 std = 3.0
 
 [node name="PhantomCamera2D" parent="." index="0"]
