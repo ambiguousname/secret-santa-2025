@@ -94,10 +94,14 @@ func _ready() -> void:
 	tcp_client.should_connect = ui.settings_menu.install.connectable;
 	if tcp_client.should_connect:
 		tcp_client.connect_to_host();
+	else:
+		_tcp_update(TCPClient.Status.DISCONNECTED);
 	ui.settings_menu.install.connectable_changed.connect(func(b : bool):
 		tcp_client.should_connect = b; 
 		if b:
 			tcp_client.connect_to_host();
+		else:
+			tcp_client.disconnect_from_host();
 	);
 	tcp_client.game_state_update.connect(func(d : Dictionary): 
 		if !("events" in d) || !bug._adventuring:
@@ -185,13 +189,17 @@ func _ready() -> void:
 
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";
+	var color : Color = Color.WHITE;
 	match status:
 		TCPClient.Status.UNACKNOWLEDGED:
-			text = "Waiting for server...";
+			text = "[color=yellow]Waiting for server...\nLaunch Hollow Knight![/color]";
+			color = Color.YELLOW;
 		TCPClient.Status.AWAITING_ACKNOWLEDGEMENT:
-			text = "Making handshake...";
+			text = "[color=green]Making handshake...[/color]";
+			color = Color.GREEN;
 		TCPClient.Status.CONNECTED:
-			text = "Connected!";
+			text = "[color=green]Connected![/color]";
+			color = Color.GREEN;
 			if !ui.adventure.disabled && !bug._adventuring:
 				ui.adventure.pressed.emit();
 		TCPClient.Status.DISCONNECTED:
@@ -199,8 +207,9 @@ func _tcp_update(status : TCPClient.Status):
 				bug.end_adventure();
 			text = "Disconnected.";
 		_:
-			text = "Undefined state.";
-	ui.update_tcp_status(text);
+			color = Color.RED;
+			text = "[color=red]Undefined state.[/color]";
+	ui.update_tcp_status(text, color);
 
 func new_day(day_progress : int):
 	save.adv_info.day = day_progress;

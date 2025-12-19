@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://d1d3m8g8k3xqn"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://d1d3m8g8k3xqn"]
 
 [ext_resource type="FontFile" uid="uid://coucdedhg8x0e" path="res://art/Quixel/Quixel.ttf" id="1_e1x85"]
 
@@ -8,6 +8,28 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.7254902)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttqs8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.36862746)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdt2l"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.34117648)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -75,6 +97,9 @@ Button/colors/icon_hover_pressed_color = Color(0.14901961, 1, 0, 1)
 Button/colors/icon_normal_color = Color(0.14901961, 1, 0, 1)
 Button/colors/icon_pressed_color = Color(0.08235294, 0.56078434, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_cjfk0")
+CheckBox/colors/checkbox_unchecked_color = Color(0, 0, 0, 1)
+CheckBox/styles/normal = SubResource("StyleBoxFlat_ttqs8")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_wdt2l")
 Node/fonts/font = ExtResource("1_e1x85")
 Panel/styles/panel = SubResource("StyleBoxFlat_e1x85")
 TabContainer/constants/side_margin = 6

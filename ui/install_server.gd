@@ -13,6 +13,8 @@ class_name InstallServer extends Control
 
 @onready var error_text : RichTextLabel = $ErrorText;
 
+@onready var server_connect : CheckBox = %ServerConnect;
+
 const FAIL : String = "❌";
 const SUCCEED : String = "✅";
 var fail_label : LabelSettings = preload("uid://co2wg8bh6obmh");
@@ -22,7 +24,7 @@ const LIB_NAME : String = "BuddyServer.dll";
 signal connectable_changed(can_connect : bool);
 var connectable : bool:
 	get():
-		return FileAccess.file_exists(Settings.get_setting("mods_dir", "").path_join("BuddyServer/%s" % LIB_NAME));
+		return FileAccess.file_exists(Settings.get_setting("mods_dir", "").path_join("BuddyServer/%s" % LIB_NAME)) && Settings.get_setting("server_connect", true);
 
 func _ready() -> void:
 	var mods_dir_set = Settings.get_setting("mods_dir", "");
@@ -30,6 +32,13 @@ func _ready() -> void:
 		mods_dir_edit.text = mods_dir_set;
 		_test_folder(mods_dir_set);
 	
+	var c : bool = Settings.get_setting("server_connect", true);
+	server_connect.button_pressed = c;
+	server_connect.pressed.connect(func():
+		Settings.set_setting("server_connect", server_connect.button_pressed);
+		Settings.save();
+		connectable_changed.emit(connectable);
+	);
 	# TODO: Verify hash of DLL if mods dir is valid.
 	
 	install.pressed.connect(func():

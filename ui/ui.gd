@@ -1,10 +1,5 @@
 class_name UI extends Control
 
-@onready var tcp_status : Label = $TCPStatus;
-
-func update_tcp_status(text : String):
-	tcp_status.text = text;
-
 @onready var adventure : Button = %Adventure;
 @onready var race : Button = %Race;
 @onready var submit_name : Button = %Submit;
@@ -13,8 +8,17 @@ func update_tcp_status(text : String):
 @onready var settings_button : Button = $FullInfo/SettingsButton;
 @onready var settings_menu : SettingsMenu = $SettingsMenu;
 @onready var item_notif : Control = items_button.get_node("NotifDot");
+@onready var settings_notif : Circle = settings_button.get_node("NotifDot");
 
 @onready var full_info : Control = $FullInfo;
+
+
+func update_tcp_status(text : String, color : Color):
+	settings_menu.install.error_text.text = text;
+	if settings_menu.is_visible_in_tree():
+		return;
+	settings_notif.color = color;
+	settings_notif.visible = true;
 
 signal retire();
 
@@ -34,6 +38,7 @@ func _ready() -> void:
 	settings_button.pressed.connect(func():
 		settings_menu.visible = true;
 		full_info.visible = false;
+		settings_notif.visible = false;
 	);
 	settings_menu.close.pressed.connect(func():
 		full_info.visible = true;

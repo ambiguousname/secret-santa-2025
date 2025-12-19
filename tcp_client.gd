@@ -31,6 +31,11 @@ func connect_to_host() -> Error:
 		printerr("Could not open TCP socket! Error: %s" % res);
 	return res;
 
+func disconnect_from_host():
+	peer.disconnect_from_host();
+	_status = Status.DISCONNECTED;
+	status_updated.emit(_status);
+
 const MAGIC_SEND : String = "BuddyClient";
 const MAGIC_RECEIVE : String = "BuddyServer";
 

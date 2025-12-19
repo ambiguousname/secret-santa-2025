@@ -35,9 +35,9 @@
 	- [X] Naming bugs
 	- [X] Winning
 	- [ ] Settings
-		- [ ] Connecting to Hollow Knight
+		- [X] Connecting to Hollow Knight
 			- [X] Bundling DLLs with files
-			- [ ] Error printing
+			- [X] Error printing
 		- [ ] Volume settings
 - [ ] Races
 	- [X] Sample track
