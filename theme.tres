@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d1d3m8g8k3xqn"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d1d3m8g8k3xqn"]
 
 [ext_resource type="FontFile" uid="uid://coucdedhg8x0e" path="res://art/Quixel/Quixel.ttf" id="1_e1x85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+bg_color = Color(0.039215688, 0.047058824, 0.06666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [resource]
 Button/colors/icon_focus_color = Color(0.14999998, 1, 0, 1)
@@ -9,3 +20,4 @@ Button/colors/icon_hover_pressed_color = Color(0.14901961, 1, 0, 1)
 Button/colors/icon_normal_color = Color(0.14901961, 1, 0, 1)
 Button/colors/icon_pressed_color = Color(0.08235294, 0.56078434, 0, 1)
 Node/fonts/font = ExtResource("1_e1x85")
+Panel/styles/panel = SubResource("StyleBoxFlat_e1x85")
