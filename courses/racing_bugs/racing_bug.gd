@@ -1,6 +1,7 @@
 class_name RacingBug extends RigidBody2D
 
 @onready var skateboard : Sprite2D = $Skateboard;
+@onready var sprite : Sprite2D = $Sprite2D;
 
 var stats : Stats = Stats.new();
 var player : bool = false;

@@ -27,9 +27,9 @@
   - [X] Energy text
   - [X] Day Progression
 	- [ ] Visible day counting down transition
-  - [ ] Day progress bar (underneath text)
+  - [X] Day progress bar (underneath text)
 		- [X] Racing day
-		- [ ] Visible week transition
+		- [X] Visible week transition
 	- [X] Using Items
 	- [ ] LCD filter/styling
 	- [X] Nicer background
@@ -53,7 +53,8 @@
 	- [X] Window expanding to show race course
 		- Don't go above maximum window width
 		- Camera2D for the rest
-	- [ ] Other racers (re-colorized bugs to make things somewhat easier)
+	- [X] Other racers (re-colorized bugs to make things somewhat easier)
+		- [ ] Add different shaded bugs for color blindness
 		- [X] Randomized skill level based on race #
 - [ ] Art (ordered by priority)
 	- [ ] Bug idle

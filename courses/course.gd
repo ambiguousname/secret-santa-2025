@@ -68,6 +68,7 @@ func start_race(player_bug_stats : Stats):
 	
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
+	var colors : Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.AQUA, Color.TOMATO];
 	
 	for i in range(3):
 		var stats = Stats.new();
@@ -76,7 +77,11 @@ func start_race(player_bug_stats : Stats):
 		stats.skateboarding.level = max(round(stat_gen.randfn(mean, std)), 0);
 		stats.jumping.level = max(round(stat_gen.randfn(mean, std)), 0);
 		#print("%d %d %d %d" % [stats.running.level, stats.climbing.level, stats.skateboarding.level, stats.jumping.level]);
-		var _o = add_racer(stats);
+		var r = add_racer(stats);
+		
+		var pick = randi() % colors.size();
+		r.sprite.modulate = colors[pick];
+		colors.remove_at(pick);
 		#camera.follow_target = _o;
 	end_timer.start();
 
