@@ -54,6 +54,9 @@ func _ready() -> void:
 				ui.set_energy(save.stats.energy);
 		save.adv_info.items.remove_at(save.adv_info.items.find(i));
 		save.write_save();
+		
+		if race_day > 0 && save.adv_info.day != race_day && save.stats.energy == 0 && !save.adv_info.can_regain_energy():
+			new_day(save.adv_info.day + 1);
 	);
 	
 	check_win();
@@ -198,11 +201,12 @@ func _tcp_update(status : TCPClient.Status):
 
 func new_day(day_progress : int):
 	save.adv_info.day = day_progress;
+	save.adv_info.day_progress_time = 100;
+	save.stats.energy += 20;
 	save.write_save();
 	
 	set_day(day_progress, true);
 	
-	save.stats.energy += 20;
 	ui.set_energy(save.stats.energy);
 
 func set_day(day_progress : int, advance: bool = false):
