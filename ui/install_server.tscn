@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6aj7dlcr2mcw"]
+[gd_scene load_steps=3 format=3 uid="uid://b6aj7dlcr2mcw"]
 
 [ext_resource type="Script" uid="uid://c1cq3bpg3vlgl" path="res://ui/install_server.gd" id="1_k7uw7"]
+[ext_resource type="Script" uid="uid://ck24lr58wp1ak" path="res://ui/label_open_url.gd" id="2_dhhb1"]
 
 [node name="InstallServer" type="Control"]
 layout_mode = 3
@@ -16,15 +17,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -174.0
+offset_left = -222.0
 offset_top = 56.0
-offset_right = 174.0
+offset_right = 222.0
 offset_bottom = 204.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "Hollow Buddy can watch you play Hollow Knight using [url=https://github.com/fifty-six/Scarab/releases]Scarab[/url].
+text = "Hollow Buddy can hook into Hollow Knight to get extra items and stat boosts with [url=https://github.com/fifty-six/Scarab/releases]Scarab[/url].
 
-To install:"
+More detailed instructions are available in the [url=./README.md]README[/url] that comes with Hollow Buddy."
+script = ExtResource("2_dhhb1")
 
 [node name="Grid" type="GridContainer" parent="."]
 layout_mode = 1

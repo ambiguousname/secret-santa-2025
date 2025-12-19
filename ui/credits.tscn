@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dlxkdu3gv8hr8"]
+[gd_scene load_steps=2 format=3 uid="uid://dlxkdu3gv8hr8"]
+
+[ext_resource type="Script" uid="uid://ck24lr58wp1ak" path="res://ui/label_open_url.gd" id="1_ed0b0"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -82,3 +84,4 @@ By [url=https://cazwolf.itch.io/]Caz Wolf[/url]. These assets follow the [url=ht
 [font_size=24]Quixel Font[/font_size]
 
 By [url=https://mysterycorgi.itch.io/]Mystery Corgi[/url]. These assets follow the [url=https://creativecommons.org/licenses/by/4.0/]Creative Commons BY 4.0[/url] License."
+script = ExtResource("1_ed0b0")
