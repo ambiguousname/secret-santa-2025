@@ -23,7 +23,7 @@ func race_name(week : int) -> String:
 		0:
 			return "Beginner's Grove";
 		1:
-			return "Sobbing Speedway";
+			return "Cliffs of Despair";
 		2:
 			return "Zorp Abyss";
 		_:
