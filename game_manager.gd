@@ -64,6 +64,9 @@ func _ready() -> void:
 	
 	check_win();
 	
+	if save.stats.energy == 0:
+		ui.adventure.disabled = true;
+	
 	save.adv_info.mark_dirty.connect(func():
 		var end_adventure = false;
 		var new_day_call = false;
