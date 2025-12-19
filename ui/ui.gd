@@ -23,6 +23,11 @@ func update_tcp_status(text : String, color : Color):
 signal retire();
 
 func _ready() -> void:
+	bug_name.text_submitted.connect(end_setup, CONNECT_ONE_SHOT);
+	submit_name.pressed.connect(func():
+		end_setup(bug_name.text);
+	);
+	
 	items_button.pressed.connect(func():
 		items.visible = true;
 		full_info.visible = false;
@@ -69,10 +74,6 @@ func setup_bug():
 	
 	full_info.visible = false;
 	submit_name.visible = true;
-	bug_name.text_submitted.connect(end_setup, CONNECT_ONE_SHOT);
-	submit_name.pressed.connect(func():
-		end_setup(bug_name.text);
-	);
 	adventure.visible = false;
 	$SetupText.text = "Start your journey, name your bug!";
 
