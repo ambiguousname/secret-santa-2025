@@ -12,11 +12,13 @@ class Stat:
 		};
 	var to_level_up : float:
 		get():
-			return 2 * exp(self.level/4);
+			# To level up to a given level from level 0 is sum_{n = 0}^{x} g(n), where g(n) is below:
+			return 26.0 * exp(self.level/4.0);
 		
 	func increase(amount : float):
 		self.xp += amount;
 		
+		print(self.xp, " ", to_level_up);
 		if self.xp >= to_level_up:
 			var next_amnt = self.xp - self.to_level_up;
 			self.level += 1;
