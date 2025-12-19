@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm07uogntc5rs"]
+[gd_scene load_steps=8 format=3 uid="uid://cm07uogntc5rs"]
 
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_3tluo"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_1363n"]
 [ext_resource type="PackedScene" uid="uid://tspnrtdlp6wb" path="res://courses/course_segments/jumping_trigger.tscn" id="3_3ft3r"]
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="4_i2hxn"]
 [ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="5_fr26j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fr26j"]
+font_size = 32
 
 [sub_resource type="Curve2D" id="Curve2D_fr26j"]
 _data = {
@@ -25,6 +28,20 @@ limit_bottom = 1000
 zoom = Vector2(0.5, 0.5)
 limit_right = 5000
 limit_bottom = 1000
+
+[node name="TimeLeft" parent="RacingCamera/RaceUI" index="0"]
+label_settings = SubResource("LabelSettings_fr26j")
+
+[node name="Panel" parent="RacingCamera/RaceUI/TimeLeft" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Finish" parent="." index="3"]
 position = Vector2(4974, -5042)
