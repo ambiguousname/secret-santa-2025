@@ -11,6 +11,8 @@ class_name InstallServer extends Control
 
 @onready var file_diag : FileDialog = $FileDialog;
 
+@onready var error_text : RichTextLabel = $ErrorText;
+
 const FAIL : String = "❌";
 const SUCCEED : String = "✅";
 var fail_label : LabelSettings = preload("uid://co2wg8bh6obmh");
@@ -51,17 +53,20 @@ func _ready() -> void:
 		var dir = Settings.get_setting("mods_dir", "");
 		if dir == "" || !DirAccess.dir_exists_absolute(dir):
 			_install_server_fail();
+			error_text.text = "[color=red]Could not install server. Directory \"[code]%s[/code]\" does not exist.[/color]" % dir;
 			return;
 		var mod_dir = dir.path_join("BuddyServer");
 		
 		var make_res : Error = DirAccess.make_dir_recursive_absolute(mod_dir);
 		if make_res != OK:
 			_install_server_fail();
+			error_text.text = "[color=red]Could not install server. Could not create BuddyServer folder in Directory \"[code]%s[/code]\". Error code %d" % [dir, make_res];
 			return;
 		
 		var res : Error = DirAccess.copy_absolute(lib_loc, mod_dir.path_join(LIB_NAME));
 		if res != OK:
 			_install_server_fail();
+			error_text.text = "[color=red]Could not install server. Copy of BuddyServer.dll failed. Error code %d" % res;
 			return;
 		_install_server_succeeded();
 	);
@@ -83,6 +88,7 @@ func _test_folder(dir : String):
 					"Hollow Knight":
 						dir = dir.path_join("hollow_knight_Data/Managed/Mods");
 					_:
+						error_text.text = "[color=red]Could not set mods folder. Folder %s not recognized (try finding hollow_knight_Data folder)[/color]" % dir;
 						_folder_select_fail();
 			"macOS":
 				match folder_name:
@@ -93,21 +99,26 @@ func _test_folder(dir : String):
 					"hollow_knight.app":
 						dir = dir.path_join("Contents/Resources/Data/Managed/Mods");
 					_:
+						error_text.text = "[color=red]Could not set mods folder. Folder %s not recognized (try finding hollow_knight.app file)[/color]" % dir;
 						_folder_select_fail();
 			_:
+				error_text.text = "[color=red]Could not set mods folder. Directory %s not recognized.[/color]" % dir;
 				_folder_select_fail();
 	
 	# If everything but "Mods" exists, make a mods folder:
 	if DirAccess.dir_exists_absolute(dir.path_join("..")):
 		DirAccess.make_dir_absolute(dir);
 	if !DirAccess.dir_exists_absolute(dir):
+		error_text.text = "[color=red]Could not set mods folder. Directory \"%s\" does not exist.[/color]" % dir;
 		_folder_select_fail();
 		return;
 	
 	if os_name == "Windows" && !DirAccess.dir_exists_absolute(dir.path_join("../../../../Hollow Knight")):
+		error_text.text = "[color=red]Could not set mods folder. Mods folder does not exist in Hollow Knight game folder.[/color]" % dir;
 		_folder_select_fail();
 		return;
 	if os_name == "macOS" && !DirAccess.dir_exists_absolute(dir.path_join("../../../../../../hollow_knight.app")):
+		error_text.text = "[color=red]Could not set mods folder. Mods folder does not exist in [code]hollow_knight.app[/code].[/color]" % dir;
 		_folder_select_fail();
 		return;
 	
