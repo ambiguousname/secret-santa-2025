@@ -3,6 +3,7 @@ class_name ItemManager extends Panel
 @onready var grid : GridContainer = $GridContainer;
 @onready var close : Button = $Close;
 @onready var item_confirm : ItemConfirm = $"../ItemConfirm";
+@onready var no_items : Label = $NoItems;
 
 var item_to_use : Item;
 var active_item_display : ItemDisplay;
@@ -17,11 +18,14 @@ func _ready() -> void:
 		if i > -1:
 			use_item.emit(item_to_use, i);
 			active_item_display.queue_free();
+		if grid.get_child_count() <= 0:
+			no_items.visible = false;
 	);
 
 func clear():
 	for c in grid.get_children():
 		c.queue_free();
+	no_items.visible = true;
 
 @onready var item_display = preload("uid://1lmen782bmps");
 func add_item(i : Item, notify : bool = false):
@@ -37,3 +41,4 @@ func add_item(i : Item, notify : bool = false):
 		item_confirm.visible = true;
 		self.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED;
 	);
+	no_items.visible = false;

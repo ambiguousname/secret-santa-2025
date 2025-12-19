@@ -34,7 +34,7 @@
 	- [ ] LCD filter/styling
 	- [X] Nicer background
     - [X] New items notification dot
-		- [ ] "No items" text
+		- [X] "No items" text
 	- [X] Naming bugs
 	- [X] Winning
 	- [ ] Settings
