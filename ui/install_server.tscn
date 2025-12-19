@@ -18,9 +18,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -222.0
-offset_top = 56.0
+offset_top = 8.0
 offset_right = 222.0
-offset_bottom = 204.0
+offset_bottom = 176.0
 grow_horizontal = 2
 bbcode_enabled = true
 text = "Hollow Buddy can hook into Hollow Knight to get extra items and stat boosts with [url=https://github.com/fifty-six/Scarab/releases]Scarab[/url].
