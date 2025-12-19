@@ -1,6 +1,8 @@
 # Current Priorities
-- [ ] Playtest feedback (emphasis on clarity and usability)
-- [ ] Make build and test continuous runthrough for balancing (do all throughout Thursday)
+- [ ] Make build and test continuous runthrough for balancing (do all throughout Friday)
+- [ ] Second monitor testing
+- [ ] Hollow Knight TCP bug testing
+- [ ] Hollow Knight TCP balancing
 - [ ] SFX
 - [ ] Art implementation
 	- [ ] LCD stylization
