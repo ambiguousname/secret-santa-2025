@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://r0v8kkcl0rmn"]
+[gd_scene load_steps=4 format=3 uid="uid://r0v8kkcl0rmn"]
 
 [ext_resource type="Script" uid="uid://cktce6746wtxg" path="res://courses/course_segments/polygon.gd" id="1_d5g4k"]
 [ext_resource type="PhysicsMaterial" uid="uid://bufyrmqxnor37" path="res://courses/course_segments/polygon_mat.tres" id="1_k5i7u"]
+[ext_resource type="Material" uid="uid://bm3eyqfbtwqug" path="res://courses/course_segments/course_mat.tres" id="1_rsraw"]
 
 [node name="Polygon" type="StaticBody2D"]
+material = ExtResource("1_rsraw")
 physics_material_override = ExtResource("1_k5i7u")
 script = ExtResource("1_d5g4k")
 
