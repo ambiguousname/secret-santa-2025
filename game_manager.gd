@@ -311,9 +311,6 @@ func finish_race(winner : bool):
 	tween.tween_callback(func():
 		camera.enabled = true;
 		ui.fade_ui(true, 1.0, func():
-			bug.visible = true;
-			bug.land(0.0, Vector2(250, -250), Vector2(250, 250), Callable());
-			
 			if !winner:
 				bug.animation.play(&"die");
 				bug.animation.animation_finished.connect(func(_a : String):
@@ -326,6 +323,9 @@ func finish_race(winner : bool):
 						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), ui.setup_bug_dead.bind(bug_name));
 					, CONNECT_ONE_SHOT);
 				, CONNECT_ONE_SHOT);
+			else:
+				bug.visible = true;
+				bug.land(0.0, Vector2(250, -250), Vector2(250, 250), Callable());
 		);
 	);
 	
