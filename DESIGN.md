@@ -77,7 +77,7 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 
 - [ ] (Probably done?) Appeared on second monitor (check which position it's appearing at?) (Setting position to zero does not guarantee it's at the start of the current screen)
 - [X] Energy needs a label (called it "psychic damage")
-- [ ] Need some documentation (either in-game or out of game) on how it works
+- [X] Need some documentation (either in-game or out of game) on how it works
 - Likes the super jump
 - [X] Unclear of when to stop playing (day progression bar will help)
 - [X] Make days until race longer and longer (start off at 1 day until race)
@@ -85,8 +85,8 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 
 ## Playtester Two
 
-- [ ] Unclear how to run and install Scarab (and note on detailed instructions to explainer in settings).
-	- Also need to be clearer on HOW using this mod helps with  the game
+- [X] Unclear how to run and install Scarab (and note on detailed instructions to explainer in settings).
+	- Also need to be clearer on HOW using this mod helps with the game
 - [ ] Buddy should be smaller on screen
 - [X] Need to test race kill conditions (and make them obvious)
 - "It's kinda funny, I'm not against it." On having the pink square on bottom of screen
