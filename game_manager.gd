@@ -146,7 +146,7 @@ func _ready() -> void:
 			
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
-			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), func():
+			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), 0.5, func():
 				bug.begin_adventure(Rect2i(window.position, window.size), save.adv_info);
 			);
 			# window.mouse_passthrough = true;
@@ -171,7 +171,7 @@ func _ready() -> void:
 			window.position = _stats_window_pos;
 			
 			ui.fade_ui(true, 1.0, func():
-				bug.land(0.1, Vector2(250, -250), Vector2(250, 250), Callable());
+				bug.land(0.1, Vector2(250, -250), Vector2(250, 250), 1.0, Callable());
 				if save.stats.energy > 0:
 					ui.adventure.disabled = false;
 			);
@@ -320,12 +320,12 @@ func finish_race(winner : bool):
 					bug.animation.animation_finished.connect(func(_b : String):
 						bug.position = Vector2(250, -250);
 						bug.visible = true;
-						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), ui.setup_bug_dead.bind(bug_name));
+						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), 1.0, ui.setup_bug_dead.bind(bug_name));
 					, CONNECT_ONE_SHOT);
 				, CONNECT_ONE_SHOT);
 			else:
 				bug.visible = true;
-				bug.land(0.0, Vector2(250, -250), Vector2(250, 250), Callable());
+				bug.land(0.0, Vector2(250, -250), Vector2(250, 250), 1.0, Callable());
 		);
 	);
 	
