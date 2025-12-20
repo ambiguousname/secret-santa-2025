@@ -106,7 +106,8 @@ func _ready() -> void:
 		else:
 			tcp_client.disconnect_from_host();
 	);
-	tcp_client.game_state_update.connect(func(d : Dictionary): 
+	tcp_client.game_state_update.connect(func(d : Dictionary):
+		tcp_acknowledge_timer = 0.0;
 		if !("events" in d) || !bug._adventuring:
 			return;
 		for event in d["events"]:
@@ -196,6 +197,14 @@ func _ready() -> void:
 		bug.energy = save.stats.energy;
 	);
 	save.stats.energy_updated.emit();
+
+var tcp_acknowledge_timer : float = 0.0;
+func _process(delta: float) -> void:
+	if tcp_acknowledge_timer > 10.0:
+		bug.eye_color = Color.BLACK;
+	elif tcp_client._status == TCPClient.Status.CONNECTED:
+		bug.eye_color = (10.0 - tcp_acknowledge_timer) * Color.GREEN;
+		tcp_acknowledge_timer += delta;
 
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";

@@ -12,6 +12,10 @@ var energy : float = 100:
 		material.set_shader_parameter("body_tint", Color.WHITE * amnt);
 		energy = v;
 
+var eye_color : Color:
+	set(v):
+		material.set_shader_parameter("eye_color", v);
+
 var _screen_size : Vector2i;
 var _adventuring : bool = false;
 
