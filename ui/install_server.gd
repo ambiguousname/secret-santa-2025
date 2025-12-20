@@ -35,6 +35,7 @@ func _ready() -> void:
 	var c : bool = Settings.get_setting("server_connect", true);
 	server_connect.button_pressed = c;
 	server_connect.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		Settings.set_setting("server_connect", server_connect.button_pressed);
 		Settings.save();
 		connectable_changed.emit(connectable);
@@ -42,10 +43,12 @@ func _ready() -> void:
 	# TODO: Verify hash of DLL if mods dir is valid.
 	
 	install.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		OS.shell_open("https://github.com/fifty-six/Scarab/releases");
 	);
 	
 	mods_dir.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		file_diag.popup_centered();
 	);
 	
@@ -54,6 +57,7 @@ func _ready() -> void:
 	mods_dir_edit.text_submitted.connect(_test_folder);
 	
 	install_server.pressed.connect(func(): 
+		AudioEvent.play("serious_button");
 		var exe_loc : String = OS.get_executable_path().get_base_dir();
 		if OS.get_name() == "macOS":
 			exe_loc = exe_loc.path_join("../../../");

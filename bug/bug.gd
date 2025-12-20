@@ -20,7 +20,10 @@ var _adventure_info : AdventureInfo;
 
 func _ready():
 	_initialize_adventure();
-	_end_adventure.pressed.connect(end_adventure);
+	_end_adventure.pressed.connect(func():
+		AudioEvent.play("serious_button");
+		end_adventure();
+	);
 
 func jump(callback : Callable = Callable()):
 	AudioEvent.play("jump");

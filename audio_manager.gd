@@ -1,6 +1,7 @@
 extends Node
 
 @onready var serious_button : AudioStreamPlayer = $SeriousButton;
+@onready var silly_button : AudioStreamPlayer = $SillyButton;
 @onready var jump : AudioStreamPlayer = $Jump;
 @onready var land : AudioStreamPlayer = $Land;
 @onready var hit : AudioStreamPlayer = $Hit;
@@ -16,6 +17,10 @@ func _ready() -> void:
 				serious_button.pitch_scale = 0.5 * randf() + 1.0;
 				serious_button.volume_db = volume_db;
 				serious_button.play();
+			"silly_button":
+				silly_button.pitch_scale = 0.5 * randf() + 1.0;
+				silly_button.volume_db = volume_db;
+				silly_button.play();
 			"jump":
 				jump.pitch_scale = 0.5 * randf() + 1.0;
 				jump.volume_db = volume_db;

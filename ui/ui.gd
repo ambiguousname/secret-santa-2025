@@ -25,15 +25,18 @@ signal retire();
 func _ready() -> void:
 	bug_name.text_submitted.connect(end_setup, CONNECT_ONE_SHOT);
 	submit_name.pressed.connect(func():
+		AudioEvent.play("silly_button");
 		end_setup(bug_name.text);
 	);
 	
 	items_button.pressed.connect(func():
+		AudioEvent.play("silly_button");
 		items.visible = true;
 		full_info.visible = false;
 		item_notif.visible = false;
 	);
 	items.close.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		items.visible = false;
 		full_info.visible = true;
 	);
@@ -47,6 +50,7 @@ func _ready() -> void:
 		settings_notif.visible = false;
 	);
 	settings_menu.close.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		full_info.visible = true;
 		settings_menu.visible = false;
 	);
