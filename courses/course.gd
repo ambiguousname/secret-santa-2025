@@ -88,8 +88,8 @@ func start_race(player_bug_stats : Stats):
 		r.color = colors[pick];
 		colors.remove_at(pick);
 		r.eye_color = colors[randi() % colors.size()];
-		r.secondary_color = r.color * 0.8;
-		r.pattern = randi() % 2;
+		r.secondary_color = r.color * (0.5 * randf() + 0.4);
+		r.pattern = randi() % 4;
 		#camera.follow_target = _o;
 	end_timer.start();
 
