@@ -4,6 +4,7 @@ func _ready() -> void:
 	self.meta_clicked.connect(_meta_clicked);
 
 func _meta_clicked(meta : String):
+	AudioEvent.play("serious_button");
 	if meta.begins_with("./"):
 		var exe_loc : String = OS.get_executable_path().get_base_dir();
 		if OS.get_name() == "macOS":
