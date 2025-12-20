@@ -75,7 +75,7 @@ func start_race(player_bug_stats : Stats, player_bug_color : Color):
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
 	
-	var colors = Array(AdventureInfo.COLORS);
+	var colors = AdventureInfo.COLORS.duplicate();
 	colors.remove_at(colors.find(player_bug_color));
 	
 	for i in range(3):
