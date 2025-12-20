@@ -118,13 +118,13 @@ func _ready() -> void:
 							save.stats.running.increase(event["duration"]);
 							save.write_save();
 					"wallSlide", "wallTouch":
-						save.stats.climbing.increase(event["duration"]);
+						save.stats.climbing.increase(event["duration"] * 2);
 						save.write_save();
 					"jump":
-						save.stats.jumping.increase(event["duration"]);
+						save.stats.jumping.increase(event["duration"] * 2);
 						save.write_save();
 					"bounce", "attack":
-						save.stats.skateboarding.increase(event["duration"]);
+						save.stats.skateboarding.increase(event["duration"] * 2);
 						save.write_save();
 					"damage":
 						if randi() % 100 > 10 * d["hp"]:
