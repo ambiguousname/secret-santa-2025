@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=38 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -14,16 +14,18 @@
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
-[ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://art/bug/bug.png" id="9_ryguw"]
+[ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://assets/bug/bug.png" id="9_ryguw"]
 [ext_resource type="PackedScene" uid="uid://huuajgfta6fx" path="res://ui/week_transition.tscn" id="11_getpj"]
 [ext_resource type="PackedScene" uid="uid://dlxkdu3gv8hr8" path="res://ui/credits.tscn" id="14_cegan"]
-[ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://art/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cimkmqj2sowmj" path="res://assets/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://bicq5vgoec5k0" path="res://ui/settings_menu.gd" id="16_074og"]
 [ext_resource type="PackedScene" uid="uid://b6aj7dlcr2mcw" path="res://ui/install_server.tscn" id="16_yaehf"]
 [ext_resource type="PackedScene" uid="uid://sqhxra3s62ch" path="res://ui/text.tscn" id="17_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://c2juuguwewo2v" path="res://ui/audio.tscn" id="17_d13ii"]
-[ext_resource type="Texture2D" uid="uid://bwx8lahgmjo8j" path="res://art/LCD/bag.png" id="18_82xsv"]
+[ext_resource type="Texture2D" uid="uid://bwx8lahgmjo8j" path="res://assets/LCD/bag.png" id="18_82xsv"]
 [ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
+[ext_resource type="AudioStream" uid="uid://cars5bc60fty" path="res://assets/sounds/serious_button.wav" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://blxli67wx1yul" path="res://audio_manager.gd" id="25_lswn8"]
 
 [sub_resource type="Animation" id="Animation_82xsv"]
 length = 0.001
@@ -664,6 +666,12 @@ script = ExtResource("1_ig7tw")
 [node name="Timer" type="Timer" parent="TCPClient"]
 wait_time = 30.0
 one_shot = true
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("25_lswn8")
+
+[node name="SeriousButton" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("25_0odxb")
 
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
 [editable path="UI/FullInfo/Stats/LeftStats/Skateboarding"]

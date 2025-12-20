@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Settings="*res://settings.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+AudioEvent="*res://audio_event.gd"
 
 [display]
 

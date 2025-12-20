@@ -134,6 +134,7 @@ func _ready() -> void:
 	);
 	
 	ui.adventure.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		ui.adventure.disabled = true;
 		bug.jump();
 		var window = get_window();
@@ -239,6 +240,7 @@ func set_day(day_progress : int, advance: bool = false):
 	ui.set_day(race_day - day_progress, save.adv_info.day_progress_time, advance);
 
 func start_race():
+	AudioEvent.play("serious_button");
 	var race_scene : PackedScene = null;
 	match save.adv_info.week:
 		0:

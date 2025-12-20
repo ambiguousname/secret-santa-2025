@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://8mg7umgprr30"]
 
 [ext_resource type="Script" uid="uid://cet4cw83qw2qv" path="res://bug/items/item.gd" id="1_5t1vh"]
-[ext_resource type="Texture2D" uid="uid://drh33aulplkh5" path="res://art/MV Icons PACK 2/Individual Icons/jewel5.png" id="2_5t1vh"]
+[ext_resource type="Texture2D" uid="uid://drh33aulplkh5" path="res://assets/MV Icons PACK 2/Individual Icons/jewel5.png" id="2_5t1vh"]
 
 [resource]
 script = ExtResource("1_5t1vh")

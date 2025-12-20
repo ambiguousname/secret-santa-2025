@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bylxu2i2xmwp1"]
 
 [ext_resource type="Script" uid="uid://rbosbafylvvw" path="res://courses/racing_bugs/racing_bug.gd" id="1_8raqk"]
-[ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://art/bug/bug.png" id="2_hwbcj"]
-[ext_resource type="Texture2D" uid="uid://bfgm0y3c8iwxa" path="res://art/bug/skateboard.png" id="3_r6jp7"]
+[ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://assets/bug/bug.png" id="2_hwbcj"]
+[ext_resource type="Texture2D" uid="uid://bfgm0y3c8iwxa" path="res://assets/bug/skateboard.png" id="3_r6jp7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8raqk"]
 
