@@ -8,5 +8,6 @@ func _ready() -> void:
 		if changed:
 			Settings.set_setting("master_volume", master_volume.value);
 			Settings.save();
+			AudioEvent.play("serious_button");
 			# TODO: Play sample SFX
 	);

@@ -41,6 +41,7 @@ func _ready() -> void:
 		item_notif.visible = true;
 	);
 	settings_button.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		settings_menu.visible = true;
 		full_info.visible = false;
 		settings_notif.visible = false;
