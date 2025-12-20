@@ -19,4 +19,4 @@ func get_volume_db(type : AudioType) -> float:
 		AudioType.MUSIC:
 			volume *= Settings.get_setting("music_volume", 100.0)/100.0;
 	volume = volume * 100;
-	return -2.5 * log(101 - volume);
+	return -3 * log(101 - volume);
