@@ -33,6 +33,8 @@ func jump(callback : Callable = Callable()):
 	tween.tween_property(self, "scale", Vector2(0.6, 1.6), 0.2).set_delay(0.05);
 	tween.parallel();
 	tween.tween_property(self, "position", self.position + Vector2.UP * 400, 0.2).set_delay(0.08);
+	tween.parallel();
+	
 	tween.tween_callback(callback);
 
 func land(delay : float, start : Vector2, pos : Vector2, bug_scale : float, callback : Callable):
@@ -40,6 +42,11 @@ func land(delay : float, start : Vector2, pos : Vector2, bug_scale : float, call
 	tween.tween_property(self, "position", pos, 0.1).from(start).set_delay(delay);
 	tween.parallel();
 	tween.tween_property(self, "scale", Vector2.ONE * bug_scale, 0.5).set_delay(delay).from(Vector2(0.6, 1.5));
+	tween.parallel();
+	var new_scale = Vector2.ONE * (1.0/bug_scale);
+	tween.tween_property(_end_adventure, "scale", new_scale, 0.5);
+	tween.parallel();
+	tween.tween_property(_end_adventure, "position", Vector2(-(new_scale.x * _end_adventure.size.x)/2, -(new_scale.y * _end_adventure.size.y)/2), 0.5);
 	tween.tween_callback(callback).set_delay(0.01);
 
 func begin_adventure(extents : Rect2i, adventure_info : AdventureInfo):
