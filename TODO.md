@@ -4,7 +4,7 @@
 - [X] SFX
 - [ ] Hollow Knight TCP bug testing
 - [ ] Hollow Knight TCP balancing
-- [ ] Make build and test continuous runthrough for balancing (do all throughout Friday)
+- [X] Make build and test continuous runthrough for balancing (do all throughout Friday)
 - [ ] Second monitor testing
 # List
 - [X] Adventure Loop
