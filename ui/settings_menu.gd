@@ -6,3 +6,6 @@ class_name SettingsMenu extends Control
 
 func _ready() -> void:
 	tabs.set_tab_title(0, "Hollow Knight");
+	tabs.tab_changed.connect(func(t : int):
+		AudioEvent.play("silly_button");
+	);

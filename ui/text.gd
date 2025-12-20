@@ -16,6 +16,10 @@ func _ready() -> void:
 		set_family(family);
 		Settings.set_setting("font_family", family);
 		Settings.save();
+		AudioEvent.play("serious_button");
+	);
+	font_family.pressed.connect(func():
+		AudioEvent.play("silly_button");
 	);
 	var fam : FontFamily = Settings.get_setting("font_family", FontFamily.QUIXEL);
 	font_family.selected = fam;
@@ -26,6 +30,7 @@ func _ready() -> void:
 		set_font_size(val);
 		Settings.set_setting("font_size", val);
 		Settings.save();
+		AudioEvent.play("serious_button");
 	);
 	var f_size : int = Settings.get_setting("font_size", 16);
 	set_font_size(f_size);
