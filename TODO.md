@@ -1,7 +1,7 @@
 # Current Priorities
 - [X] Energy should not exceed 100%
 - [ ] Art implementation
-- [ ] SFX
+- [X] SFX
 - [ ] Hollow Knight TCP bug testing
 - [ ] Hollow Knight TCP balancing
 - [ ] Make build and test continuous runthrough for balancing (do all throughout Friday)
@@ -71,7 +71,7 @@
 	- [ ] Hollow Buddy stats screen wrap (something like a tagamotchi display).
 	- [ ] Skill Icons
 - [ ] Sound effects
-	- [ ] Racing sounds (one for each sound)
+	- [X] Racing sounds (one for each sound)
 	- [ ] Item use sounds (probably one exclusive for eating)
 	- [ ] Item pick up sound during adventuring (quiet)
 	- [ ] Skill up sound during adventuring (quiet)
