@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=45 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://tc6goseifgt6" path="res://ui/items/item_confirm.gd" id="7_kek77"]
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
+[ext_resource type="Material" uid="uid://bl6843oi1mtr6" path="res://bug_material.tres" id="9_htxhm"]
 [ext_resource type="Texture2D" uid="uid://wosya5mbyrnk" path="res://assets/bug/Beetle1.png" id="9_kq58d"]
 [ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://assets/bug/bug.png" id="9_ryguw"]
 [ext_resource type="PackedScene" uid="uid://huuajgfta6fx" path="res://ui/week_transition.tscn" id="11_getpj"]
@@ -185,6 +186,7 @@ items = Array[ExtResource("2_272bh")]([ExtResource("3_5vw27"), ExtResource("4_4c
 offset = Vector2(250, 250)
 
 [node name="Bug" type="Sprite2D" parent="."]
+material = ExtResource("9_htxhm")
 position = Vector2(250, 250)
 scale = Vector2(2.48, 2.48)
 texture = ExtResource("9_kq58d")

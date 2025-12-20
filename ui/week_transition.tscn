@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://huuajgfta6fx"]
+[gd_scene load_steps=5 format=3 uid="uid://huuajgfta6fx"]
 
 [ext_resource type="Script" uid="uid://gna6ue8b3t6s" path="res://ui/week_transition.gd" id="1_ypa3w"]
 [ext_resource type="Texture2D" uid="uid://qxwh7y0o74ku" path="res://assets/arrow.svg" id="1_ysybq"]
 [ext_resource type="Texture2D" uid="uid://wosya5mbyrnk" path="res://assets/bug/Beetle1.png" id="2_kl0pq"]
+[ext_resource type="Material" uid="uid://bl6843oi1mtr6" path="res://bug_material.tres" id="2_ohcdr"]
 
 [node name="WeekTransition" type="Control"]
 layout_mode = 3
@@ -22,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bug" type="TextureRect" parent="."]
+material = ExtResource("2_ohcdr")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
