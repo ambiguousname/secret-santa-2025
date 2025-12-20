@@ -35,6 +35,7 @@ func add_item(i : Item, notify : bool = false):
 	d.texture = i.texture;
 	grid.add_child(d);
 	d.pressed.connect(func():
+		AudioEvent.play("silly_button");
 		item_confirm.pick_item(i);
 		item_to_use = i;
 		active_item_display = d;
