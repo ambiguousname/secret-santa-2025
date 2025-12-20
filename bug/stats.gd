@@ -26,7 +26,7 @@ class Stat:
 
 var energy : float = 100.0:
 	set(v):
-		energy = v;
+		energy = clamp(v, 0.0, 100.0);
 		energy_updated.emit();
 var running : Stat = Stat.new();
 var climbing : Stat = Stat.new();
