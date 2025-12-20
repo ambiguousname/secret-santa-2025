@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfadllsrcwd4j"]
+[gd_scene load_steps=9 format=3 uid="uid://cfadllsrcwd4j"]
 
 [ext_resource type="PackedScene" uid="uid://t428mw4jpmqx" path="res://courses/base.tscn" id="1_x2fv7"]
 [ext_resource type="PackedScene" uid="uid://r0v8kkcl0rmn" path="res://courses/course_segments/polygon.tscn" id="2_sq8pa"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dy85js11srkop" path="res://courses/course_segments/ramp.tscn" id="4_uj43v"]
 [ext_resource type="PackedScene" uid="uid://cgqumw1klwpis" path="res://courses/course_segments/skateboard_trigger.tscn" id="5_re1m6"]
 [ext_resource type="AudioStream" uid="uid://b21iybb1o8lf" path="res://assets/sounds/music/Three Red Hearts - Box Jump.ogg" id="6_ilpfn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilpfn"]
+font_size = 36
 
 [sub_resource type="Curve2D" id="Curve2D_re1m6"]
 _data = {
@@ -25,6 +28,22 @@ limit_bottom = 500
 [node name="RacingCamera" parent="." index="1"]
 zoom = Vector2(0.8, 0.8)
 limit_right = 2200
+limit_bottom = 500
+
+[node name="TimeLeft" parent="RacingCamera/RaceUI" index="0"]
+label_settings = SubResource("LabelSettings_ilpfn")
+
+[node name="Panel" parent="RacingCamera/RaceUI/TimeLeft" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -8.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Finish" parent="." index="3"]
 position = Vector2(2095, -107)
