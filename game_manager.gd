@@ -329,12 +329,14 @@ func finish_race(winner : bool):
 					bug.animation.play(&"RESET");
 					bug.position = Vector2(250, -250);
 					bug.animation.animation_finished.connect(func(_b : String):
+						AudioEvent.play("lose");
 						bug.position = Vector2(250, -250);
 						bug.visible = true;
 						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), 2.48, ui.setup_bug_dead.bind(bug_name));
 					, CONNECT_ONE_SHOT);
 				, CONNECT_ONE_SHOT);
 			else:
+				AudioEvent.play("win");
 				bug.visible = true;
 				bug.land(0.0, Vector2(250, -250), Vector2(250, 250), 2.48, Callable());
 		);

@@ -5,6 +5,8 @@ extends Node
 @onready var jump : AudioStreamPlayer = $Jump;
 @onready var land : AudioStreamPlayer = $Land;
 @onready var hit : AudioStreamPlayer = $Hit;
+@onready var win : AudioStreamPlayer = $Win;
+@onready var lose : AudioStreamPlayer = $Lose;
 
 func _ready() -> void:
 	AudioEvent.played.connect(func(n : String):
@@ -32,4 +34,10 @@ func _ready() -> void:
 			"hit":
 				hit.volume_db = volume_db;
 				hit.play();
+			"win":
+				win.volume_db = volume_db;
+				win.play();
+			"lose":
+				lose.volume_db = volume_db;
+				lose.play();
 	);
