@@ -15,8 +15,8 @@
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
 [ext_resource type="Material" uid="uid://bl6843oi1mtr6" path="res://bug_material.tres" id="9_htxhm"]
-[ext_resource type="Texture2D" uid="uid://wosya5mbyrnk" path="res://assets/bug/Beetle1.png" id="9_kq58d"]
 [ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://assets/bug/bug.png" id="9_ryguw"]
+[ext_resource type="SpriteFrames" uid="uid://baltj2tjeogg8" path="res://assets/bug/beetle_frames.tres" id="10_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://huuajgfta6fx" path="res://ui/week_transition.tscn" id="11_getpj"]
 [ext_resource type="PackedScene" uid="uid://dlxkdu3gv8hr8" path="res://ui/credits.tscn" id="14_cegan"]
 [ext_resource type="Texture2D" uid="uid://bno0ftdtmhu0w" path="res://assets/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
@@ -180,11 +180,12 @@ items = Array[ExtResource("2_272bh")]([ExtResource("3_5vw27"), ExtResource("4_4c
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(250, 250)
 
-[node name="Bug" type="Sprite2D" parent="."]
+[node name="Bug" type="AnimatedSprite2D" parent="."]
 material = ExtResource("9_htxhm")
 position = Vector2(250, 250)
 scale = Vector2(2.48, 2.48)
-texture = ExtResource("9_kq58d")
+sprite_frames = ExtResource("10_a6jrf")
+animation = &"idle"
 script = ExtResource("2_1bvp3")
 
 [node name="ExtentsViewer" type="Sprite2D" parent="Bug"]

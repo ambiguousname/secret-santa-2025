@@ -1,8 +1,8 @@
-class_name Bug extends Sprite2D
+class_name Bug extends AnimatedSprite2D
 
 @onready var window : Window = self.get_window();
 @onready var _end_adventure : Button = $EndAdventure;
-@onready var animation : AnimationPlayer = $AnimationPlayer;
+@onready var anim_player : AnimationPlayer = $AnimationPlayer;
 
 signal adventure_ended();
 
@@ -30,6 +30,7 @@ func _ready():
 		AudioEvent.play("serious_button");
 		end_adventure();
 	);
+	self.play();
 	#animation.play(&"breathe");
 
 func jump(callback : Callable = Callable()):
@@ -82,6 +83,10 @@ var _adventure_noise : FastNoiseLite = FastNoiseLite.new();
 
 func _initialize_adventure() -> void:
 	_adventure_noise.noise_type = FastNoiseLite.TYPE_PERLIN;
+
+func get_rect():
+	# Stupid hack.
+	return Rect2(-25, -30, 50, 60);
 
 func _input(event: InputEvent) -> void:
 	if !_adventuring:

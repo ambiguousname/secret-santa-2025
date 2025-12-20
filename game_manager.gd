@@ -330,12 +330,12 @@ func finish_race(winner : bool):
 		camera.enabled = true;
 		ui.fade_ui(true, 1.0, func():
 			if !winner:
-				bug.animation.play(&"die");
-				bug.animation.animation_finished.connect(func(_a : String):
+				bug.anim_player.play(&"die");
+				bug.anim_player.animation_finished.connect(func(_a : String):
 					bug.visible = false;
-					bug.animation.play(&"RESET");
+					bug.anim_player.play(&"RESET");
 					bug.position = Vector2(250, -250);
-					bug.animation.animation_finished.connect(func(_b : String):
+					bug.anim_player.animation_finished.connect(func(_b : String):
 						AudioEvent.play("lose");
 						bug.position = Vector2(250, -250);
 						bug.visible = true;
