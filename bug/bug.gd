@@ -9,7 +9,7 @@ signal adventure_ended();
 var energy : float = 100:
 	set(v):
 		var amnt = 0.5 + 0.5 * v/100.0;
-		self_modulate = Color(amnt, amnt, amnt, 1.0);
+		material.set_shader_parameter("body_tint", Color.WHITE * amnt);
 		energy = v;
 
 var _screen_size : Vector2i;
