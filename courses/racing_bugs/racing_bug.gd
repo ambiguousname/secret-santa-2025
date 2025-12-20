@@ -23,13 +23,18 @@ enum State {
 };
 var state : State = State.FALLING;
 
+@onready var skate_sound : AudioStreamPlayer2D = $Skate;
 func skate():
 	skateboard.visible = true;
 	state = State.SKATING;
+	skate_sound.pitch_scale = 0.5 * randf() + 0.5;
+	skate_sound.volume_db = AudioEvent.volume_db;
+	skate_sound.play();
 
 func end_skate():
 	skateboard.visible = false;
 	state = State.FALLING;
+	skate_sound.stop();
 
 func jump():
 	state = State.JUMPING;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bylxu2i2xmwp1"]
+[gd_scene load_steps=9 format=3 uid="uid://bylxu2i2xmwp1"]
 
 [ext_resource type="Script" uid="uid://rbosbafylvvw" path="res://courses/racing_bugs/racing_bug.gd" id="1_8raqk"]
 [ext_resource type="Material" uid="uid://bl6843oi1mtr6" path="res://bug_material.tres" id="2_3su5q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfgm0y3c8iwxa" path="res://assets/bug/skateboard.png" id="3_r6jp7"]
 [ext_resource type="AudioStream" uid="uid://drs0u5h60tid1" path="res://assets/sounds/hit.wav" id="5_lu0hf"]
 [ext_resource type="AudioStream" uid="uid://dlshy8x58u3qp" path="res://assets/sounds/jump.wav" id="6_yvcsu"]
+[ext_resource type="AudioStream" uid="uid://bpv2mamuueg7g" path="res://assets/sounds/skate.wav" id="7_mrc36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8raqk"]
 
@@ -32,3 +33,9 @@ stream = ExtResource("5_lu0hf")
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yvcsu")
+
+[node name="Skate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mrc36")
+volume_db = -5.0
+pitch_scale = 1.25
+attenuation = 20.392956
