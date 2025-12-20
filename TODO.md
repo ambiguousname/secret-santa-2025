@@ -2,6 +2,7 @@
 - [X] Energy should not exceed 100%
 - [ ] Art implementation
 - [X] SFX
+- [ ] TCP Bug with client disconnect and reconnect (server is still up, client gets stuck on handshake)
 - [ ] Hollow Knight TCP bug testing
 - [ ] Hollow Knight TCP balancing
 - [X] Make build and test continuous runthrough for balancing (do all throughout Friday)
