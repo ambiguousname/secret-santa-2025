@@ -23,6 +23,7 @@ func _ready():
 	_end_adventure.pressed.connect(end_adventure);
 
 func jump(callback : Callable = Callable()):
+	AudioEvent.play("jump");
 	var tween = create_tween();
 	var start_scale = Vector2(self.scale);
 	var squash_amount : float = 0.8 * start_scale.y;
@@ -38,8 +39,11 @@ func jump(callback : Callable = Callable()):
 	tween.tween_callback(callback);
 
 func land(delay : float, start : Vector2, pos : Vector2, bug_scale : float, callback : Callable):
+	AudioEvent.play("land");
 	var tween = create_tween();
 	tween.tween_property(self, "position", pos, 0.1).from(start).set_delay(delay);
+	tween.parallel();
+	tween.tween_callback(AudioEvent.play.bind("hit"));
 	tween.parallel();
 	tween.tween_property(self, "scale", Vector2.ONE * bug_scale, 0.5).set_delay(delay).from(Vector2(0.6, 1.5));
 	tween.parallel();

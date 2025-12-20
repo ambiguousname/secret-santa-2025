@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=41 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -26,6 +26,9 @@
 [ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
 [ext_resource type="AudioStream" uid="uid://cars5bc60fty" path="res://assets/sounds/serious_button.wav" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://blxli67wx1yul" path="res://audio_manager.gd" id="25_lswn8"]
+[ext_resource type="AudioStream" uid="uid://dlshy8x58u3qp" path="res://assets/sounds/jump.wav" id="27_a6jrf"]
+[ext_resource type="AudioStream" uid="uid://1pecbx2krjeq" path="res://assets/sounds/land.wav" id="28_xuqvo"]
+[ext_resource type="AudioStream" uid="uid://drs0u5h60tid1" path="res://assets/sounds/hit.wav" id="29_qsp4k"]
 
 [sub_resource type="Animation" id="Animation_82xsv"]
 length = 0.001
@@ -672,6 +675,15 @@ script = ExtResource("25_lswn8")
 
 [node name="SeriousButton" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("25_0odxb")
+
+[node name="Jump" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("27_a6jrf")
+
+[node name="Land" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("28_xuqvo")
+
+[node name="Hit" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("29_qsp4k")
 
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
 [editable path="UI/FullInfo/Stats/LeftStats/Skateboarding"]
