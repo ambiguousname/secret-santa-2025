@@ -24,6 +24,7 @@ func _ready():
 		AudioEvent.play("serious_button");
 		end_adventure();
 	);
+	#animation.play(&"breathe");
 
 func jump(callback : Callable = Callable()):
 	AudioEvent.play("jump");
@@ -98,8 +99,11 @@ func _process(delta: float) -> void:
 		var passthrough_polygon = PackedVector2Array();
 		
 		var rect = get_rect();
-		rect.position += _extents.size/2.0 + self.global_position;
-		const MARGIN : float = 10.0;
+		rect.size = Vector2(150, rect.size.y * self.scale.y);
+		# Stupid hack thanks to bug sizing:
+		# TODO: Polygon only around bug sprite, THEN button.
+		rect.position += _extents.size/2.0 + self.global_position + Vector2(-36 - 25, -15);
+		const MARGIN : float = 0.0;
 		
 		passthrough_polygon.push_back(rect.position + Vector2(-MARGIN, -MARGIN));
 		passthrough_polygon.push_back(rect.position + Vector2(rect.size.x + MARGIN, -MARGIN));

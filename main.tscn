@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=44 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://8mg7umgprr30" path="res://bug/items/crystal.tres" id="7_vivmo"]
 [ext_resource type="Resource" uid="uid://cju7ekrhi7k23" path="res://bug/items/tomato.tres" id="8_vivmo"]
 [ext_resource type="Texture2D" uid="uid://wosya5mbyrnk" path="res://assets/bug/Beetle1.png" id="9_kq58d"]
+[ext_resource type="Texture2D" uid="uid://nnfcwb70awtr" path="res://assets/bug/bug.png" id="9_ryguw"]
 [ext_resource type="PackedScene" uid="uid://huuajgfta6fx" path="res://ui/week_transition.tscn" id="11_getpj"]
 [ext_resource type="PackedScene" uid="uid://dlxkdu3gv8hr8" path="res://ui/credits.tscn" id="14_cegan"]
 [ext_resource type="Texture2D" uid="uid://bno0ftdtmhu0w" path="res://assets/MV Icons PACK 2/Individual Icons/wrench.png" id="15_2cqfq"]
@@ -69,6 +70,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bug:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.48, 2.48)]
+}
 
 [sub_resource type="Animation" id="Animation_cegan"]
 resource_name = "die"
@@ -110,9 +123,27 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.69965345, 0.69965345, 0.69965345, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kq58d"]
+resource_name = "breathe"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bug:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9333333, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.48, 2.48), Vector2(2.4, 2.4), Vector2(2.48, 2.48)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_82xsv"]
 _data = {
 &"RESET": SubResource("Animation_82xsv"),
+&"breathe": SubResource("Animation_kq58d"),
 &"die": SubResource("Animation_cegan")
 }
 
@@ -158,6 +189,12 @@ position = Vector2(250, 250)
 scale = Vector2(2.48, 2.48)
 texture = ExtResource("9_kq58d")
 script = ExtResource("2_1bvp3")
+
+[node name="ExtentsViewer" type="Sprite2D" parent="Bug"]
+visible = false
+z_index = -1
+scale = Vector2(1.683, 1.683)
+texture = ExtResource("9_ryguw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bug"]
 root_node = NodePath("../..")
