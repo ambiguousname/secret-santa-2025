@@ -174,6 +174,9 @@ func _ready() -> void:
 			camera.offset = Vector2i(250, 250);
 			window.position = _stats_window_pos;
 			
+			if tcp_client.has_connection:
+				window.mode = Window.MODE_MINIMIZED;
+			
 			ui.fade_ui(true, 1.0, func():
 				bug.land(0.1, Vector2(250, -250), Vector2(250, 250), 2.48, Callable());
 				if save.stats.energy > 0:
@@ -225,6 +228,9 @@ func _tcp_update(status : TCPClient.Status):
 		TCPClient.Status.DISCONNECTED:
 			if bug._adventuring && tcp_client.has_connection:
 				bug.end_adventure();
+			if !bug._adventuring && get_window().mode == Window.MODE_MINIMIZED:
+				get_window().mode = Window.MODE_WINDOWED;
+				
 			text = "Disconnected.";
 			if tcp_client.timer.time_left > 0:
 				text += "\nRetrying in %d seconds..." % int(tcp_client.timer.time_left);

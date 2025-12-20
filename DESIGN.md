@@ -93,7 +93,7 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 - [X] Check TCP sending data on a quit to menu and reload
 - "I did not realize I could input a name"
 - [X] Need a bug rename state
-- [ ] Buddy should be minimized after adventure is done and while TCP is active
+- [X] Buddy should be minimized after adventure is done and while TCP is active
 - [X] Jumping at level 6 was not enough to clear
 - Got two items, both Cool Skull. Had averages of skills around 6 or 7
 - [X] Need to test if this is better than without TCP (and if first race is passable almost regardless of stats)
