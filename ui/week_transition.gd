@@ -10,6 +10,8 @@ class_name WeekTransition extends Control
 func _ready() -> void:
 	onwards.pressed.connect(func():
 		AudioEvent.play("silly_button");
+		bug.play(&"walk");
+		bug.speed_scale = 2.0;
 		var tween = create_tween();
 		tween.tween_property(bug, "position", Vector2(to_week.position.x, bug.position.y), 0.5);
 		tween.parallel();
@@ -30,8 +32,10 @@ func race_name(week : int) -> String:
 		_:
 			return "Unknown";
 
-@onready var bug : TextureRect = $Bug;
+@onready var bug : AnimatedSprite2D = $Bug;
 func transition_week(bug_name : String, from : int, to : int):
+	bug.speed_scale = 1.0;
+	bug.play(&"idle");
 	self.modulate = Color(1, 1, 1, 1);
 	self.visible = true;
 	winner.text = "%s won!" % bug_name;
