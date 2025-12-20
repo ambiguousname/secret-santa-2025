@@ -1,11 +1,10 @@
 # Current Priorities
-- [ ] Make build and test continuous runthrough for balancing (do all throughout Friday)
-- [ ] Second monitor testing
+- [ ] Art implementation
+- [ ] SFX
 - [ ] Hollow Knight TCP bug testing
 - [ ] Hollow Knight TCP balancing
-- [ ] SFX
-- [ ] Art implementation
-	- [ ] LCD stylization
+- [ ] Make build and test continuous runthrough for balancing (do all throughout Friday)
+- [ ] Second monitor testing
 # List
 - [X] Adventure Loop
 	- [X] Bug loses saturation at lower energies
