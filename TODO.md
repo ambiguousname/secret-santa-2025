@@ -1,4 +1,5 @@
 # Current Priorities
+- [ ] Energy should not exceed 100%
 - [ ] Art implementation
 - [ ] SFX
 - [ ] Hollow Knight TCP bug testing
