@@ -7,5 +7,5 @@ func play(name : String):
 
 var volume_db : float:
 	get():
-		var volume : float = Settings.get_setting("master_volume", 100.0)/100.0;
-		return log(volume + 0.0001);
+		var volume : float = Settings.get_setting("master_volume", 100.0);
+		return -2.5 * log(101 - volume);
