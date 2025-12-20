@@ -6,6 +6,12 @@ class_name Bug extends Sprite2D
 
 signal adventure_ended();
 
+var energy : float = 100:
+	set(v):
+		var amnt = 0.5 + 0.5 * v/100.0;
+		self_modulate = Color(amnt, amnt, amnt, 1.0);
+		energy = v;
+
 var _screen_size : Vector2i;
 var _adventuring : bool = false;
 
@@ -96,4 +102,4 @@ func _process(delta: float) -> void:
 		elif self.position.x + _extents.size.x/2.0 < _extents.position.x + 250 && _adventure_dir < 0:
 			_adventure_dir = 0;
 		
-		self.position.x += _adventure_dir;
+		self.position.x += _adventure_dir * (0.5 + (0.5 * self.energy/100));

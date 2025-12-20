@@ -146,6 +146,7 @@ func _ready() -> void:
 			
 			bug.position = Vector2(0, -250);
 			camera.offset = Vector2.ZERO;
+			bug.energy = save.stats.energy;
 			bug.land(0.2, Vector2(0, 250), Vector2(0, 0), 0.5, func():
 				bug.begin_adventure(Rect2i(window.position, window.size), save.adv_info);
 			);
@@ -191,8 +192,7 @@ func _ready() -> void:
 	);
 	
 	save.stats.energy_updated.connect(func():
-		var amnt = 0.5 + 0.5 * save.stats.energy/100.0;
-		bug.self_modulate = Color(amnt, amnt, amnt, 1.0);
+		bug.energy = save.stats.energy;
 	);
 	save.stats.energy_updated.emit();
 
