@@ -17,6 +17,7 @@
 	- [X] Getting items
 	- [ ] XP boosting items
 	- [X] "Natures" (bug has priority of training some skills over others)
+		- [ ] Name nature in UI
 	- [X] Exiting on depletion of energy
 - [ ] Functional UI
 	- [X] Fix camera issue on return from borderless
