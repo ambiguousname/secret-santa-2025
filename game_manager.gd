@@ -204,7 +204,7 @@ func _ready() -> void:
 
 var tcp_acknowledge_timer : float = 0.0;
 func _process(delta: float) -> void:
-	if bug._adventuring:
+	if bug._adventuring && tcp_client.has_connection:
 		if tcp_acknowledge_timer < 1.0:
 			bug.eye_color = lerp(bug.eye_color, Color.GREEN, delta);
 			tcp_acknowledge_timer += delta;
