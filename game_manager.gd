@@ -169,6 +169,7 @@ func _ready() -> void:
 		ui.set_day_progress(save.adv_info.day_progress_time);
 		
 		bug.jump(func():
+			bug.play(&"idle");
 			var window = get_window();
 			window.mouse_passthrough_polygon = [];
 			window.set_flag(Window.FLAG_BORDERLESS, false);

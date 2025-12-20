@@ -77,7 +77,6 @@ func begin_adventure(extents : Rect2i, adventure_info : AdventureInfo):
 
 func end_adventure():
 	_adventuring = false;
-	play(&"idle");
 	self.speed_scale = 1;
 	adventure_ended.emit();
 	_end_adventure.visible = false;
