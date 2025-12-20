@@ -7,3 +7,5 @@ resource_local_to_scene = true
 shader = ExtResource("1_885sa")
 shader_parameter/eye_color = Color(0, 0, 0, 1)
 shader_parameter/body_tint = Color(1, 1, 1, 1)
+shader_parameter/secondary_tint = Color(0, 0, 0, 1)
+shader_parameter/pattern = 0

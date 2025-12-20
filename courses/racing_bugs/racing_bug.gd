@@ -12,6 +12,16 @@ var eye_color : Color:
 var color : Color:
 	set(v):
 		sprite.material.set_shader_parameter("body_tint", v);
+	get():
+		return sprite.material.get_shader_parameter("body_tint");
+
+var secondary_color : Color:
+	set(v):
+		sprite.material.set_shader_parameter("secondary_tint", v);
+
+var pattern : int:
+	set(v):
+		sprite.material.set_shader_parameter("pattern", v);
 
 enum State {
 	RUNNING,
