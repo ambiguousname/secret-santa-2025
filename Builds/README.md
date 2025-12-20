@@ -1,5 +1,5 @@
 # Hollow Buddy
-Hollow Buddy is a game with optional support for reading your Hollow Knight game sessions for extra rewards based on how you perform.
+Hollow Buddy is a game with optional support for reading your Hollow Knight game sessions for extra rewards based on how you perform. If set up correctly, your Buddy's eyes will glow green while adventuring if it is receiving data from Hollow Knight.
 
 ## Compatibility with Hollow Knight
 
