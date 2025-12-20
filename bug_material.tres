@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bl6843oi1mtr6"]
+
+[ext_resource type="Shader" uid="uid://wjxrebmp58fd" path="res://bug_shader.gdshader" id="1_885sa"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_885sa")
+shader_parameter/eye_color = Color(0, 0, 0, 1)
+shader_parameter/body_tint = Color(1, 1, 1, 1)

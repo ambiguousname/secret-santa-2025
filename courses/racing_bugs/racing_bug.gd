@@ -6,6 +6,13 @@ class_name RacingBug extends RigidBody2D
 var stats : Stats = Stats.new();
 var player : bool = false;
 
+var eye_color : Color:
+	set(v):
+		sprite.material.set_shader_parameter("eye_color", v);
+var color : Color:
+	set(v):
+		sprite.material.set_shader_parameter("body_tint", v);
+
 enum State {
 	RUNNING,
 	CLIMBING,

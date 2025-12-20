@@ -68,7 +68,7 @@ func start_race(player_bug_stats : Stats):
 	
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
-	var colors : Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.AQUA, Color.TOMATO];
+	var colors : Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.AQUA, Color.TOMATO, Color.BLACK, Color.BROWN, Color.GOLD, Color.NAVAJO_WHITE];
 	
 	for i in range(3):
 		var stats = Stats.new();
@@ -80,8 +80,9 @@ func start_race(player_bug_stats : Stats):
 		var r = add_racer(stats);
 		
 		var pick = randi() % colors.size();
-		r.sprite.modulate = colors[pick];
+		r.color = colors[pick];
 		colors.remove_at(pick);
+		r.eye_color = colors[randi() % colors.size()];
 		#camera.follow_target = _o;
 	end_timer.start();
 
