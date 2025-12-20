@@ -8,6 +8,8 @@ class_name Course extends Node2D
 @onready var end_timer : Timer = $Timer;
 @onready var time_left : Label = $RacingCamera/RaceUI/TimeLeft;
 
+@onready var music : AudioStreamPlayer = $Music;
+
 @export var mean : float = 6.0;
 @export var std : float = 1.0;
 
@@ -16,6 +18,8 @@ signal race_end(player_win : bool);
 var winner : bool = false;
 
 func _ready() -> void:
+	music.volume_db = AudioEvent.volume_db - 8.0;
+	music.play();
 	end_timer.timeout.connect(func():
 		end_race(false);
 	);
@@ -98,6 +102,8 @@ func add_racer(stats : Stats) -> RacingBug:
 
 var race_done : bool = false;
 func end_race(player_win : bool):
+	var t = create_tween();
+	t.tween_property(music, "volume_db", -100, 5.0);
 	race_done = true;
 	time_left.visible = false;
 	race_end.emit(player_win);

@@ -94,3 +94,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
+# Three Red Hearts
+
+To the extent possible under law, [Abstraction Music](https://abstractionmusic.com/) and [Tallbeard Studios](https://www.abstractionmusic.com/tallbeard.htm) has waived all copyright and related or neighboring rights to the music contained in this asset pack. This work is published from the United States.
+
+All assets are available to use in any commercial or non-commercial project, and may be modified in any way the user chooses.
+
+Finally, although permitted within the license terms, Abstraction and Tallbeard Studios do not endorse the use of these assets in any projects relating to NFTs, AI/Machine Learning, or direct resale of unmodified assets.  

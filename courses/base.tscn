@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://t428mw4jpmqx"]
+[gd_scene load_steps=9 format=3 uid="uid://t428mw4jpmqx"]
 
 [ext_resource type="Script" uid="uid://ds5uenpvgnrgx" path="res://courses/course.gd" id="1_r2jf2"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_e3463"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ihg6i"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_3ogki"]
+[ext_resource type="AudioStream" uid="uid://ci6duvs55gojr" path="res://assets/sounds/music/Three Red Hearts - Go.ogg" id="5_0sqjx"]
 
 [sub_resource type="Resource" id="Resource_3ogki"]
 script = ExtResource("3_3ogki")
@@ -95,3 +96,7 @@ shape = SubResource("WorldBoundaryShape2D_oiww5")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0sqjx")
+volume_db = -5.0
