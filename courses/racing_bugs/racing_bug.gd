@@ -52,6 +52,7 @@ func jump():
 func _ready() -> void:
 	self.contact_monitor = true;
 	self.max_contacts_reported = 4;
+	sprite.play();
 	#self.body_entered.connect(func(b : PhysicsBody2D):
 	#);
 	#self.body_entered.connect(func(body : PhysicsBody2D): 

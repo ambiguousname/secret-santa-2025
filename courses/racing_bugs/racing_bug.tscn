@@ -21,7 +21,8 @@ shape = SubResource("CircleShape2D_8raqk")
 material = ExtResource("2_3su5q")
 scale = Vector2(0.79999995, 0.8)
 sprite_frames = ExtResource("3_mrc36")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.63230836
 
 [node name="Skateboard" type="Sprite2D" parent="."]
 visible = false
