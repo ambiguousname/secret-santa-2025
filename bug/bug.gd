@@ -48,7 +48,7 @@ func land(delay : float, start : Vector2, pos : Vector2, bug_scale : float, call
 	tween.parallel();
 	tween.tween_callback(AudioEvent.play.bind("hit"));
 	tween.parallel();
-	tween.tween_property(self, "scale", Vector2.ONE * bug_scale, 0.5).set_delay(delay).from(Vector2(0.6, 1.5));
+	tween.tween_property(self, "scale", Vector2.ONE * bug_scale, 0.5).set_delay(delay).from(Vector2(0.6 * bug_scale, 1.5 * bug_scale));
 	tween.parallel();
 	var new_scale = Vector2.ONE * (1.0/bug_scale);
 	tween.tween_property(_end_adventure, "scale", new_scale, 0.5);
