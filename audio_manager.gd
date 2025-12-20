@@ -15,7 +15,7 @@ func _ready() -> void:
 		match n:
 			"serious_button":
 				serious_button.pitch_scale = 0.5 * randf() + 1.0;
-				serious_button.volume_db = volume_db;
+				serious_button.volume_db = volume_db - 5.0;
 				serious_button.play();
 			"silly_button":
 				silly_button.pitch_scale = 0.5 * randf() + 1.0;
