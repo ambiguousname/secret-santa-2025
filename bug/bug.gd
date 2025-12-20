@@ -130,4 +130,14 @@ func _process(delta: float) -> void:
 		elif self.position.x + _extents.size.x/2.0 < _extents.position.x + 250 && _adventure_dir < 0:
 			_adventure_dir = 0;
 		
+		if abs(_adventure_dir) > 0.02 && animation != &"walk":
+			play(&"walk");
+		elif abs(_adventure_dir) <= 0.02 && animation != &"idle":
+			_adventure_dir = 0;
+			self.speed_scale = 2;
+			play(&"idle");
+		if animation == &"walk":
+			self.speed_scale = _adventure_dir + 0.5;
+			self.flip_h = sign(_adventure_dir) < 0;
+		
 		self.position.x += _adventure_dir * (0.5 + (0.5 * self.energy/100));
