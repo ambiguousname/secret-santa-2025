@@ -9,7 +9,7 @@ signal adventure_ended();
 var energy : float = 100:
 	set(v):
 		var amnt = 0.5 + 0.5 * v/100.0;
-		material.set_shader_parameter("body_tint", Color.WHITE * amnt);
+		material.set_shader_parameter("body_tint", body_color * amnt);
 		energy = v;
 
 var eye_color : Color:
@@ -17,6 +17,11 @@ var eye_color : Color:
 		material.set_shader_parameter("eye_color", v);
 	get():
 		return material.get_shader_parameter("eye_color");
+
+var body_color : Color:
+	set(v):
+		body_color = v;
+		material.set_shader_parameter("body_tint", v);
 
 var _screen_size : Vector2i;
 var _adventuring : bool = false;

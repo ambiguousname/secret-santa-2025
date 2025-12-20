@@ -89,9 +89,11 @@ func _ready() -> void:
 	);
 	
 	if !FileAccess.file_exists(save.SAVE_FILE) || save.stats.name == "":
+		save.adv_info.color = AdventureInfo.COLORS[randi() % AdventureInfo.COLORS.size()];
 		ui.setup_bug();
 	else:
 		ui.bug_name.text = save.stats.name;
+	bug.body_color = save.adv_info.color;
 	
 	tcp_client.status_updated.connect(_tcp_update);
 	tcp_client.should_connect = ui.settings_menu.install.connectable;
@@ -194,6 +196,8 @@ func _ready() -> void:
 		# TODO: Save retired bugs to file.
 		ui.get_node("WinScreen").visible = false;
 		reset_to_setup();
+		save.adv_info.color = AdventureInfo.COLORS[randi() % AdventureInfo.COLORS.size()];
+		bug.body_color = save.adv_info.color;
 		ui.setup_bug();
 	);
 	
@@ -289,7 +293,7 @@ func start_race():
 			var t = race.create_tween();
 			t.tween_property(race, "modulate", Color(1, 1, 1, 1), 0.5).from(Color(1, 1, 1, 0));
 			t.tween_callback(func():
-				race.start_race(save.stats);
+				race.start_race(save.stats, save.adv_info.color);
 			);
 			add_child(race);
 		);
@@ -310,7 +314,7 @@ func finish_race(winner : bool):
 	ui.end_race_day(winner);
 	var bug_name = String(save.stats.name);
 	if winner:
-		ui.set_week(bug_name, save.adv_info.week, save.adv_info.week + 1);
+		ui.set_week(bug_name, save.adv_info.color, save.adv_info.week, save.adv_info.week + 1);
 		save.adv_info.week += 1;
 		save.adv_info.day = 0;
 		# Day is advanced by end_race_day above.
@@ -339,7 +343,11 @@ func finish_race(winner : bool):
 						AudioEvent.play("lose");
 						bug.position = Vector2(250, -250);
 						bug.visible = true;
-						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), 2.48, ui.setup_bug_dead.bind(bug_name));
+						bug.land(0.5, Vector2(250, -250), Vector2(250, 250), 2.48,
+						func():
+							save.adv_info.color = AdventureInfo.COLORS[randi() % AdventureInfo.COLORS.size()];
+							bug.body_color = save.adv_info.color;
+							ui.setup_bug_dead(bug_name));
 					, CONNECT_ONE_SHOT);
 				, CONNECT_ONE_SHOT);
 			else:

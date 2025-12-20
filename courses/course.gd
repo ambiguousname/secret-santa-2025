@@ -53,7 +53,7 @@ func _ready() -> void:
 				#tmp.skateboarding.level = 10;
 				#tmp.climbing.level = 10;
 				#tmp.jumping.level = 25;
-				start_race(tmp);
+				start_race(tmp, Color.WHITE);
 
 func _process(delta: float) -> void:
 	if race_done:
@@ -65,15 +65,18 @@ func _process(delta: float) -> void:
 var racing_bug = preload("uid://bylxu2i2xmwp1");
 var racing_bugs : Array[RacingBug] = [];
 
-func start_race(player_bug_stats : Stats):
+func start_race(player_bug_stats : Stats, player_bug_color : Color):
 	racing_bugs.clear();
 	var bug : RacingBug = add_racer(player_bug_stats);
 	bug.player = true;
+	bug.color = player_bug_color;
 	camera.follow_target = bug;
 	
 	var stat_gen = RandomNumberGenerator.new();
 	stat_gen.randomize();
-	var colors : Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.AQUA, Color.TOMATO, Color.BLACK, Color.BROWN, Color.GOLD, Color.NAVAJO_WHITE, Color.PURPLE, Color.WEB_PURPLE, Color.MAROON];
+	
+	var colors = Array(AdventureInfo.COLORS);
+	colors.remove_at(colors.find(player_bug_color));
 	
 	for i in range(3):
 		var stats = Stats.new();

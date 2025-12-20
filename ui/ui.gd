@@ -121,8 +121,8 @@ func set_day(day : int, day_percent : float, advance: bool):
 	day_label.text = "RACE IN\n%d DAYS" % day;
 	set_day_progress(day_percent);
 
-func set_week(b_name : String, old_week : int, new_week : int):
-	week_transition.transition_week(b_name, old_week, new_week);
+func set_week(b_name : String, color : Color, old_week : int, new_week : int):
+	week_transition.transition_week(b_name, color, old_week, new_week);
 
 func set_day_progress(day_percent : float):
 	day_progress.value = day_percent;

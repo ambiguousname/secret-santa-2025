@@ -4,6 +4,9 @@ class_name AdventureInfo extends RefCounted
 var _stats : WeakRef;
 var items : Array = [];
 
+const COLORS : Array[Color] = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.AQUA, Color.TOMATO, Color.BLACK, Color.BROWN, Color.GOLD, Color.NAVAJO_WHITE, Color.PURPLE, Color.WEB_PURPLE, Color.MAROON, Color.WHITE];
+var color : Color = Color.WHITE;
+
 var generate_item : Callable;
 
 func _init(s : Stats) -> void:
@@ -31,6 +34,8 @@ func from_dict(d : Dictionary):
 		items = d["items"].map(func(i : Dictionary): return Item.from_dict(i));
 	if "nature" in d:
 		nature = d["nature"];
+	if "color" in d:
+		color = d["color"];
 
 func to_dict() -> Dictionary:
 	return {
@@ -39,6 +44,7 @@ func to_dict() -> Dictionary:
 		"week": week,
 		"items": items.map(func(i : Item): return i.to_dict()),
 		"nature": nature,
+		"color": color.to_html(),
 	};
 
 func clear():

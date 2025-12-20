@@ -33,9 +33,10 @@ func race_name(week : int) -> String:
 			return "Unknown";
 
 @onready var bug : AnimatedSprite2D = $Bug;
-func transition_week(bug_name : String, from : int, to : int):
+func transition_week(bug_name : String, bug_color : Color, from : int, to : int):
 	bug.speed_scale = 1.0;
 	bug.play(&"idle");
+	bug.material.set_shader_parameter("body_tint", bug_color);
 	self.modulate = Color(1, 1, 1, 1);
 	self.visible = true;
 	winner.text = "%s won!" % bug_name;
