@@ -57,12 +57,13 @@ namespace BuddyServer
                     Log(reader.GameStateString());
 #else
                     string state = reader.GameStateString();
-                    await st.WriteAsync(Encoding.UTF8.GetBytes(state), 0, state.Length);
+                    st.WriteAsync(Encoding.UTF8.GetBytes(state), 0, state.Length);
 #endif
                     reader.ClearState();
                     // Not sure how to wait on reader's coroutine to process a frame, so we instead just wait each second and send only the important events.
                     Thread.Sleep(1000);
                 }
+                Log("Client disconnected.");
             }
         }
 
