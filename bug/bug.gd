@@ -37,7 +37,6 @@ func jump(callback : Callable = Callable()):
 	tween.tween_property(self, "scale", Vector2(0.6, 1.6), 0.2).set_delay(0.05);
 	tween.parallel();
 	tween.tween_property(self, "position", self.position + Vector2.UP * 400, 0.2).set_delay(0.08);
-	tween.parallel();
 	
 	tween.tween_callback(callback);
 
