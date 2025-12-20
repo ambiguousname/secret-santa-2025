@@ -192,7 +192,7 @@ func _ready() -> void:
 	
 	save.stats.energy_updated.connect(func():
 		var amnt = 0.5 + 0.5 * save.stats.energy/100.0;
-		bug.modulate = Color(amnt, amnt, amnt, 1.0);
+		bug.self_modulate = Color(amnt, amnt, amnt, 1.0);
 	);
 	save.stats.energy_updated.emit();
 
