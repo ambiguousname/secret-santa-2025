@@ -90,11 +90,11 @@ Note that there should be a way to stop leveling at a certain point to stop grin
 - [X] Buddy should be smaller on screen
 - [X] Need to test race kill conditions (and make them obvious)
 - "It's kinda funny, I'm not against it." On having the pink square on bottom of screen
-- [ ] Check TCP sending data on a quit to menu and reload
+- [X] Check TCP sending data on a quit to menu and reload
 - "I did not realize I could input a name"
 - [X] Need a bug rename state
 - [ ] Buddy should be minimized after adventure is done and while TCP is active
 - [X] Jumping at level 6 was not enough to clear
 - Got two items, both Cool Skull. Had averages of skills around 6 or 7
-- [ ] Need to test if this is better than without TCP (and if first race is passable almost regardless of stats)
+- [X] Need to test if this is better than without TCP (and if first race is passable almost regardless of stats)
 - [X] Racing backgrounds need a texture to be able to see on purely black.
