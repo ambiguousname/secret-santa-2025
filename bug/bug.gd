@@ -72,6 +72,8 @@ func begin_adventure(extents : Rect2i, adventure_info : AdventureInfo):
 
 func end_adventure():
 	_adventuring = false;
+	play(&"idle");
+	self.speed_scale = 1;
 	adventure_ended.emit();
 	_end_adventure.visible = false;
 
@@ -114,7 +116,7 @@ func _process(delta: float) -> void:
 		# Stupid hack thanks to bug sizing:
 		# TODO: Polygon only around bug sprite, THEN button.
 		rect.position += _extents.size/2.0 + self.global_position + Vector2(-36 - 25, -15);
-		const MARGIN : float = 0.0;
+		const MARGIN : float = 12.0;
 		
 		passthrough_polygon.push_back(rect.position + Vector2(-MARGIN, -MARGIN));
 		passthrough_polygon.push_back(rect.position + Vector2(rect.size.x + MARGIN, -MARGIN));
