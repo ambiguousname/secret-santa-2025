@@ -9,6 +9,7 @@ class_name WeekTransition extends Control
 
 func _ready() -> void:
 	onwards.pressed.connect(func():
+		AudioEvent.play("silly_button");
 		var tween = create_tween();
 		tween.tween_property(bug, "position", Vector2(to_week.position.x, bug.position.y), 0.5);
 		tween.parallel();

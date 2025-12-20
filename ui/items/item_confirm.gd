@@ -10,12 +10,13 @@ signal item_used(choice : int);
 
 func _ready() -> void:
 	cancel.pressed.connect(func():
+		AudioEvent.play("silly_button");
 		item_used.emit(-1);
 	);
 	
-	choice_one.pressed.connect(item_used.emit.bind(0));
-	choice_two.pressed.connect(item_used.emit.bind(1));
-	choice_three.pressed.connect(item_used.emit.bind(2));
+	choice_one.pressed.connect(func(): AudioEvent.play("serious_button"); item_used.emit(0));
+	choice_two.pressed.connect(func(): AudioEvent.play("serious_button"); item_used.emit(1));
+	choice_three.pressed.connect(func(): AudioEvent.play("serious_button"); item_used.emit(2));
 
 func pick_item(i : Item):
 	label.text = "Use %s?" % i.name;

@@ -55,6 +55,7 @@ func _ready() -> void:
 		settings_menu.visible = false;
 	);
 	$WinScreen/VBoxContainer/Button.pressed.connect(func():
+		AudioEvent.play("serious_button");
 		retire.emit();
 	);
 
