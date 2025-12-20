@@ -37,11 +37,11 @@
 		- [X] "No items" text
 	- [X] Naming bugs
 	- [X] Winning
-	- [ ] Settings
+	- [X] Settings
 		- [X] Connecting to Hollow Knight
 			- [X] Bundling DLLs with files
 			- [X] Error printing
-		- [ ] Volume settings
+		- [X] Volume settings
 - [ ] Races
 	- [X] Sample track
 	- [X] Stat effects
