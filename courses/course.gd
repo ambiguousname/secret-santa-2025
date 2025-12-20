@@ -18,7 +18,7 @@ signal race_end(player_win : bool);
 var winner : bool = false;
 
 func _ready() -> void:
-	music.volume_db = AudioEvent.volume_db - 8.0;
+	music.volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.MUSIC) - 8.0;
 	music.play();
 	end_timer.timeout.connect(func():
 		end_race(false);

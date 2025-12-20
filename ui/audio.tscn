@@ -25,13 +25,35 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 15
-columns = 3
+columns = 2
 
 [node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Master Volume"
 
 [node name="MasterVolume" type="HSlider" parent="GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXVolume" type="HSlider" parent="GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolume" type="HSlider" parent="GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2

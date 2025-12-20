@@ -10,10 +10,9 @@ extends Node
 
 func _ready() -> void:
 	AudioEvent.played.connect(func(n : String):
-		var volume : float = Settings.get_setting("master_volume", 100.0)/100.0;
-		if volume <= 0:
+		if Settings.get_setting("master_volume", 100.0) <= 0 || Settings.get_setting("sfx_volume", 100.0) <= 0.0:
 			return;
-		var volume_db = AudioEvent.volume_db;
+		var volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.SFX);
 		match n:
 			"serious_button":
 				serious_button.pitch_scale = 0.5 * randf() + 1.0;
@@ -40,4 +39,8 @@ func _ready() -> void:
 			"lose":
 				lose.volume_db = volume_db;
 				lose.play();
+			"music_volume_test":
+				serious_button.pitch_scale = 0.5 * randf() + 1.0;
+				serious_button.volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.MUSIC) - 5.0;
+				serious_button.play();
 	);

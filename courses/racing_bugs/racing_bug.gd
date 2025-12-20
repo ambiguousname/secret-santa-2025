@@ -28,7 +28,7 @@ func skate():
 	skateboard.visible = true;
 	state = State.SKATING;
 	skate_sound.pitch_scale = 0.5 * randf() + 0.5;
-	skate_sound.volume_db = AudioEvent.volume_db;
+	skate_sound.volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.SFX);
 	skate_sound.play();
 
 func end_skate():
@@ -58,7 +58,7 @@ func _ready() -> void:
 @onready var hit : AudioStreamPlayer2D = $Hit;
 @onready var jump_sound : AudioStreamPlayer2D = $Jump;
 func play_jump_sound():
-	jump_sound.volume_db = AudioEvent.volume_db;
+	jump_sound.volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.SFX);
 	jump_sound.pitch_scale = 0.5 + 0.5 * randf();
 	jump_sound.play();
 
@@ -70,7 +70,7 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 				var down = st.get_contact_local_position(i) - global_position;
 				if down.normalized().dot(Vector2.DOWN) > 0.5:
 					hit.pitch_scale = 0.5 + randf() * 0.5;
-					hit.volume_db = AudioEvent.volume_db;
+					hit.volume_db = AudioEvent.get_volume_db(AudioEvent.AudioType.SFX);
 					hit.play();
 					state = State.RUNNING;
 					return;
