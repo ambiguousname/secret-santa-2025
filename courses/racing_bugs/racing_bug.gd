@@ -57,6 +57,11 @@ func _ready() -> void:
 
 @onready var hit : AudioStreamPlayer2D = $Hit;
 @onready var jump_sound : AudioStreamPlayer2D = $Jump;
+func play_jump_sound():
+	jump_sound.volume_db = AudioEvent.volume_db;
+	jump_sound.pitch_scale = 0.5 + 0.5 * randf();
+	jump_sound.play();
+
 func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 	match state:
 		State.FALLING, State.FALLING_RIGHT:
@@ -94,15 +99,14 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 			if st.get_contact_count() == 0:
 				self.linear_velocity += Vector2.UP * 980.0 * st.step * 20.0;
 				self.linear_velocity += Vector2.UP * stats.jumping.level;
+				play_jump_sound();
 				state = State.FALLING_RIGHT;
 				return;
 		State.JUMPING:
 			if st.get_contact_count() > 0:
 				self.linear_velocity += Vector2(0, -10000) * st.step;
 				self.linear_velocity += Vector2(1, -1) * 5 * pow(stats.jumping.level + 1, 2) * st.step;
-				jump_sound.volume_db = AudioEvent.volume_db;
-				jump_sound.pitch_scale = 0.5 + 0.5 * randf();
-				jump_sound.play();
+				play_jump_sound();
 				state = State.FALLING;
 
 func _physics_process(delta: float) -> void:
