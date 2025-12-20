@@ -69,6 +69,9 @@ func _connected_process():
 func _ready() -> void:
 	timer.timeout.connect(connect_to_host);
 
+func _exit_tree() -> void:
+	peer.disconnect_from_host();
+
 func _process(delta: float) -> void:
 	if peer == null || should_connect == false:
 		return;
