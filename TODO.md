@@ -1,6 +1,6 @@
 # Current Priorities
 - [X] Energy should not exceed 100%
-- [ ] Art implementation
+- [X] Art implementation
 - [X] SFX
 - [X] TCP Bug with client disconnect and reconnect (server is still up, client gets stuck on handshake)
 - [ ] Hollow Knight TCP bug testing
