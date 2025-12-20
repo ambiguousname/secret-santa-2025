@@ -73,6 +73,8 @@ offset_left = 4.0
 offset_right = 112.0
 offset_bottom = 23.0
 
+[node name="AudioListener2D" type="AudioListener2D" parent="RacingCamera"]
+
 [node name="RacerStart" type="Node2D" parent="."]
 
 [node name="Finish" type="Area2D" parent="."]

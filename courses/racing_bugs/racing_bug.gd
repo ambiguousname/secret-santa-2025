@@ -37,6 +37,8 @@ func jump():
 func _ready() -> void:
 	self.contact_monitor = true;
 	self.max_contacts_reported = 4;
+	#self.body_entered.connect(func(b : PhysicsBody2D):
+	#);
 	#self.body_entered.connect(func(body : PhysicsBody2D): 
 		#if state != State.FALLING:
 			#return;
@@ -48,12 +50,18 @@ func _ready() -> void:
 				#state = State.CLIMBING;
 	#);
 
+@onready var hit : AudioStreamPlayer2D = $Hit;
+@onready var jump_sound : AudioStreamPlayer2D = $Jump;
 func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 	match state:
 		State.FALLING, State.FALLING_RIGHT:
+				
 			for i in range(st.get_contact_count()):
 				var down = st.get_contact_local_position(i) - global_position;
 				if down.normalized().dot(Vector2.DOWN) > 0.5:
+					hit.pitch_scale = 0.5 + randf() * 0.5;
+					hit.volume_db = AudioEvent.volume_db;
+					hit.play();
 					state = State.RUNNING;
 					return;
 			# If we've evaluated all contact points and we're not running, we must be climbing:
@@ -87,6 +95,9 @@ func _integrate_forces(st: PhysicsDirectBodyState2D) -> void:
 			if st.get_contact_count() > 0:
 				self.linear_velocity += Vector2(0, -10000) * st.step;
 				self.linear_velocity += Vector2(1, -1) * 5 * pow(stats.jumping.level + 1, 2) * st.step;
+				jump_sound.volume_db = AudioEvent.volume_db;
+				jump_sound.pitch_scale = 0.5 + 0.5 * randf();
+				jump_sound.play();
 				state = State.FALLING;
 
 func _physics_process(delta: float) -> void:

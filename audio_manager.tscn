@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://crtxku1fnew7s"]
+
+[ext_resource type="Script" uid="uid://blxli67wx1yul" path="res://audio_manager.gd" id="1_l2k84"]
+[ext_resource type="AudioStream" uid="uid://cars5bc60fty" path="res://assets/sounds/serious_button.wav" id="2_l55mp"]
+[ext_resource type="AudioStream" uid="uid://clwu7f6u7xetr" path="res://assets/sounds/silly_button.wav" id="3_v0gdi"]
+[ext_resource type="AudioStream" uid="uid://dlshy8x58u3qp" path="res://assets/sounds/jump.wav" id="4_7fh0q"]
+[ext_resource type="AudioStream" uid="uid://1pecbx2krjeq" path="res://assets/sounds/land.wav" id="5_op7ad"]
+[ext_resource type="AudioStream" uid="uid://drs0u5h60tid1" path="res://assets/sounds/hit.wav" id="6_wby2p"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_l2k84")
+
+[node name="SeriousButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l55mp")
+
+[node name="SillyButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v0gdi")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7fh0q")
+
+[node name="Land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_op7ad")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wby2p")

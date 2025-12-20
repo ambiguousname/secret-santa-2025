@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://7c6y4oxqpvd5"]
+[gd_scene load_steps=40 format=3 uid="uid://7c6y4oxqpvd5"]
 
 [ext_resource type="Script" uid="uid://10nmy2m0bvk6" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfk73bhksnbsv" path="res://tcp_client.gd" id="1_ig7tw"]
@@ -26,12 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c2juuguwewo2v" path="res://ui/audio.tscn" id="17_d13ii"]
 [ext_resource type="Texture2D" uid="uid://cqawqxe2s5aun" path="res://assets/LCD/bag.png" id="18_82xsv"]
 [ext_resource type="Script" uid="uid://crvqxxyu1q12i" path="res://ui/circle.gd" id="19_82xsv"]
-[ext_resource type="AudioStream" uid="uid://cars5bc60fty" path="res://assets/sounds/serious_button.wav" id="25_0odxb"]
-[ext_resource type="Script" uid="uid://blxli67wx1yul" path="res://audio_manager.gd" id="25_lswn8"]
-[ext_resource type="AudioStream" uid="uid://dlshy8x58u3qp" path="res://assets/sounds/jump.wav" id="27_a6jrf"]
-[ext_resource type="AudioStream" uid="uid://clwu7f6u7xetr" path="res://assets/sounds/silly_button.wav" id="27_kq58d"]
-[ext_resource type="AudioStream" uid="uid://1pecbx2krjeq" path="res://assets/sounds/land.wav" id="28_xuqvo"]
-[ext_resource type="AudioStream" uid="uid://drs0u5h60tid1" path="res://assets/sounds/hit.wav" id="29_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://crtxku1fnew7s" path="res://audio_manager.tscn" id="27_a6jrf"]
 
 [sub_resource type="Animation" id="Animation_82xsv"]
 length = 0.001
@@ -711,23 +706,7 @@ script = ExtResource("1_ig7tw")
 wait_time = 30.0
 one_shot = true
 
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("25_lswn8")
-
-[node name="SeriousButton" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("25_0odxb")
-
-[node name="SillyButton" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("27_kq58d")
-
-[node name="Jump" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("27_a6jrf")
-
-[node name="Land" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("28_xuqvo")
-
-[node name="Hit" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("29_qsp4k")
+[node name="AudioManager" parent="." instance=ExtResource("27_a6jrf")]
 
 [editable path="UI/FullInfo/Stats/LeftStats/Running"]
 [editable path="UI/FullInfo/Stats/LeftStats/Skateboarding"]
