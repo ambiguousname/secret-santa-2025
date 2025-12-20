@@ -15,6 +15,8 @@ var energy : float = 100:
 var eye_color : Color:
 	set(v):
 		material.set_shader_parameter("eye_color", v);
+	get():
+		return material.get_shader_parameter("eye_color");
 
 var _screen_size : Vector2i;
 var _adventuring : bool = false;

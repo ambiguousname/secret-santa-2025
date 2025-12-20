@@ -159,6 +159,7 @@ func _ready() -> void:
 		window.set_flag(Window.FLAG_BORDERLESS, true);
 	);
 	bug.adventure_ended.connect(func():
+		bug.eye_color = Color.BLACK;
 		# Write any outstanding data:
 		save.write_save();
 		
@@ -200,12 +201,12 @@ func _ready() -> void:
 
 var tcp_acknowledge_timer : float = 0.0;
 func _process(delta: float) -> void:
-	if tcp_acknowledge_timer > 10.0:
-		bug.eye_color = Color.BLACK;
-	elif tcp_client._status == TCPClient.Status.CONNECTED:
-		bug.eye_color = (10.0 - tcp_acknowledge_timer) * Color.GREEN;
-		tcp_acknowledge_timer += delta;
-
+	if bug._adventuring:
+		if tcp_acknowledge_timer < 1.0:
+			bug.eye_color = lerp(bug.eye_color, Color.GREEN, delta);
+			tcp_acknowledge_timer += delta;
+		elif tcp_acknowledge_timer >= 1.0:
+			bug.eye_color = lerp(bug.eye_color, Color.BLACK, delta);
 func _tcp_update(status : TCPClient.Status):
 	var text : String = "";
 	var color : Color = Color.WHITE;
@@ -214,8 +215,8 @@ func _tcp_update(status : TCPClient.Status):
 			text = "[color=yellow]Waiting for server...\nLaunch Hollow Knight![/color]";
 			color = Color.YELLOW;
 		TCPClient.Status.AWAITING_ACKNOWLEDGEMENT:
-			text = "[color=green]Making handshake...[/color]";
-			color = Color.GREEN;
+			text = "[color=green_yellow]Making handshake...[/color]";
+			color = Color.GREEN_YELLOW;
 		TCPClient.Status.CONNECTED:
 			text = "[color=green]Connected![/color]";
 			color = Color.GREEN;
